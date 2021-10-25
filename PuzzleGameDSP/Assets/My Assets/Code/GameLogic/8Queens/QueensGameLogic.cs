@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class QueensGameLogic : MonoBehaviour
 {
+    // created a check box in the inspector pannel, when checked the script will run 
+    //Without having to be in VR (FOR TESTING PERPOSES)
+    //===================================================================
+    public bool testButton = false;
+    //===================================================================
+
     public List<GameObject> sensors = new List<GameObject>();
     public List<string> triggeredSensors = new List<string>();
 
@@ -30,12 +36,13 @@ public class QueensGameLogic : MonoBehaviour
                                                                  "A2", "A3", "A4", "A5", "A6", "A7", "A8",
                                                                  "H2", "H3", "H4", "H5", "H6", "H7", "H8"};
 
-    private List<string> chessCoordsXAxis = new List<string>() {"A", "B", "C", "D", "E", "F", "G", "H"};
-    private List<string> chessCoordsYAxis = new List<string>() {"1", "2", "3", "4", "5", "6", "7", "8"};
+    private List<string> chessCoordsXAxis = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H" };
+    private List<string> chessCoordsYAxis = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8" };
 
     private List<string> chessCoordsXAxisReverced = new List<string>() { "H", "G", "F", "E", "D", "C", "B", "A" };
     private List<string> chessCoordsYAxisReverced = new List<string>() { "8", "7", "6", "5", "4", "3", "2", "1" };
 
+    
     void testPrintTriggered()
     {
         for (int j = 0; j < triggeredSensors.Count; j++)
@@ -209,8 +216,8 @@ public class QueensGameLogic : MonoBehaviour
                 }
             }
         }
-        
-        
+
+
         return possibleMoves;
     }
     int placeInYAxis(string location)
@@ -259,37 +266,50 @@ public class QueensGameLogic : MonoBehaviour
     }
     List<string> calcDiagonalTopLeft(string location)
     {
-        Debug.Log("WEIUREHUIQWRHIURWHIQWRHINBINWRQ");
         List<string> coordinatesX = new List<string>();
         List<string> coordinatesY = new List<string>();
 
         List<string> coordinates = new List<string>();
 
-            //Finds all the X coords I.E A,B,C,D
+        //Finds all the X coords I.E A,B,C,D
         for (int i = placeInXAxisReverced(location); i < chessCoordsXAxisReverced.Count; i++)
-        {  
+        {
             coordinatesX.Add(chessCoordsXAxisReverced[i]);
         }
 
+        
         //Finds all the Y coords I.E 1,2,3,4
         for (int i = placeInYAxis(location); i < chessCoordsYAxis.Count; i++)
         {
             coordinatesY.Add(chessCoordsYAxis[i]);
         }
+
+        //Prevents issue of having un-even arrays (coordinatesX, coordinatesY)
+        int diffrenceX = coordinatesX.Count - coordinatesY.Count;
+        if (coordinatesX.Count > coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceX; i++)
+            {
+                coordinatesX.RemoveAt(coordinatesX.Count -1);//Remove last element
+            }
+        }
+        int diffrenceY = coordinatesY.Count - coordinatesX.Count;
+        if (coordinatesX.Count < coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceY; i++)
+            {
+                coordinatesY.RemoveAt(coordinatesY.Count - 1);//Remove last element
+            }
+        }
+
         //Adds both X and Y coords together to get a chess coord such as D1 or A5
         for (int i = 0; i < coordinatesX.Count; i++)
         {
             coordinates.Add(coordinatesX[i] + coordinatesY[i]);
         }
-        string lines = string.Join(", ", coordinatesX);
-        Debug.Log("calcDiagonalBottomLeft: " + lines);
-        string lines1 = string.Join(", ", coordinatesY);
-        Debug.Log("calcDiagonalBottomLeft: " + lines1);
-
 
         return coordinates;
     }
-
     List<string> calcDiagonalTopRight(string location) {
         List<string> coordinatesX = new List<string>();
         List<string> coordinatesY = new List<string>();
@@ -298,21 +318,38 @@ public class QueensGameLogic : MonoBehaviour
 
         //Finds all the X coords I.E A,B,C,D
         for (int i = placeInXAxis(location); i < chessCoordsXAxis.Count; i++)
+        {
+            coordinatesX.Add(chessCoordsXAxis[i]);
+        }
+        //Finds all the Y coords I.E 1,2,3,4
+        for (int i = placeInYAxis(location); i < chessCoordsYAxis.Count; i++)
+        {
+
+            coordinatesY.Add(chessCoordsYAxis[i]);
+        }
+        //Prevents issue of having un-even arrays (coordinatesX, coordinatesY)
+        int diffrenceX = coordinatesX.Count - coordinatesY.Count;
+        if (coordinatesX.Count > coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceX; i++)
             {
-                coordinatesX.Add(chessCoordsXAxis[i]);
+                coordinatesX.RemoveAt(coordinatesX.Count - 1);//Remove last element
             }
-            //Finds all the Y coords I.E 1,2,3,4
-            for (int i = placeInYAxis(location); i < chessCoordsYAxis.Count; i++)
+        }
+        int diffrenceY = coordinatesY.Count - coordinatesX.Count;
+        if (coordinatesX.Count < coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceY; i++)
             {
-                
-                coordinatesY.Add(chessCoordsYAxis[i]);
+                coordinatesY.RemoveAt(coordinatesY.Count - 1);//Remove last element
             }
-            //Adds both X and Y coords together to get a chess coord such as D1 or A5
-            for (int i = 0; i < coordinatesX.Count; i++)
-            {
-                coordinates.Add(coordinatesX[i] + coordinatesY[i]);
-            }
-        
+        }
+        //Adds both X and Y coords together to get a chess coord such as D1 or A5
+        for (int i = 0; i < coordinatesX.Count; i++)
+        {
+            coordinates.Add(coordinatesX[i] + coordinatesY[i]);
+        }
+
         return coordinates;
     }
     List<string> calcDiagonalBottomLeft(string location)
@@ -322,23 +359,41 @@ public class QueensGameLogic : MonoBehaviour
 
         List<string> coordinates = new List<string>();
 
-       
-            //Finds all the X coords I.E A,B,C,D
-            for (int i = placeInXAxis(location); i > chessCoordsXAxis.Count; i--)
+
+        //Finds all the X coords I.E A,B,C,D
+        for (int i = placeInXAxisReverced(location); i < chessCoordsXAxisReverced.Count; i++)
+        {
+            coordinatesX.Add(chessCoordsXAxisReverced[i]);
+        }
+        //Finds all the Y coords I.E 1,2,3,4
+        for (int i = placeInYAxisReverced(location); i < chessCoordsYAxisReverced.Count; i++)
+        {
+            coordinatesY.Add(chessCoordsYAxisReverced[i]);
+        }
+
+        //Prevents issue of having un-even arrays (coordinatesX, coordinatesY)
+        int diffrenceX = coordinatesX.Count - coordinatesY.Count;
+        if (coordinatesX.Count > coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceX; i++)
             {
-                coordinatesX.Add(chessCoordsXAxis[i]);
+                coordinatesX.RemoveAt(coordinatesX.Count - 1);//Remove last element
             }
-            //Finds all the Y coords I.E 1,2,3,4
-            for (int i = placeInYAxis(location); i > chessCoordsYAxis.Count; i--)
+        }
+        int diffrenceY = coordinatesY.Count - coordinatesX.Count;
+        if (coordinatesX.Count < coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceY; i++)
             {
-                coordinatesY.Add(chessCoordsYAxis[i]);
+                coordinatesY.RemoveAt(coordinatesY.Count - 1);//Remove last element
             }
-            //Adds both X and Y coords together to get a chess coord such as D1 or A5
-            for (int i = 0; i < chessCoordsYAxis.Count; i++)
-            {
-                coordinates.Add(coordinatesX[i] + coordinatesY[i]);
-            }
-        
+        }
+
+        //Adds both X and Y coords together to get a chess coord such as D1 or A5
+        for (int i = 0; i < coordinatesX.Count; i++)
+        {
+            coordinates.Add(coordinatesX[i] + coordinatesY[i]);
+        }
         return coordinates;
     }
     List<string> calcDiagonalBottomRight(string location)
@@ -348,62 +403,94 @@ public class QueensGameLogic : MonoBehaviour
 
         List<string> coordinates = new List<string>();
 
-       
-            //Finds all the X coords I.E A,B,C,D
-            for (int i = placeInXAxis(location); i < chessCoordsXAxis.Count; i++)
+
+        //Finds all the X coords I.E A,B,C,D
+        for (int i = placeInXAxis(location); i < chessCoordsXAxis.Count; i++)
+        {
+            coordinatesX.Add(chessCoordsXAxis[i]);
+        }
+        //Finds all the Y coords I.E 1,2,3,4
+        for (int i = placeInYAxisReverced(location); i < chessCoordsYAxisReverced.Count; i++)
+        {
+            coordinatesY.Add(chessCoordsYAxisReverced[i]);
+        }
+
+        //Prevents issue of having un-even arrays (coordinatesX, coordinatesY)
+        int diffrenceX = coordinatesX.Count - coordinatesY.Count;
+        if (coordinatesX.Count > coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceX; i++)
             {
-                coordinatesX.Add(chessCoordsXAxis[i]);
+                coordinatesX.RemoveAt(coordinatesX.Count - 1);//Remove last element
             }
-            //Finds all the Y coords I.E 1,2,3,4
-            for (int i = placeInYAxis(location); i > chessCoordsYAxis.Count; i--)
+        }
+        int diffrenceY = coordinatesY.Count - coordinatesX.Count;
+        if (coordinatesX.Count < coordinatesY.Count)
+        {
+            for (int i = 0; i < diffrenceY; i++)
             {
-                coordinatesY.Add(chessCoordsYAxis[i]);
+                coordinatesY.RemoveAt(coordinatesY.Count - 1);//Remove last element
             }
-            //Adds both X and Y coords together to get a chess coord such as D1 or A5
-            for (int i = 0; i < chessCoordsYAxis.Count; i++)
-            {
-                coordinates.Add(coordinatesX[i] + coordinatesY[i]);
-            }
-        
+        }
+
+        //Adds both X and Y coords together to get a chess coord such as D1 or A5
+        for (int i = 0; i < coordinatesX.Count; i++)
+        {
+            coordinates.Add(coordinatesX[i] + coordinatesY[i]);
+        }
+
         return coordinates;
     }
 
-    //This function is called when the Calculate solution button is clicked
+    void mainFunction()
+    {
+        Debug.Log("Button Clicked");
+        for (int i = 0; i < sensors.Count; i++)
+        {
+            if (sensors[i].GetComponent<DetectorScript>().queenInSensor == true)
+            {
+                triggeredSensors.Add(sensors[i].name);
+            }
+
+        }
+        string lines = string.Join(", ", possibleMovesQueen(triggeredSensors[0]));
+        Debug.Log("Possible Moves: " + lines);
+
+
+        string lines1 = string.Join(", ", calcDiagonalTopLeft(triggeredSensors[0]));
+        Debug.Log("calcDiagonalTopLeft: " + lines1);
+
+        string lines2 = string.Join(", ", calcDiagonalTopRight(triggeredSensors[0]));
+        Debug.Log("calcDiagonalTopRight: " + lines2);
+
+        string lines3 = string.Join(", ", calcDiagonalBottomLeft(triggeredSensors[0]));
+        Debug.Log("calcDiagonalBottomLeft: " + lines3);
+
+        string lines4 = string.Join(", ", calcDiagonalBottomRight(triggeredSensors[0]));
+        Debug.Log("calcDiagonalBottomRight: " + lines4);
+
+        testPrintTriggered();
+        triggeredSensors.Clear();
+    
+}
+
+    //This function is called when the Calculate solution button is clicked in game
     void OnTriggerEnter(Collider entityTriggered)
     {
         if (entityTriggered.gameObject.tag == "Controller")
         {
-            Debug.Log("Button Clicked");
-            for (int i = 0; i < sensors.Count; i++)
-            {
-                if (sensors[i].GetComponent<DetectorScript>().queenInSensor == true)
-                {
-                    triggeredSensors.Add(sensors[i].name);
-                }
+            mainFunction();
+        }
+    }
 
-            }
-            string lines = string.Join(", ", possibleMovesQueen(triggeredSensors[0]));
-            Debug.Log("Possible Moves: " + lines );
-
-
-            string lines1 = string.Join(", ", calcDiagonalTopLeft(triggeredSensors[0]));
-            Debug.Log("calcDiagonalTopLeft: " + lines1);
-         
-            string lines2 = string.Join(", ", calcDiagonalTopRight(triggeredSensors[0]));
-            Debug.Log("calcDiagonalTopRight: " + lines2);
-
-            //string lines3 = string.Join(", ", calcDiagonalBottomLeft(triggeredSensors[0]));
-            //Debug.Log("calcDiagonalBottomLeft: " + lines3);
-
-            //string lines4 = string.Join(", ", calcDiagonalBottomRight(triggeredSensors[0]));
-            //Debug.Log("calcDiagonalBottomRight: " + lines4);
-            
-            
-            
-            
-            testPrintTriggered();
-
-            triggeredSensors.Clear();
+    //This functions perpose in this case is to fasilitate the use of the Test button I created in the unity editor 
+    //so I dont have to test this script in vr
+    private void Update()
+    {
+        if (testButton == true)
+        {
+            mainFunction();
         }
     }
 }
+
