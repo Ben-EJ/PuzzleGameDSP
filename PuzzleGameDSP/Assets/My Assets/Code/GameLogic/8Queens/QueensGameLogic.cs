@@ -453,23 +453,29 @@ public class QueensGameLogic : MonoBehaviour
             }
 
         }
-        string lines = string.Join(", ", possibleMovesQueen(triggeredSensors[0]));
-        Debug.Log("Possible Moves: " + lines);
-
-
-        string lines1 = string.Join(", ", calcDiagonalTopLeft(triggeredSensors[0]));
-        Debug.Log("calcDiagonalTopLeft: " + lines1);
-
-        string lines2 = string.Join(", ", calcDiagonalTopRight(triggeredSensors[0]));
-        Debug.Log("calcDiagonalTopRight: " + lines2);
-
-        string lines3 = string.Join(", ", calcDiagonalBottomLeft(triggeredSensors[0]));
-        Debug.Log("calcDiagonalBottomLeft: " + lines3);
-
-        string lines4 = string.Join(", ", calcDiagonalBottomRight(triggeredSensors[0]));
-        Debug.Log("calcDiagonalBottomRight: " + lines4);
 
         testPrintTriggered();
+        if (triggeredSensors.Count == 8)
+        {
+            for (int i = 0; i < triggeredSensors.Count; i++)
+            {
+                Debug.Log("QUEEN NO.  " + i);
+                string lines = string.Join(", ", possibleMovesQueen(triggeredSensors[i]));
+                Debug.Log("Possible Moves X/Y: " + lines);
+                string lines1 = string.Join(", ", calcDiagonalTopLeft(triggeredSensors[i]));
+                Debug.Log("calcDiagonalTopLeft: " + lines1);
+                string lines2 = string.Join(", ", calcDiagonalTopRight(triggeredSensors[i]));
+                Debug.Log("calcDiagonalTopRight: " + lines2);
+                string lines3 = string.Join(", ", calcDiagonalBottomLeft(triggeredSensors[i]));
+                Debug.Log("calcDiagonalBottomLeft: " + lines3);
+                string lines4 = string.Join(", ", calcDiagonalBottomRight(triggeredSensors[i]));
+                Debug.Log("calcDiagonalBottomRight: " + lines4);
+            }
+            
+        }
+      
+
+        
         triggeredSensors.Clear();
     
 }
