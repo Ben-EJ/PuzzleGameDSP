@@ -5,11 +5,14 @@ using UnityEngine;
 public class DetectorScript : MonoBehaviour
 {
     public bool queenInSensor = false;
+    public string queenName = "";
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Queen")
         {
             queenInSensor = true;
+            queenName = collision.gameObject.name;
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -17,18 +20,7 @@ public class DetectorScript : MonoBehaviour
         if (collision.gameObject.tag == "Queen")
         {
             queenInSensor = false;
+            queenName = "";
         }
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
