@@ -82,8 +82,10 @@ public class QueensGameLogic : MonoBehaviour
     {
         if (entityTriggered.gameObject.tag == "Controller")
         {
-            populateQueensVars();
-            buttonChangeMesh();
+            //populateQueensVars();
+            //buttonChangeMesh();
+            WebSocketClient wsc = new WebSocketClient();
+            wsc.ConnectToServer();
         }
     }
 
@@ -93,13 +95,14 @@ public class QueensGameLogic : MonoBehaviour
     {
         if (testButton == true)
         {
-            populateQueensVars();
+            /*populateQueensVars();
             Debug.Log(" ");
             debugFuncQueens();
             Debug.Log(" ");
-            buttonChangeMesh();
+            buttonChangeMesh();*/
 
-
+            WebSocketClient wsc = new WebSocketClient();
+            wsc.ConnectToServer();
         }
     }
 
