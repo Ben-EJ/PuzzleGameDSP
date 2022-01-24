@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Controller
   - Queen
+  - keyOne
+  - keyTwo
+  - keyThree
+  - keyFour
+  - keyFive
+  - keySix
+  - keySeven
   layers:
   - Default
   - TransparentFX

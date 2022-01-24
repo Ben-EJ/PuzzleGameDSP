@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/My Assets/Scenes/MainScene.unity
+    path: Assets/My Assets/Scenes/Main.unity
+    guid: bef8952ba066cb14c87a29254e1569d0
+  - enabled: 1
+    path: Assets/My Assets/Scenes/EightQueensPuzzle.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7a50a90c542b93945b52e7e79747d8eb, type: 2}
