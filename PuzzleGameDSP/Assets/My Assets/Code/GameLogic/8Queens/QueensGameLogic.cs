@@ -13,9 +13,8 @@ public class QueensGameLogic : MonoBehaviour
     //===================================================================
 
     public List<GameObject> sensors = new List<GameObject>();
-    public List<string> triggeredSensors = new List<string>();
-
     public static List<Queen> queens = new List<Queen>();
+
     public Material matValidSolution;
     public Material matInvalidSolution;
     
@@ -33,7 +32,9 @@ public class QueensGameLogic : MonoBehaviour
     public int scoreModifyer = 10;
 
     private String userName = KeyBoardMain.typedText;// Gets username from the main menu
-    public string url = "http://127.0.0.1:8000/index/RestApi/";
+    //dsp.neb-ej.co.uk
+    public string url = "http://192.168.1.158:8765/restpost/";
+    
     //Populates queens list, provides each queen with a name, possible moves array, and there current location (e.g A1)
     void populateQueensVars()
     {
@@ -84,16 +85,18 @@ public class QueensGameLogic : MonoBehaviour
         return false;
     }
 
-    //Changes colour of button depending on solved state
-    private void buttonChangeMesh()
+    //Checks to see if puzzle has been solved and updates colour of the button if it has.
+    private void puzzleIsSolved()
     {
         if (isInLineOfSightQueen() == true)
         {
+            Debug.Log("Invalid Solution");
             MeshRenderer my_renderer = GetComponent<MeshRenderer>();
             my_renderer.material = matInvalidSolution;
         }
         else
         {
+            Debug.Log("Valid Solution");
             MeshRenderer my_renderer = GetComponent<MeshRenderer>();
             my_renderer.material = matValidSolution;
             puzzleSolved = true; //Sets true if the puzzle has been solved
@@ -109,7 +112,7 @@ public class QueensGameLogic : MonoBehaviour
     //Sends score data to webserver to be added to the database.
     private void sendScoreData ()
     {
-        if (puzzleSolved == false)
+        if (puzzleSolved == true)
         {
             POST postRequest = new POST();
 
@@ -119,6 +122,7 @@ public class QueensGameLogic : MonoBehaviour
             }
             else
             {
+                Debug.Log("Setting up POST request");
                 postRequest.httpRequestPost("Guest", score.ToString(), url);
             }
             
@@ -127,35 +131,37 @@ public class QueensGameLogic : MonoBehaviour
 
     //This functions perpose in this case is to fasilitate the use of the Test button I created in the unity editor 
     //so I dont have to test this script in vr
-    private void testButtonFunc(TimeSpan resultTime)
+    private void testButtonFunc()
     {
         if (testButton == true)
         {
+            Debug.Log("Test Button Clicked");
             /*populateQueensVars();
             Debug.Log(" ");
             debugFuncQueens();
             Debug.Log(" ");
             buttonChangeMesh();*/
-            //score = calculateScore(resultTime.Minutes);//Calculates user score LINE HERE FOR TESTING!!!!
-            //sendScoreData();
-            Debug.Log(Oculus.Platform.Users.GetLoggedInUser().ToString());
+            sendScoreData();
+            
         }
     }
 
     //This function is called when the Calculate solution button is clicked in game
     void OnTriggerEnter(Collider entityTriggered)
     {
+        puzzleSolved = false;
         if (entityTriggered.gameObject.tag == "Controller")
         {
-            //initScore()
-            //populateQueensVars();
-            //buttonChangeMesh();
+            queens.Clear(); //Clear Queens list before generating new list. 
+            populateQueensVars();
+            puzzleIsSolved();
             sendScoreData();
         }
     }
 
     private void Update()
     {
+        testButtonFunc();
         if (timerActive == true)
         {
             time = time + Time.deltaTime;

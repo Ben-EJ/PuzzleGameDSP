@@ -6,7 +6,7 @@ from .models import ScoreDataPuzzleOne #imports database model
 # Create your views here.
 # A view function takes a HTTP request and returns a response (Request Handler)
 
-
+#86.134.228.24:8765
 from django.views import View
 from django.http import JsonResponse
 import json
@@ -15,10 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 """
 For tesing POST request in console:
-curl --header "Content-Type: application/json" 
-  --request POST 
-  -d '{"userName":"xyz","score":"5000","dateAdded":"2001-08-25"}' 
-  http://127.0.0.1:8000/index/RestApi/
+curl --header "Content-Type: application/json" \ --request POST \ --data '{\"userName\":\"RESTAPITEST\", \"score\":\"5000\"}' \ -url "http://127.0.0.1:8000/index/RestApi/"
 """
 #Rest API class
 @method_decorator(csrf_exempt, name='dispatch')
@@ -35,4 +32,4 @@ class RestApi(View):
 def helloWorld(request):
     all_records = ScoreDataPuzzleOne.objects.all()#gets database table (Database query)
     
-    return render(request, 'home.html', {'all_records' : all_records})
+    return render(request, 'index.html', {'all_records' : all_records})

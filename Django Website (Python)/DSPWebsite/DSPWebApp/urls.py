@@ -6,5 +6,5 @@ from . import views
 from .views import RestApi
 urlpatterns = [
     path('', views.helloWorld),
-    path('RestApi/', RestApi.as_view()),
+    path('restpost/', RestApi.as_view()),
 ]

@@ -8,7 +8,7 @@ public class POST : MonoBehaviour
 {
     public void httpRequestPost(string userName, string score, string url)
     {
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://192.168.1.158:8765/restpost/");
         httpWebRequest.ContentType = "application/json";
         httpWebRequest.Method = "POST";
 
@@ -18,6 +18,7 @@ public class POST : MonoBehaviour
             string jsonData = " {\"userName\" : " + "\"" + userName + "\"" + "," + "\"score\"" + ":\"" + score + "\"" + "} ";
             streamWriter.Write(jsonData);
         }
+        Debug.Log("Sending POST");
         var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
         using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
         {
