@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kw-wyl0ha^60bj5%cqqi@rb2=js^*-n-2r())tmmo6urh%95mf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 #86.134.228.24:8765
 #dsp.neb-ej.co.uk
-ALLOWED_HOSTS = ["192.168.1.158", "dsp.neb-ej.co.uk"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -127,3 +128,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#C:\Users\benja\Desktop\DSP Project\Project Files\PuzzleGameDSP\Django Website (Python)\DSPWebsite\DSPWebApp\stylesheets

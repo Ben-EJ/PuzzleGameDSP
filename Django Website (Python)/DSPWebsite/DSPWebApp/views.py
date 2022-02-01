@@ -29,7 +29,12 @@ class RestApi(View):
         return JsonResponse(jsonData, status=201)
 
 
-def helloWorld(request):
+def index(request):
+    return render(request, 'index.html')
+
+def aboutPage(request):    
+    return render(request, 'about.html')
+
+def eightQueensLeader(request):    
     all_records = ScoreDataPuzzleOne.objects.all()#gets database table (Database query)
-    
-    return render(request, 'index.html', {'all_records' : all_records})
+    return render(request, 'eightqueensleader.html', {'all_records' : all_records})
