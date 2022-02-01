@@ -1,39 +1,10 @@
-
+{% load static %} 
 <!DOCTYPE html>
-
 <html lang = "en">
-
 <head>
     <title>DSP Puzzle Game Website</title>
-<style>
-.navBar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(0, 0, 0);
-}
-.button {
-  float: left;
-}
-.linkToPage {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 15px;
-  text-decoration: none;
-}
-.linkToPage:hover {
-  background-color: rgb(63, 63, 63);
-}
-
-.welcomeText {
-    text-align:center;
-}
-.body{
-    background-color:rgb(255, 255, 255);
-}
-</style>
+    <link rel="stylesheet" href="{% static 'css/generalcss.css' %}">
+    <link rel="stylesheet" href="{% static 'css/indexcss.css' %}">
 </head>
 
 <body class="body">
@@ -42,7 +13,18 @@
         <li class="button"><a class="linkToPage" href={% url 'eightQueensLeader' %}>Eight Queens Leaderboard</a></li>
         <li class="button"><a class="linkToPage" href={% url 'aboutPage' %}>About</a></li>
     </ul>
+
+    <div class="container">
+      <img class="imageBannerindex" src="{% static 'images/indexBanner.jpg' %}" alt="image" />
+      <div class="overlay">
+          <div class="text"><img class="imageBannereight" src="{% static 'images/indexBanner2.jpg' %}" alt="image" /><h1 class = "text">Welcome to the Puzzle Game Website</h1></div>
+        </div>
+      </div>
+   
    <h1 class="welcomeText">Welcome to the DSP Puzzle Game home page</h1>
+   <center><p>This website provides information about both the game, 
+     how to play each puzzle and Leaderboard information for each puzzle</p></center>
+   <center><h1>Have fun playing!!</h1></center>
 </body>
 
 </html>
