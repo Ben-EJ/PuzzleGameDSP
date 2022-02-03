@@ -13,11 +13,13 @@ TagManager:
   - keyFive
   - keySix
   - keySeven
+  - CubeDetector
+  - numberCube
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - cubeLayer
   - Water
   - UI
   - 

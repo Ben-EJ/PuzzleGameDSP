@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7249512712583590036}
   - component: {fileID: 7115347656818616810}
   - component: {fileID: 3062747854864703214}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 16cube
-  m_TagString: Untagged
+  m_TagString: numberCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
