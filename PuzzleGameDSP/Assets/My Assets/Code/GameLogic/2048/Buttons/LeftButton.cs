@@ -28,6 +28,7 @@ public class LeftButton : MonoBehaviour
         List<GameObject> sensorsRowB = CubeHandle.populateSensorList(grid.gridLineLeftTwo);
         List<GameObject> sensorsRowC = CubeHandle.populateSensorList(grid.gridLineLeftThree);
         List<GameObject> sensorsRowD = CubeHandle.populateSensorList(grid.gridLineLeftFour);
+        List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
 
         if (Input.GetKeyDown(KeyCode.A))//For Testing
         {
@@ -36,6 +37,7 @@ public class LeftButton : MonoBehaviour
             CubeHandle.cubeMoveMerge(sensorsRowB, false);
             CubeHandle.cubeMoveMerge(sensorsRowC, false);
             CubeHandle.cubeMoveMerge(sensorsRowD, false);
+            CubeHandle.spawnRandomCube(allSensors);
         }
     }
     private void OnCollisionEnter(Collision collision)

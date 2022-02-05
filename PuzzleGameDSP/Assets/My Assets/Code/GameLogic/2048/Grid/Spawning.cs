@@ -17,7 +17,7 @@ public class Spawning : MonoBehaviour
     public static int cubeCounter = 0;
     void Start()
     {
-        /*int pos1rnd = 0;
+        int pos1rnd = 0;
         int pos2rnd = 0;
 
         string pos1;
@@ -46,6 +46,6 @@ public class Spawning : MonoBehaviour
         Instantiate(cube2GameObj, cubeSpawnPos1, Quaternion.identity).name = "cube" + cubeCounter;
 
         cubeCounter = cubeCounter + 1;
-        Instantiate(cube2GameObj, cubeSpawnPos2, Quaternion.identity).name = "cube" + cubeCounter;*/
+        Instantiate(cube2GameObj, cubeSpawnPos2, Quaternion.identity).name = "cube" + cubeCounter;
     }
 }

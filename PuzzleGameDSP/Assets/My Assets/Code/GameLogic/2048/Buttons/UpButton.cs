@@ -17,13 +17,14 @@ public class UpButton : MonoBehaviour
         List<GameObject> sensorsRowB = CubeHandle.populateSensorList(grid.gridLineUpTwo);
         List<GameObject> sensorsRowC = CubeHandle.populateSensorList(grid.gridLineUpThree);
         List<GameObject> sensorsRowD = CubeHandle.populateSensorList(grid.gridLineUpFour);
-
+        List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
         if (Input.GetKeyDown(KeyCode.W))//For Testing
         {
             CubeHandle.cubeMoveMerge(sensorsRowA, false);
             CubeHandle.cubeMoveMerge(sensorsRowB, false);
             CubeHandle.cubeMoveMerge(sensorsRowC, false);
             CubeHandle.cubeMoveMerge(sensorsRowD, false);
+            CubeHandle.spawnRandomCube(allSensors);
         }
     }
     private void OnCollisionEnter(Collision collision)

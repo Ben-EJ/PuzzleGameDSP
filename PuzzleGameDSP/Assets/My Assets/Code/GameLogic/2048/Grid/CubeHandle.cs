@@ -110,7 +110,6 @@ public class CubeHandle : MonoBehaviour
     }
     public static void spawnCubes(List<GameObject> sensors, List<string> newCubes)
     {
-        
         for (int i = 0; i < newCubes.Count; i++)
         {
             if (!newCubes[i].Equals("Empty"))
@@ -126,9 +125,8 @@ public class CubeHandle : MonoBehaviour
                 Spawning.cubeCounter = Spawning.cubeCounter + 1;
                 string newCubeName = "cube" + Spawning.cubeCounter;
 
-                Instantiate(GameObject.FindGameObjectWithTag(whichCube(cubeType)),toSpawnAt, rotationOfCube).name = newCubeName;
-                Debug.Log("Value Saved Name:" + newCubeName);
-                Debug.Log("Value Saved Name:" + true);
+                Instantiate(GameObject.FindGameObjectWithTag(whichCube(cubeType)), toSpawnAt, rotationOfCube).name = newCubeName;
+
                 sensors[i].GetComponent<CubeDetector>().setCubeName(newCubeName);
                 sensors[i].GetComponent<CubeDetector>().isCubeInSensorSet(true);
             }
@@ -136,10 +134,37 @@ public class CubeHandle : MonoBehaviour
             {
                 sensors[i].GetComponent<CubeDetector>().setCubeName("");
                 sensors[i].GetComponent<CubeDetector>().isCubeInSensorSet(false);
-                Debug.Log("Value Saved Name:" + "Empty");
-                Debug.Log("Value Saved Name:" + false);
             }
         }
+    }
+    
+    public static void spawnRandomCube(List<GameObject> sensors)
+    {
+        List<GameObject> avalableSensors = new List<GameObject>();
+        for(int i = 0; i < sensors.Count; i++)
+        {
+            if (sensors[i].GetComponent<CubeDetector>().isCubeInSensor() == false)
+            {
+                avalableSensors.Add(sensors[i]);
+            }
+        }
+        System.Random rnd = new System.Random();
+
+        int chosenRandomCube = rnd.Next(0,avalableSensors.Count);
+
+        Vector3 sensorLocation = avalableSensors[chosenRandomCube].transform.position;
+        Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + 0.07f, sensorLocation.z);
+        Quaternion rotationOfCube = new Quaternion();
+        rotationOfCube.x = 0;
+        rotationOfCube.y = 180;
+        rotationOfCube.z = 0;
+
+        Spawning.cubeCounter = Spawning.cubeCounter + 1;
+        string newCubeName = "cube" + Spawning.cubeCounter;
+
+        Instantiate(GameObject.FindGameObjectWithTag("cube2"), toSpawnAt, rotationOfCube).name = newCubeName;
+
+
     }
     private static void debugOutputList(List<string> list)
     {
@@ -162,11 +187,6 @@ public class CubeHandle : MonoBehaviour
             cubePos.Reverse();
             cubePosBackup.Reverse();
         }
-        /*Debug.Log("---------------Inital State----------------");
-        Debug.Log("---------------Cube Pos----------------");
-        debugOutputList(cubePos);
-        Debug.Log("---------------Cube Pos backup----------------");
-        debugOutputList(cubePosBackup);*/
 
         List<string> output = new List<string>() { "Empty", "Empty", "Empty", "Empty" };
 
@@ -189,8 +209,6 @@ public class CubeHandle : MonoBehaviour
                             cubePos[i] = "Empty";
                             cubePos[x] = "Empty";
                             flagMergesMade = true;
-                            //Debug.Log("===================Merges===============");
-                            //debugOutputList(output);
                             break;
                         }
                         else if (!cubePos[i].Equals(cubePos[x]) && !cubePos[x].Equals("Empty"))//If it finds a cube and they are not of the same value then:
@@ -199,8 +217,6 @@ public class CubeHandle : MonoBehaviour
                             output[i] = cubePos[i];
                             output[x] = cubePos[x];
                             cubePos[i] = "Empty";
-                            //Debug.Log("=================== != != ===============");
-                            //debugOutputList(output);
                             break;
                         }
                     }
@@ -251,11 +267,7 @@ public class CubeHandle : MonoBehaviour
             finalList.Add("Empty");
         }
 
-        Debug.Log("----------------------------------------END-----------------------------------");
-
-        debugOutputList(finalList);
         deleteCubes(sensors);
         spawnCubes(sensors, finalList);
-
     }
 }
