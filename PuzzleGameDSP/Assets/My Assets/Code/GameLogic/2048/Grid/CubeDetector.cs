@@ -9,7 +9,12 @@ public class CubeDetector : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "numberCube")
+        if (collision.gameObject.tag == "cube2" || collision.gameObject.tag == "cube4" 
+           || collision.gameObject.tag == "cube8" || collision.gameObject.tag == "cube16" ||
+           collision.gameObject.tag == "cube32" || collision.gameObject.tag == "cube64" ||
+           collision.gameObject.tag == "cube128" || collision.gameObject.tag == "cube256" ||
+           collision.gameObject.tag == "cube512" || collision.gameObject.tag == "cube1024" ||
+           collision.gameObject.tag == "cube2048")
         {
             cubeInSensor = true;
             cubeName = collision.gameObject.name;
@@ -17,7 +22,12 @@ public class CubeDetector : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "numberCube")
+        if (collision.gameObject.tag == "cube2" || collision.gameObject.tag == "cube4"
+           || collision.gameObject.tag == "cube8" || collision.gameObject.tag == "cube16" ||
+           collision.gameObject.tag == "cube32" || collision.gameObject.tag == "cube64" ||
+           collision.gameObject.tag == "cube128" || collision.gameObject.tag == "cube256" ||
+           collision.gameObject.tag == "cube512" || collision.gameObject.tag == "cube1024" ||
+           collision.gameObject.tag == "cube2048")
         {
             cubeInSensor = false;
             cubeName = "";
@@ -31,5 +41,13 @@ public class CubeDetector : MonoBehaviour
     public string getCubeName()
     {
         return cubeName;
+    }
+    public void isCubeInSensorSet(bool set)
+    {
+        cubeInSensor = set;
+    }
+    public void setCubeName(string name)
+    {
+        cubeName = name;
     }
 }

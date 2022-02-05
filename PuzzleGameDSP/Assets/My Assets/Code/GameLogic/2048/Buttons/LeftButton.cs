@@ -9,7 +9,18 @@ public class LeftButton : MonoBehaviour
     private bool needToMoveRowB = false;
     private bool needToMoveRowC = false;
     private bool needToMoveRowD = false;
-    
+
+    private bool needToMergeRowA = false;
+    private bool needToMergeRowB = false;
+    private bool needToMergeRowC = false;
+    private bool needToMergeRowD = false;
+
+    public List<GameObject> reverseGameObjects(List<GameObject> list)
+    {
+        list.Reverse();
+        return list;
+    }
+
     public void Update()
     {
         Grid grid = new Grid();
@@ -20,32 +31,11 @@ public class LeftButton : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))//For Testing
         {
-            buttonPressed = true;
-            needToMoveRowA = true;
-            needToMoveRowB = true;
-            needToMoveRowC = true;
-            needToMoveRowD = true;
-        }
-
-        if (buttonPressed == true && needToMoveRowA == true)
-        {
-            needToMoveRowA = CubeHandle.move(sensorsRowA);
-        }
-        if (buttonPressed == true && needToMoveRowB == true)
-        {
-            needToMoveRowB = CubeHandle.move(sensorsRowB);
-        }
-        if (buttonPressed == true && needToMoveRowC == true)
-        {
-            needToMoveRowC = CubeHandle.move(sensorsRowC);
-        }
-        if (buttonPressed == true && needToMoveRowD == true)
-        {
-            needToMoveRowD = CubeHandle.move(sensorsRowD);
-        }
-        if (needToMoveRowA == false && needToMoveRowB == false && needToMoveRowC == false && needToMoveRowD == false)
-        {
-            buttonPressed = false;
+            Debug.Log("APressed");
+            CubeHandle.cubeMoveMerge(sensorsRowA, false);
+            CubeHandle.cubeMoveMerge(sensorsRowB, false);
+            CubeHandle.cubeMoveMerge(sensorsRowC, false);
+            CubeHandle.cubeMoveMerge(sensorsRowD, false);
         }
     }
     private void OnCollisionEnter(Collision collision)

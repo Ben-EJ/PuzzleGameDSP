@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4840094085020379652}
   - component: {fileID: 6905641546421351254}
   - component: {fileID: 7829152302227090128}
+  - component: {fileID: 4014238611276457155}
   m_Layer: 3
   m_Name: 512cube
-  m_TagString: numberCube
+  m_TagString: cube512
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ee57202e3a797de4f85a7cc56a74e6dc, type: 2}
+  - {fileID: 2100000, guid: 328d22ce8a673b141b11939db30639d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4014238611276457155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91749470091716733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337347a2368e64c45a864fc03d9488cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valueOfCube: 512

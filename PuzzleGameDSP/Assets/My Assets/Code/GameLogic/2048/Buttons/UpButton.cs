@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UpButton : MonoBehaviour
 {
-    private CubeHandle cubeHandle = new CubeHandle();
     private bool buttonPressed = false;
     private bool needToMoveRowA = false;
     private bool needToMoveRowB = false;
@@ -21,43 +20,17 @@ public class UpButton : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))//For Testing
         {
-            buttonPressed = true;
-            needToMoveRowA = true;
-            needToMoveRowB = true;
-            needToMoveRowC = true;
-            needToMoveRowD = true;
-        }
-
-        if (buttonPressed == true && needToMoveRowA == true)
-        {
-            needToMoveRowA = CubeHandle.move(sensorsRowA);
-        }
-        if (buttonPressed == true && needToMoveRowB == true)
-        {
-            needToMoveRowB = CubeHandle.move(sensorsRowB);
-        }
-        if (buttonPressed == true && needToMoveRowC == true)
-        {
-            needToMoveRowC = CubeHandle.move(sensorsRowC);
-        }
-        if (buttonPressed == true && needToMoveRowD == true)
-        {
-            needToMoveRowD = CubeHandle.move(sensorsRowD);
-        }
-        if (needToMoveRowA == false && needToMoveRowB == false && needToMoveRowC == false && needToMoveRowD == false)
-        {
-            buttonPressed = false;
+            CubeHandle.cubeMoveMerge(sensorsRowA, false);
+            CubeHandle.cubeMoveMerge(sensorsRowB, false);
+            CubeHandle.cubeMoveMerge(sensorsRowC, false);
+            CubeHandle.cubeMoveMerge(sensorsRowD, false);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Controller")
         {
-            buttonPressed = true;
-            needToMoveRowA = true;
-            needToMoveRowB = true;
-            needToMoveRowC = true;
-            needToMoveRowD = true;
+           
         }
     }
 }
