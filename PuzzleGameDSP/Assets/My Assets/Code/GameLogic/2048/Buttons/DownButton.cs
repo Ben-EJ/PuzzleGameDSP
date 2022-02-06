@@ -20,13 +20,14 @@ public class DownButton : MonoBehaviour
         List<GameObject> sensorsRowD = CubeHandle.populateSensorList(grid.gridLineDownFour);
         List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
 
-        if (Input.GetKeyDown(KeyCode.S))//For Testing
+        if (Input.GetKeyDown(KeyCode.S) || buttonPressed == true)//For Testing
         {
-            CubeHandle.cubeMoveMerge(sensorsRowA, false);
-            CubeHandle.cubeMoveMerge(sensorsRowB, false);
-            CubeHandle.cubeMoveMerge(sensorsRowC, false);
-            CubeHandle.cubeMoveMerge(sensorsRowD, false);
+            CubeHandle.cubeMoveMerge(sensorsRowA);
+            CubeHandle.cubeMoveMerge(sensorsRowB);
+            CubeHandle.cubeMoveMerge(sensorsRowC);
+            CubeHandle.cubeMoveMerge(sensorsRowD);
             CubeHandle.spawnRandomCube(allSensors);
+            buttonPressed = false;
         }
 
         
@@ -35,7 +36,7 @@ public class DownButton : MonoBehaviour
     {
         if (collision.gameObject.tag == "Controller")
         {
-            
+            buttonPressed = true;
         }
     }
 }

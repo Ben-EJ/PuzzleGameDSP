@@ -5,15 +5,6 @@ using UnityEngine;
 public class LeftButton : MonoBehaviour
 {
     private bool buttonPressed = false;
-    private bool needToMoveRowA = false;
-    private bool needToMoveRowB = false;
-    private bool needToMoveRowC = false;
-    private bool needToMoveRowD = false;
-
-    private bool needToMergeRowA = false;
-    private bool needToMergeRowB = false;
-    private bool needToMergeRowC = false;
-    private bool needToMergeRowD = false;
 
     public List<GameObject> reverseGameObjects(List<GameObject> list)
     {
@@ -24,20 +15,36 @@ public class LeftButton : MonoBehaviour
     public void Update()
     {
         Grid grid = new Grid();
-        List<GameObject> sensorsRowA = CubeHandle.populateSensorList(grid.gridLineLeftOne);
-        List<GameObject> sensorsRowB = CubeHandle.populateSensorList(grid.gridLineLeftTwo);
-        List<GameObject> sensorsRowC = CubeHandle.populateSensorList(grid.gridLineLeftThree);
-        List<GameObject> sensorsRowD = CubeHandle.populateSensorList(grid.gridLineLeftFour);
+        List<GameObject> sensorsRowALeft = CubeHandle.populateSensorList(grid.gridLineLeftOne);
+        List<GameObject> sensorsRowBLeft = CubeHandle.populateSensorList(grid.gridLineLeftTwo);
+        List<GameObject> sensorsRowCLeft = CubeHandle.populateSensorList(grid.gridLineLeftThree);
+        List<GameObject> sensorsRowDLeft = CubeHandle.populateSensorList(grid.gridLineLeftFour);
+
+        List<GameObject> sensorsRowARight = CubeHandle.populateSensorList(grid.gridLineRightOne);
+        List<GameObject> sensorsRowBRight = CubeHandle.populateSensorList(grid.gridLineRightTwo);
+        List<GameObject> sensorsRowCRight = CubeHandle.populateSensorList(grid.gridLineRightThree);
+        List<GameObject> sensorsRowDRight = CubeHandle.populateSensorList(grid.gridLineRightFour);
+
+        List<GameObject> sensorsRowAUp = CubeHandle.populateSensorList(grid.gridLineUpOne);
+        List<GameObject> sensorsRowBUp = CubeHandle.populateSensorList(grid.gridLineUpTwo);
+        List<GameObject> sensorsRowCUp = CubeHandle.populateSensorList(grid.gridLineUpThree);
+        List<GameObject> sensorsRowDUp = CubeHandle.populateSensorList(grid.gridLineUpFour);
+
+        List<GameObject> sensorsRowADown = CubeHandle.populateSensorList(grid.gridLineDownOne);
+        List<GameObject> sensorsRowBDown = CubeHandle.populateSensorList(grid.gridLineDownTwo);
+        List<GameObject> sensorsRowCDown = CubeHandle.populateSensorList(grid.gridLineDownThree);
+        List<GameObject> sensorsRowDDown = CubeHandle.populateSensorList(grid.gridLineDownFour);
+
         List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
 
-        if (Input.GetKeyDown(KeyCode.A))//For Testing
+        if (Input.GetKeyDown(KeyCode.A) || buttonPressed == true)//For Testing
         {
-            Debug.Log("APressed");
-            CubeHandle.cubeMoveMerge(sensorsRowA, false);
-            CubeHandle.cubeMoveMerge(sensorsRowB, false);
-            CubeHandle.cubeMoveMerge(sensorsRowC, false);
-            CubeHandle.cubeMoveMerge(sensorsRowD, false);
+            CubeHandle.cubeMoveMerge(sensorsRowALeft);
+            CubeHandle.cubeMoveMerge(sensorsRowBLeft);
+            CubeHandle.cubeMoveMerge(sensorsRowCLeft);
+            CubeHandle.cubeMoveMerge(sensorsRowDLeft);
             CubeHandle.spawnRandomCube(allSensors);
+            buttonPressed = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -45,10 +52,6 @@ public class LeftButton : MonoBehaviour
         if (collision.gameObject.tag == "Controller")
         {
             buttonPressed = true;
-            needToMoveRowA = true;
-            needToMoveRowB = true;
-            needToMoveRowC = true;
-            needToMoveRowD = true;
         }
     }
 }

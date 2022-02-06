@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class Spawning : MonoBehaviour
 {
-    /*
-      Algorithm:
-     Check line by line depending on direction for cubes, check to see if each cube to the left,right,up,down is the same
-     if so add numbers delete two cubes and place new cube
-
-     for movement
-     check to see if there is a space if so move until space is unavalable
-      */
-    // Start is called before the first frame update
     public GameObject cube2GameObj;
     public static int cubeCounter = 0;
+    public static float spawnHeight = 0.01f;
     void Start()
     {
         int pos1rnd = 0;
@@ -35,17 +27,30 @@ public class Spawning : MonoBehaviour
         pos1 = grid.gridWhole[pos1rnd];
         pos2 = grid.gridWhole[pos2rnd];
 
-        Vector3 objPos1 = GameObject.Find(pos1).transform.position;
-        Vector3 objPos2 = GameObject.Find(pos2).transform.position;
+        GameObject sensor = GameObject.Find(pos1);
+        GameObject sensor2 = GameObject.Find(pos2);
 
-        Vector3 cubeSpawnPos1 = new Vector3(objPos1.x, objPos1.y + 0.02f, objPos1.z);
-        Vector3 cubeSpawnPos2 = new Vector3(objPos2.x, objPos2.y + 0.02f, objPos2.z);
+        Vector3 objPos1 = sensor.transform.position;
+        Vector3 objPos2 = sensor2.transform.position;
+
+        Vector3 cubeSpawnPos1 = new Vector3(objPos1.x, objPos1.y + spawnHeight, objPos1.z);
+        Vector3 cubeSpawnPos2 = new Vector3(objPos2.x, objPos2.y + spawnHeight, objPos2.z);
 
         cubeCounter = cubeCounter + 1;
-
-        Instantiate(cube2GameObj, cubeSpawnPos1, Quaternion.identity).name = "cube" + cubeCounter;
+        string cube1Name = "cube" + cubeCounter;
+        Instantiate(cube2GameObj, cubeSpawnPos1, Quaternion.identity).name = cube1Name;
 
         cubeCounter = cubeCounter + 1;
-        Instantiate(cube2GameObj, cubeSpawnPos2, Quaternion.identity).name = "cube" + cubeCounter;
+        string cube2Name = "cube" + cubeCounter;
+        Instantiate(cube2GameObj, cubeSpawnPos2, Quaternion.identity).name = cube2Name;
+
+        sensor.GetComponent<CubeDetector>().setCubeName(cube1Name);
+        sensor2.GetComponent<CubeDetector>().setCubeName(cube2Name);
+
+        sensor.GetComponent<CubeDetector>().isCubeInSensorSet(true);
+        sensor2.GetComponent<CubeDetector>().isCubeInSensorSet(true);
+
+        sensor.GetComponent<CubeDetector>().setCubeValue(2);
+        sensor2.GetComponent<CubeDetector>().setCubeValue(2);
     }
 }

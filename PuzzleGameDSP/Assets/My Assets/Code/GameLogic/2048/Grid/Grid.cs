@@ -26,9 +26,4 @@ public class Grid
     public List<string> gridLineLeftThree = new List<string>() { "location9", "location10", "location11", "location12" };
     public List<string> gridLineLeftFour = new List<string>() { "location13", "location14", "location15", "location16" };
 
-    public List<string> gridLineReverce(List<string> List)
-    {
-        List.Reverse();
-        return List;
-    }
 }

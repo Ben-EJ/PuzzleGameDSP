@@ -19,20 +19,21 @@ public class RightButton : MonoBehaviour
         List<GameObject> sensorsRowD = CubeHandle.populateSensorList(grid.gridLineRightFour);
         List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
 
-        if (Input.GetKeyDown(KeyCode.D))//For Testing
+        if (Input.GetKeyDown(KeyCode.D) || buttonPressed == true )//For Testing
         {
-            CubeHandle.cubeMoveMerge(sensorsRowA, false);
-            CubeHandle.cubeMoveMerge(sensorsRowB, false);
-            CubeHandle.cubeMoveMerge(sensorsRowC, false);
-            CubeHandle.cubeMoveMerge(sensorsRowD, false);
+            CubeHandle.cubeMoveMerge(sensorsRowA);
+            CubeHandle.cubeMoveMerge(sensorsRowB);
+            CubeHandle.cubeMoveMerge(sensorsRowC);
+            CubeHandle.cubeMoveMerge(sensorsRowD);
             CubeHandle.spawnRandomCube(allSensors);
+            buttonPressed = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Controller")
         {
-            
+            buttonPressed = true;
         }
     }
 }

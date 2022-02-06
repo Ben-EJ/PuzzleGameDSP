@@ -76,7 +76,7 @@ public class CubeHandle : MonoBehaviour
         {
             if(sensors[i].GetComponent<CubeDetector>().isCubeInSensor() == true)
             {
-                output.Add(GameObject.Find(sensors[i].GetComponent<CubeDetector>().getCubeName()).GetComponent<CubeAttributes>().valueOfCube.ToString());
+                output.Add(sensors[i].GetComponent<CubeDetector>().getCubeValue().ToString());
             }
             else
             {
@@ -87,35 +87,24 @@ public class CubeHandle : MonoBehaviour
         return output;
     }
 
-    public static bool checkListSameElements(List<string> list1, List<string> list2)
-    {
-        bool flagArraysTheSame = true;
-        for(int i = 0; i < list1.Count; i++)
-        {
-            if(list1[i] != list2[i])
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-    public static void deleteCubes(List<GameObject> sensors)
+    public static void clearGridRow(List<GameObject> sensors)
     {
         for (int i = 0; i < sensors.Count; i++)
         {
             GameObject.Destroy(GameObject.Find(sensors[i].GetComponent<CubeDetector>().getCubeName()));
             sensors[i].GetComponent<CubeDetector>().setCubeName("");
             sensors[i].GetComponent<CubeDetector>().isCubeInSensorSet(false);
+            sensors[i].GetComponent<CubeDetector>().setCubeValue(0);
         }
     }
-    public static void spawnCubes(List<GameObject> sensors, List<string> newCubes)
+    public static void updateGridRow(List<GameObject> sensors, List<string> newCubes)
     {
         for (int i = 0; i < newCubes.Count; i++)
         {
             if (!newCubes[i].Equals("Empty"))
             {
                 Vector3 sensorLocation = sensors[i].transform.position;
-                Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + 0.07f, sensorLocation.z);
+                Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + Spawning.spawnHeight, sensorLocation.z);
                 Quaternion rotationOfCube = new Quaternion();
                 rotationOfCube.x = 0;
                 rotationOfCube.y = 180;
@@ -129,11 +118,13 @@ public class CubeHandle : MonoBehaviour
 
                 sensors[i].GetComponent<CubeDetector>().setCubeName(newCubeName);
                 sensors[i].GetComponent<CubeDetector>().isCubeInSensorSet(true);
+                sensors[i].GetComponent<CubeDetector>().setCubeValue(cubeType);
             }
             else
             {
                 sensors[i].GetComponent<CubeDetector>().setCubeName("");
                 sensors[i].GetComponent<CubeDetector>().isCubeInSensorSet(false);
+                sensors[i].GetComponent<CubeDetector>().setCubeValue(0);
             }
         }
     }
@@ -151,9 +142,9 @@ public class CubeHandle : MonoBehaviour
         System.Random rnd = new System.Random();
 
         int chosenRandomCube = rnd.Next(0,avalableSensors.Count);
-
-        Vector3 sensorLocation = avalableSensors[chosenRandomCube].transform.position;
-        Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + 0.07f, sensorLocation.z);
+        GameObject sensor = avalableSensors[chosenRandomCube];
+        Vector3 sensorLocation = sensor.transform.position;
+        Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + Spawning.spawnHeight, sensorLocation.z);
         Quaternion rotationOfCube = new Quaternion();
         rotationOfCube.x = 0;
         rotationOfCube.y = 180;
@@ -164,29 +155,17 @@ public class CubeHandle : MonoBehaviour
 
         Instantiate(GameObject.FindGameObjectWithTag("cube2"), toSpawnAt, rotationOfCube).name = newCubeName;
 
-
+        sensor.GetComponent<CubeDetector>().setCubeName(newCubeName);
+        sensor.GetComponent<CubeDetector>().isCubeInSensorSet(true);
+        sensor.GetComponent<CubeDetector>().setCubeValue(2);
     }
-    private static void debugOutputList(List<string> list)
-    {
-        Debug.Log("==========================================================");
-        for (int i = 0; i < list.Count; i++)
-        {
-            Debug.Log(list[i]);
-        }
-        Debug.Log("==========================================================");
-    }
-    public static void cubeMoveMerge(List<GameObject> sensors, bool reverseDirection)
+   
+    public static void cubeMoveMerge(List<GameObject> sensors)
     {
         bool flagMergesMade = false;
 
         List<string> cubePos = makeCopyList(sensors);
         List<string> cubePosBackup = makeCopyList(sensors);
-
-        if (reverseDirection == true)
-        {
-            cubePos.Reverse();
-            cubePosBackup.Reverse();
-        }
 
         List<string> output = new List<string>() { "Empty", "Empty", "Empty", "Empty" };
 
@@ -236,6 +215,8 @@ public class CubeHandle : MonoBehaviour
             }
         }
 
+        //If no merges have been done then just add the origonal list to the "listToUse" list 
+        //to calculate new pos of cubes (if they need to move).
         List<string> listToUse = new List<string>();
         if (flagMergesMade == false)
         {
@@ -261,13 +242,22 @@ public class CubeHandle : MonoBehaviour
                 finalList.Add(listToUse[i]);
             }
         }
-        debugOutputList(finalList);
         while (finalList.Count < 4)
         {
             finalList.Add("Empty");
         }
 
-        deleteCubes(sensors);
-        spawnCubes(sensors, finalList);
+        clearGridRow(sensors);
+        updateGridRow(sensors, finalList);
     }
+    private static void debugOutputList(List<string> list)
+    {
+        Debug.Log("==========================================================");
+        for (int i = 0; i < list.Count; i++)
+        {
+            Debug.Log(list[i]);
+        }
+        Debug.Log("==========================================================");
+    }
+
 }

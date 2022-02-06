@@ -18,20 +18,21 @@ public class UpButton : MonoBehaviour
         List<GameObject> sensorsRowC = CubeHandle.populateSensorList(grid.gridLineUpThree);
         List<GameObject> sensorsRowD = CubeHandle.populateSensorList(grid.gridLineUpFour);
         List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
-        if (Input.GetKeyDown(KeyCode.W))//For Testing
+        if (Input.GetKeyDown(KeyCode.W) || buttonPressed == true)//For Testing
         {
-            CubeHandle.cubeMoveMerge(sensorsRowA, false);
-            CubeHandle.cubeMoveMerge(sensorsRowB, false);
-            CubeHandle.cubeMoveMerge(sensorsRowC, false);
-            CubeHandle.cubeMoveMerge(sensorsRowD, false);
+            CubeHandle.cubeMoveMerge(sensorsRowA);
+            CubeHandle.cubeMoveMerge(sensorsRowB);
+            CubeHandle.cubeMoveMerge(sensorsRowC);
+            CubeHandle.cubeMoveMerge(sensorsRowD);
             CubeHandle.spawnRandomCube(allSensors);
+            buttonPressed = false;
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Controller")
         {
-           
+            buttonPressed = true;
         }
     }
 }
