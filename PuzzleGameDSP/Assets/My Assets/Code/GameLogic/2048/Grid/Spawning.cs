@@ -35,14 +35,19 @@ public class Spawning : MonoBehaviour
 
         Vector3 cubeSpawnPos1 = new Vector3(objPos1.x, objPos1.y + spawnHeight, objPos1.z);
         Vector3 cubeSpawnPos2 = new Vector3(objPos2.x, objPos2.y + spawnHeight, objPos2.z);
-
+        
+        Quaternion rotationOfCube = new Quaternion();
+        rotationOfCube.x = 0;
+        rotationOfCube.y = 180;
+        rotationOfCube.z = 0;
+        
         cubeCounter = cubeCounter + 1;
         string cube1Name = "cube" + cubeCounter;
-        Instantiate(cube2GameObj, cubeSpawnPos1, Quaternion.identity).name = cube1Name;
+        Instantiate(cube2GameObj, cubeSpawnPos1, rotationOfCube).name = cube1Name;
 
         cubeCounter = cubeCounter + 1;
         string cube2Name = "cube" + cubeCounter;
-        Instantiate(cube2GameObj, cubeSpawnPos2, Quaternion.identity).name = cube2Name;
+        Instantiate(cube2GameObj, cubeSpawnPos2, rotationOfCube).name = cube2Name;
 
         sensor.GetComponent<CubeDetector>().setCubeName(cube1Name);
         sensor2.GetComponent<CubeDetector>().setCubeName(cube2Name);

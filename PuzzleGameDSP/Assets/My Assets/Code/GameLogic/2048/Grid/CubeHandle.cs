@@ -139,25 +139,32 @@ public class CubeHandle : MonoBehaviour
                 avalableSensors.Add(sensors[i]);
             }
         }
-        System.Random rnd = new System.Random();
+        
+        if (avalableSensors.Count != 0)
+        {
+            System.Random rnd = new System.Random();
+            int chosenRandomCube = rnd.Next(0, avalableSensors.Count);
+            GameObject sensor = avalableSensors[chosenRandomCube];
+            Vector3 sensorLocation = sensor.transform.position;
+            Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + Spawning.spawnHeight, sensorLocation.z);
+            Quaternion rotationOfCube = new Quaternion();
+            rotationOfCube.x = 0;
+            rotationOfCube.y = 180;
+            rotationOfCube.z = 0;
 
-        int chosenRandomCube = rnd.Next(0,avalableSensors.Count);
-        GameObject sensor = avalableSensors[chosenRandomCube];
-        Vector3 sensorLocation = sensor.transform.position;
-        Vector3 toSpawnAt = new Vector3(sensorLocation.x, sensorLocation.y + Spawning.spawnHeight, sensorLocation.z);
-        Quaternion rotationOfCube = new Quaternion();
-        rotationOfCube.x = 0;
-        rotationOfCube.y = 180;
-        rotationOfCube.z = 0;
+            Spawning.cubeCounter = Spawning.cubeCounter + 1;
+            string newCubeName = "cube" + Spawning.cubeCounter;
 
-        Spawning.cubeCounter = Spawning.cubeCounter + 1;
-        string newCubeName = "cube" + Spawning.cubeCounter;
+            Instantiate(GameObject.FindGameObjectWithTag("cube2"), toSpawnAt, rotationOfCube).name = newCubeName;
 
-        Instantiate(GameObject.FindGameObjectWithTag("cube2"), toSpawnAt, rotationOfCube).name = newCubeName;
+            sensor.GetComponent<CubeDetector>().setCubeName(newCubeName);
+            sensor.GetComponent<CubeDetector>().isCubeInSensorSet(true);
+            sensor.GetComponent<CubeDetector>().setCubeValue(2);
+        }
+        else
+        {
 
-        sensor.GetComponent<CubeDetector>().setCubeName(newCubeName);
-        sensor.GetComponent<CubeDetector>().isCubeInSensorSet(true);
-        sensor.GetComponent<CubeDetector>().setCubeValue(2);
+        }
     }
    
     public static void cubeMoveMerge(List<GameObject> sensors)
