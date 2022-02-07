@@ -39,10 +39,33 @@ public class LeftButton : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A) || buttonPressed == true)//For Testing
         {
-            CubeHandle.cubeMoveMerge(sensorsRowALeft);
-            CubeHandle.cubeMoveMerge(sensorsRowBLeft);
-            CubeHandle.cubeMoveMerge(sensorsRowCLeft);
-            CubeHandle.cubeMoveMerge(sensorsRowDLeft);
+            bool canMoveLeftA = CubeHandle.cubeMoveMerge(sensorsRowALeft, true);
+            bool canMoveLeftB = CubeHandle.cubeMoveMerge(sensorsRowBLeft, true);
+            bool canMoveLeftC = CubeHandle.cubeMoveMerge(sensorsRowCLeft, true);
+            bool canMoveLeftD = CubeHandle.cubeMoveMerge(sensorsRowDLeft, true);
+
+            bool canMoveRightA = CubeHandle.cubeMoveMerge(sensorsRowARight, false);
+            bool canMoveRightB = CubeHandle.cubeMoveMerge(sensorsRowBRight, false);
+            bool canMoveRightC = CubeHandle.cubeMoveMerge(sensorsRowCRight, false);
+            bool canMoveRightD = CubeHandle.cubeMoveMerge(sensorsRowDRight, false);
+
+            bool canMoveUpA = CubeHandle.cubeMoveMerge(sensorsRowAUp, false);
+            bool canMoveUpB = CubeHandle.cubeMoveMerge(sensorsRowBUp, false);
+            bool canMoveUpC = CubeHandle.cubeMoveMerge(sensorsRowCUp, false);
+            bool canMoveUpD = CubeHandle.cubeMoveMerge(sensorsRowDUp, false);
+
+            bool canMoveDownA = CubeHandle.cubeMoveMerge(sensorsRowADown, false);
+            bool canMoveDownB = CubeHandle.cubeMoveMerge(sensorsRowBDown, false);
+            bool canMoveDownC = CubeHandle.cubeMoveMerge(sensorsRowCDown, false);
+            bool canMoveDownD = CubeHandle.cubeMoveMerge(sensorsRowDDown, false);
+
+            if (canMoveLeftA == true && canMoveLeftB == true && canMoveLeftC == true && canMoveLeftD == true &&
+                canMoveRightA == true && canMoveRightB == true && canMoveRightC == true && canMoveRightD == true &&
+                canMoveUpA == true && canMoveUpB == true && canMoveUpC == true && canMoveUpD == true &&
+                canMoveDownA == true && canMoveDownB == true && canMoveDownC == true && canMoveDownD == true)
+            {
+                Debug.Log("==========----------LOST GAME----------==========");
+            }
             CubeHandle.spawnRandomCube(allSensors);
             buttonPressed = false;
         }

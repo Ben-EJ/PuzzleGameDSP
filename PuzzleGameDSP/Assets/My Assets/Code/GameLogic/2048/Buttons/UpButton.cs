@@ -20,10 +20,10 @@ public class UpButton : MonoBehaviour
         List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
         if (Input.GetKeyDown(KeyCode.W) || buttonPressed == true)//For Testing
         {
-            CubeHandle.cubeMoveMerge(sensorsRowA);
-            CubeHandle.cubeMoveMerge(sensorsRowB);
-            CubeHandle.cubeMoveMerge(sensorsRowC);
-            CubeHandle.cubeMoveMerge(sensorsRowD);
+            CubeHandle.cubeMoveMerge(sensorsRowA, true);
+            CubeHandle.cubeMoveMerge(sensorsRowB, true);
+            CubeHandle.cubeMoveMerge(sensorsRowC, true);
+            CubeHandle.cubeMoveMerge(sensorsRowD, true);
             CubeHandle.spawnRandomCube(allSensors);
             buttonPressed = false;
         }
