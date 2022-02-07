@@ -64,7 +64,7 @@ public class LeftButton : MonoBehaviour
                 canMoveUpA == true && canMoveUpB == true && canMoveUpC == true && canMoveUpD == true &&
                 canMoveDownA == true && canMoveDownB == true && canMoveDownC == true && canMoveDownD == true)
             {
-                Debug.Log("==========----------LOST GAME----------==========");
+                GameState.playerLost = true;
             }
             CubeHandle.spawnRandomCube(allSensors);
             buttonPressed = false;

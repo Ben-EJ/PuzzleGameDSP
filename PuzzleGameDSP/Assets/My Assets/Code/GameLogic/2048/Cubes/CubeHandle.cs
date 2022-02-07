@@ -168,7 +168,14 @@ public class CubeHandle : MonoBehaviour
 
         }
     }
-    
+
+    //This function has 2 applications. Its main function is it calculates a row of cubes moves I.E if they can merge or move, and this can be used it 2 ways:
+    //The first is facilitating cube movement and merging, when the flagAllowUpdateGrid flag is set to true, the cubes will move on the grid based on the functions calculated state of a row,
+    //
+    //The second use case is to detect wether or not moves and merges are possible in a given row,
+    //if there are moves and merges possible the function will return false, otherwise true to indicate no changes to the row can be made,
+    //when the flagAllowUpdateGrid flag is set to false this can be used to
+    //check wether or not the player has lost without actually making any physical moves on the grid.
     public static bool cubeMoveMerge(List<GameObject> sensors, bool flagAllowUpdateGrid)
     {
 
@@ -189,17 +196,23 @@ public class CubeHandle : MonoBehaviour
                     if (i != x && !cubePos[x].Equals(emptyPlaceHolder))//if there not the same sensor and X cubePos is not empty then
                     {
                         if (cubePos[i].Equals(cubePos[x]))// If it finds a cube in line with the first cube and they are of the same value then:
-                        {
+                        {//Merge
                             foundCube = true;
                             int result = Int32.Parse(cubePos[i]) + Int32.Parse(cubePos[x]);
                             output[i] = result.ToString();
                             cubePos[i] = emptyPlaceHolder;
                             cubePos[x] = emptyPlaceHolder;
+
+                            if (flagAllowUpdateGrid == true)// If this flag is set to true then update userscore if a merge occurs.
+                            {
+                                GameState.playerScore = GameState.playerScore + 10;
+                            }
+
                             flagMergesMade = true;
                             break;
                         }
                         else if (!cubePos[i].Equals(cubePos[x]) && !cubePos[x].Equals(emptyPlaceHolder))//If it finds a cube and they are not of the same value then:
-                        {
+                        {//the first cube cant move so just add it to the output list where it is in the input list
                             foundCube = true;
                             output[i] = cubePos[i];
                             output[x] = cubePos[x];
@@ -243,6 +256,7 @@ public class CubeHandle : MonoBehaviour
 
         //For loop and While loop for shifting/Moving cubes
         List<string> finalList = new List<string>();
+        //Takes away all "Empty" slots to move cubes to the end of the row
         for (int i = 0; i < listToUse.Count; i++)
         {
             if (!listToUse[i].Equals(emptyPlaceHolder))
@@ -250,11 +264,13 @@ public class CubeHandle : MonoBehaviour
                 finalList.Add(listToUse[i]);
             }
         }
+        //Adds the empty slots back to the end of the row
         while (finalList.Count < 4)
         {
             finalList.Add(emptyPlaceHolder);
         }
 
+        //Checks to see if the list given to the function is the same as the functions output, if they are the same then no changes were made to the cubes
         bool listsSame = true;
         for (int i = 0; i < finalList.Count; i++)
         {
@@ -263,12 +279,14 @@ public class CubeHandle : MonoBehaviour
                 listsSame = false;
             }
         }
-        if(flagAllowUpdateGrid == true)
+
+        //If flagAllowUpdateGrid is true allow changes to be made to grid
+        if (flagAllowUpdateGrid == true)
         {
-            if (listsSame == false)
+            if (listsSame == false)//If listsSame is false, I.E changes to the row have been made then, these two functions are called to:
             {
-                clearGridRow(sensors);
-                updateGridRow(sensors, finalList);
+                clearGridRow(sensors);// Clear the grid
+                updateGridRow(sensors, finalList);// Update grid with new cubes and positions.
             }
         }
         return listsSame;
