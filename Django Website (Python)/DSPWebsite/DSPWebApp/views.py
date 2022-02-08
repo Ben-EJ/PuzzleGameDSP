@@ -19,7 +19,7 @@ curl --header "Content-Type: application/json" \ --request POST \ --data '{\"use
 """
 #Rest API class
 @method_decorator(csrf_exempt, name='dispatch')
-class RestApi(View):
+class RestApi8Queens(View):
     #Handles post requests
     def post(self, request):
         jsonData = json.loads(request.body.decode("utf-8"))
@@ -28,6 +28,15 @@ class RestApi(View):
         ScoreDataPuzzleOne(userName=userNameFromJson,score=scoreFromJson).save()
         return JsonResponse(jsonData, status=201)
 
+@method_decorator(csrf_exempt, name='dispatch')
+class RestApi2048(View):
+    #Handles post requests
+    def post(self, request):
+        jsonData = json.loads(request.body.decode("utf-8"))
+        userNameFromJson = jsonData.get('userName')
+        scoreFromJson = jsonData.get('score')
+        ScoreData2048(userName=userNameFromJson,score=scoreFromJson).save()
+        return JsonResponse(jsonData, status=201)
 
 def index(request):
     return render(request, 'index.html')
@@ -39,6 +48,6 @@ def eightQueensLeader(request):
     all_records = ScoreDataPuzzleOne.objects.all()#gets database table (Database query)
     return render(request, 'eightqueensleader.html', {'all_records' : all_records})
 
-def eightQueensLeader(request):    
+def leaderBoard2048(request):    
     all_records = ScoreData2048.objects.all()#gets database table (Database query)
     return render(request, '2048Leader.html', {'all_records' : all_records})

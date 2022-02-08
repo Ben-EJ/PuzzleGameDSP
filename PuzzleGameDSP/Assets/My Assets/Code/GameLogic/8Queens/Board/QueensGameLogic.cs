@@ -31,9 +31,7 @@ public class QueensGameLogic : MonoBehaviour
     public float possibleScore = 1000;
     public int scoreModifyer = 10;
 
-    private String userName = KeyBoardMain.typedText;// Gets username from the main menu
-    //dsp.neb-ej.co.uk
-    public string url = "http://192.168.1.158:8765/restpost/";
+    private string userName = KeyBoardMain.typedText;// Gets username from the main menu
     
     //Populates queens list, provides each queen with a name, possible moves array, and there current location (e.g A1)
     void populateQueensVars()
@@ -114,16 +112,16 @@ public class QueensGameLogic : MonoBehaviour
     {
         if (puzzleSolved == true)
         {
-            POST postRequest = new POST();
+            
 
             if (userName != "")//If the user did not enter a username in the main menu, then just send the username as guest
             {
-                postRequest.httpRequestPost(userName, score.ToString(), url);
+                POST.httpRequestPost8Queens(userName, score.ToString());
             }
             else
             {
                 Debug.Log("Setting up POST request");
-                postRequest.httpRequestPost("Guest", score.ToString(), url);
+                POST.httpRequestPost8Queens("Guest", score.ToString());
             }
             
         }
