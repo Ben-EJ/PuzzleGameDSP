@@ -183,8 +183,10 @@ public class CubeHandle : MonoBehaviour
         
         List<string> cubePos = makeCopyList(sensors);
         List<string> cubePosBackup = makeCopyList(sensors);
-
+        
         List<string> output = new List<string>() { emptyPlaceHolder, emptyPlaceHolder, emptyPlaceHolder, emptyPlaceHolder };
+
+        bool flagGameWon = false;
 
         for (int i = 0; i < cubePos.Count; i++)//For each cube in list
         {
@@ -202,7 +204,10 @@ public class CubeHandle : MonoBehaviour
                             output[i] = result.ToString();
                             cubePos[i] = emptyPlaceHolder;
                             cubePos[x] = emptyPlaceHolder;
-
+                            if (result == 2048 && flagAllowUpdateGrid == true)
+                            {
+                                flagGameWon = true;
+                            }
                             if (flagAllowUpdateGrid == true)// If this flag is set to true then update userscore if a merge occurs.
                             {
                                 GameState.playerScore = GameState.playerScore + 10;
@@ -288,6 +293,12 @@ public class CubeHandle : MonoBehaviour
                 clearGridRow(sensors);// Clear the grid
                 updateGridRow(sensors, finalList);// Update grid with new cubes and positions.
             }
+        }
+        // This if statment is used to ensure the move is completed before the player is anounced victorious hence why it is after the
+        // clearGridRow and updateGridRow function calls.
+        if (flagGameWon == true)
+        {
+            GameState.playerWon = true;
         }
         return listsSame;
     }

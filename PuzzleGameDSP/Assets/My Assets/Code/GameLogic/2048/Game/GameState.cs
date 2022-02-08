@@ -7,8 +7,8 @@ public class GameState : MonoBehaviour
     public static bool playerWon = false;
     public static bool playerLost = false;
     
-    public static bool flagToldPlayerWon = false;
-    public static bool flagToldPlayerLost = false;
+    public static bool flagToldPlayerWon = false;//Ensures the player is notified only once
+    public static bool flagToldPlayerLost = false;//Ensures the player is notified only once
 
     public static int playerScore = 0;
     // Update is called once per frame
