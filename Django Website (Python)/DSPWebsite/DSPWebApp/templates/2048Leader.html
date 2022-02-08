@@ -4,7 +4,7 @@
 <head>
     <title>DSP Puzzle Game Website</title>
     <link rel="stylesheet" href="{% static 'css/generalcss.css' %}">
-    <link rel="stylesheet" href="{% static 'css/indexcss.css' %}">
+    <link rel="stylesheet" href="{% static 'css/2048Leader.css' %}">
 </head>
 
 <body class="body">
@@ -16,17 +16,21 @@
     </ul>
 
     <div class="container">
-      <img class="imageBannerindex" src="{% static 'images/indexBanner.jpg' %}" alt="image" />
+      <img class="imageBannerindex" src="{% static 'images/TwoGrid.jpg' %}" alt="image" />
       <div class="overlay">
-        <div class="text"><img class="imageBannereight" src="{% static 'images/indexBanner2.jpg' %}" alt="image" /><h1 class = "text">Welcome to the Puzzle Game Website</h1></div>
+        <div class="text"><img class="imageBannereight" src="{% static 'images/TwoSideView.jpg' %}" alt="image" /></div>
         </div>
       </div>
    
-   <h1 class="welcomeText">Welcome to the DSP Puzzle Game home page</h1>
-   <center><p>This website provides information about both the game, 
-     how to play each puzzle and Leaderboard information for each puzzle</p></center>
-   <center><h1>Have fun playing!!</h1></center>
+   <h1 class="welcomeText">2048 Leaderboard</h1>
+   <div class="table">
+    <p>Contains all scores obtained by users whilst playing puzzle two, 2048.</p>
+    <ul>
+    {%for scores in all_records%}
+    <div class="listElement"><li>{{ scores }}</li></div>
+    {% endfor %}
+    </ul>
+    </div>
 </body>
 
 </html>
-

@@ -2,7 +2,7 @@ from http.client import HTTPResponse
 import imp
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import ScoreDataPuzzleOne #imports database model
+from .models import ScoreData2048, ScoreDataPuzzleOne #imports database model
 # Create your views here.
 # A view function takes a HTTP request and returns a response (Request Handler)
 
@@ -38,3 +38,7 @@ def aboutPage(request):
 def eightQueensLeader(request):    
     all_records = ScoreDataPuzzleOne.objects.all()#gets database table (Database query)
     return render(request, 'eightqueensleader.html', {'all_records' : all_records})
+
+def eightQueensLeader(request):    
+    all_records = ScoreData2048.objects.all()#gets database table (Database query)
+    return render(request, '2048Leader.html', {'all_records' : all_records})

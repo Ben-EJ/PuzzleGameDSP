@@ -21,3 +21,11 @@ class ScoreDataPuzzleOne(models.Model):
     #Allows content to be printed out when database debugging
     def __str__(self):
         return "User's Name: " + self.userName + " score: " + self.score
+
+class ScoreData2048(models.Model):
+    userName = models.CharField(max_length=200)
+    score = models.CharField(max_length=200)
+    
+    #Allows content to be printed out when database debugging
+    def __str__(self):
+        return "User's Name: " + self.userName + " score: " + self.score
