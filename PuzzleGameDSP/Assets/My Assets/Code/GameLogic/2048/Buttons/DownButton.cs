@@ -10,6 +10,12 @@ public class DownButton : MonoBehaviour
     private bool needToMoveRowC = false;
     private bool needToMoveRowD = false;
 
+    public bool buttonPressAllowed = true;
+    public void allowForButtonPress()
+    {
+        buttonPressAllowed = true;
+    }
+
     public void Update()
     {
         Grid grid = new Grid();
@@ -36,7 +42,13 @@ public class DownButton : MonoBehaviour
 
         List<GameObject> allSensors = CubeHandle.populateSensorList(grid.gridWhole);
 
-        if (Input.GetKeyDown(KeyCode.S) || buttonPressed == true)//For Testing
+        //Stops user from queing up a button press (Symptom user presses button, and it takes 3 seconds for the button to press instead of preventing button press for 3 seconds)
+        if (buttonPressAllowed == false)
+        {
+            buttonPressed = false;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.S) || buttonPressed == true && buttonPressAllowed == true)//For Testing
         {
             bool canMoveLeftA = CubeHandle.cubeMoveMerge(sensorsRowALeft, false);
             bool canMoveLeftB = CubeHandle.cubeMoveMerge(sensorsRowBLeft, false);
@@ -68,15 +80,18 @@ public class DownButton : MonoBehaviour
 
             CubeHandle.spawnRandomCube(allSensors);
             buttonPressed = false;
+            buttonPressAllowed = false;
+            Invoke("allowForButtonPress", 3);// Waits 3 seconds before allowing another button press
         }
 
         
     }
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Controller")
         {
             buttonPressed = true;
+            Debug.Log("Button Pressed");
         }
     }
 }

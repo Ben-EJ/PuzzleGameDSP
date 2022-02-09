@@ -9,7 +9,7 @@ public class POST : MonoBehaviour
     public static void httpRequestPost8Queens(string userName, string score)
     {
         Debug.Log("Sending 8 Queens data");
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://192.168.1.158:8765/rest8QueensPost/");
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://dsp.neb-ej.co.uk:10000/rest8QueensPost/");
         httpWebRequest.ContentType = "application/json";
         httpWebRequest.Method = "POST";
 
@@ -30,7 +30,7 @@ public class POST : MonoBehaviour
     public static void httpRequestPost2048(string userName, string score)
     {
         Debug.Log("Sending 2048 Data");
-        var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8000/rest2048Post/");
+        var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://dsp.neb-ej.co.uk:10000/rest2048Post/");
         httpWebRequest.ContentType = "application/json";
         httpWebRequest.Method = "POST";
 

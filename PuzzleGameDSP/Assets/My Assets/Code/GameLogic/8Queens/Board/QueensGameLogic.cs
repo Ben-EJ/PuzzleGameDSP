@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QueensGameLogic : MonoBehaviour
 {
@@ -11,28 +12,31 @@ public class QueensGameLogic : MonoBehaviour
     //===================================================================
     public bool testButton = false;
     //===================================================================
+    public GameObject winText;
 
     public List<GameObject> sensors = new List<GameObject>();
     public static List<Queen> queens = new List<Queen>();
 
     public Material matValidSolution;
     public Material matInvalidSolution;
-    
+
     public bool puzzleSolved = false;
 
     public Text uiText;
     public bool timerActive = false;
-
+    public bool toMainMenuTimer = false;
 
     public int playerScoreQueens = 0;
     public float time;
+    public float timeMenu;
+    public float timeMenuSec;
     float score = 0;
 
     public float possibleScore = 1000;
     public int scoreModifyer = 10;
 
     private string userName = KeyBoardMain.typedText;// Gets username from the main menu
-    
+
     //Populates queens list, provides each queen with a name, possible moves array, and there current location (e.g A1)
     void populateQueensVars()
     {
@@ -49,7 +53,7 @@ public class QueensGameLogic : MonoBehaviour
     }
 
     //Checks line of sight for two provided queens to check if they can attack each other
-    bool compareQueen(string firstQueen, List<string>queenToCompare)
+    bool compareQueen(string firstQueen, List<string> queenToCompare)
     {
         for (int i = 0; i < queenToCompare.Count; i++)
         {
@@ -71,14 +75,15 @@ public class QueensGameLogic : MonoBehaviour
             {
                 if (i != x)
                 {
-                    if (compareQueen(queens[i].getQueenXYChessCoords(), queens[x].getPossibleMoves()) == true) {
+                    if (compareQueen(queens[i].getQueenXYChessCoords(), queens[x].getPossibleMoves()) == true)
+                    {
                         Debug.Log("QUEEN ONE: " + queens[i].getQueenName());
                         Debug.Log("QUEEN TWO: " + queens[x].getQueenName());
                         return true;
-                    } 
+                    }
                 }
-                
-            }  
+
+            }
         }
         return false;
     }
@@ -108,11 +113,11 @@ public class QueensGameLogic : MonoBehaviour
     }
 
     //Sends score data to webserver to be added to the database.
-    private void sendScoreData ()
+    private void sendScoreData()
     {
         if (puzzleSolved == true)
         {
-            
+
 
             if (userName != "")//If the user did not enter a username in the main menu, then just send the username as guest
             {
@@ -123,7 +128,7 @@ public class QueensGameLogic : MonoBehaviour
                 Debug.Log("Setting up POST request");
                 POST.httpRequestPost8Queens("Guest", score.ToString());
             }
-            
+
         }
     }
 
@@ -140,7 +145,7 @@ public class QueensGameLogic : MonoBehaviour
             Debug.Log(" ");
             buttonChangeMesh();*/
             sendScoreData();
-            
+
         }
     }
 
@@ -154,6 +159,15 @@ public class QueensGameLogic : MonoBehaviour
             populateQueensVars();
             puzzleIsSolved();
             sendScoreData();
+
+            if(puzzleSolved == true)
+            {
+                Instantiate(winText);
+            }
+            if (timeMenuSec == 10 && puzzleSolved == true)
+            {
+                SceneManager.LoadScene("Main");
+            }
         }
     }
 
@@ -175,7 +189,15 @@ public class QueensGameLogic : MonoBehaviour
         else
         {
             timerActive = false;//Stops timer
-            score = calculateScore(resultTime.Minutes);//Calculates user score
+            toMainMenuTimer = true;
+
+            score = calculateScore(resultTime.Minutes);//Calculates user score'
+
+            if (toMainMenuTimer == true)
+            {
+                timeMenu = timeMenu + Time.deltaTime;
+            }
+            TimeSpan timeMenuSec = TimeSpan.FromSeconds(timeMenu);
         }
     }
 
