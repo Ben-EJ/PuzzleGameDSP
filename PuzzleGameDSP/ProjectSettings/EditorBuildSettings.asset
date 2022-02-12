@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/My Assets/Scenes/EightQueensPuzzle.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/My Assets/Scenes/2048.unity
+    guid: 16e3cbc8ecb96c4449b34a5feb5a0542
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 7a50a90c542b93945b52e7e79747d8eb, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 435370657ac95284386371feeb2cf1df, type: 2}

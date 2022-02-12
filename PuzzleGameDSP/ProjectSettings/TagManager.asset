@@ -6,18 +6,24 @@ TagManager:
   tags:
   - Controller
   - Queen
-  - keyOne
-  - keyTwo
-  - keyThree
-  - keyFour
-  - keyFive
-  - keySix
-  - keySeven
+  - CubeDetector
+  - numberCube
+  - cube2
+  - cube4
+  - cube8
+  - cube16
+  - cube32
+  - cube64
+  - cube128
+  - cube256
+  - cube512
+  - cube1024
+  - cube2048
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - cubeLayer
   - Water
   - UI
   - 
