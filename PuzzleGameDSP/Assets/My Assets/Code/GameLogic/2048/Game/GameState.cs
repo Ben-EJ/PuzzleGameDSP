@@ -9,7 +9,7 @@ public class GameState : MonoBehaviour
     
     public static bool flagToldPlayerWon = false;//Ensures the player is notified only once
     public static bool flagToldPlayerLost = false;//Ensures the player is notified only once
-    private string userName = "TESTUNITYNOVR"; //KeyBoardMain.typedText;// Gets username from the main menu
+    private string userName = KeyBoardMain.typedText;// Gets username from the main menu
     public static int playerScore = 0;
 
     public GameObject winButton;

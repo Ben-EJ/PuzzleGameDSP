@@ -3,13 +3,6 @@ using UnityEngine;
 
 public class UpButton : MonoBehaviour
 {
-    
-    
-    private bool needToMoveRowA = false;
-    private bool needToMoveRowB = false;
-    private bool needToMoveRowC = false;
-    private bool needToMoveRowD = false;
-
     public bool buttonPressed = false;
     
     public bool buttonPressAllowed = true;
@@ -83,7 +76,7 @@ public class UpButton : MonoBehaviour
             buttonPressed = false;
             
             buttonPressAllowed = false;
-            Invoke("allowForButtonPress", 3);// Waits 3 seconds before allowing another button press
+            Invoke("allowForButtonPress", 1);// Waits 1 seconds before allowing another button press
         }
     }
     void OnTriggerEnter(Collider collision)

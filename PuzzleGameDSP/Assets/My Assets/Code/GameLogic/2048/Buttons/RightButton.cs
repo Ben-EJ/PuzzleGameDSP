@@ -5,11 +5,7 @@ using UnityEngine;
 public class RightButton : MonoBehaviour
 {
     private bool buttonPressed = false;
-    private bool needToMoveRowA = false;
-    private bool needToMoveRowB = false;
-    private bool needToMoveRowC = false;
-    private bool needToMoveRowD = false;
-
+    
     public bool buttonPressAllowed = true;
     public void allowForButtonPress()
     {
@@ -78,7 +74,7 @@ public class RightButton : MonoBehaviour
             CubeHandle.spawnRandomCube(allSensors);
             buttonPressed = false;
             buttonPressAllowed = false;
-            Invoke("allowForButtonPress", 3);// Waits 3 seconds before allowing another button press
+            Invoke("allowForButtonPress", 1);// Waits 1 seconds before allowing another button press
         }
     }
     void OnTriggerEnter(Collider collision)

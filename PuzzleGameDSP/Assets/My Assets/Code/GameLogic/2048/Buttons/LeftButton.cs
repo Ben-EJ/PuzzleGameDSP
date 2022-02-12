@@ -81,7 +81,7 @@ public class LeftButton : MonoBehaviour
             CubeHandle.spawnRandomCube(allSensors);
             buttonPressed = false;
             buttonPressAllowed = false;
-            Invoke("allowForButtonPress", 3);// Waits 3 seconds before allowing another button press
+            Invoke("allowForButtonPress", 2);// Waits 2 seconds before allowing another button press
         }
     }
     void OnTriggerEnter(Collider collision)

@@ -28,11 +28,6 @@ public class PossibleMovesQueen : MonoBehaviour
     private static List<string> chessBoard7 = new List<string>() { "A7", "B7", "C7", "D7", "E7", "F7", "G7", "H7" };
     private static List<string> chessBoard8 = new List<string>() { "A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8" };
 
-    private static List<string> chessBoardBorder = new List<string>() { "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1",
-                                                                 "A8", "B8", "C8", "D8", "E8", "F8", "G8", "H8",
-                                                                 "A2", "A3", "A4", "A5", "A6", "A7", "A8",
-                                                                 "H2", "H3", "H4", "H5", "H6", "H7", "H8"};
-
     private static List<string> chessCoordsXAxis = new List<string>() { "A", "B", "C", "D", "E", "F", "G", "H" };
     private static List<string> chessCoordsYAxis = new List<string>() { "1", "2", "3", "4", "5", "6", "7", "8" };
 
@@ -311,6 +306,7 @@ public class PossibleMovesQueen : MonoBehaviour
 
         return coordinates;
     }
+
     //Calculates places the queen can move starting from the queens current position to top right diagonally 
     public static List<string> calcDiagonalTopRight(string location)
     {
@@ -457,7 +453,7 @@ public class PossibleMovesQueen : MonoBehaviour
     public static List<string> getPossibleMoves(string currentLocation)
     {
         List<string> output = new List<string>();
-        
+
         //merges all lists
         output.AddRange(possibleMovesXAxis(currentLocation));
         output.AddRange(possibleMovesYAxis(currentLocation));
@@ -465,7 +461,6 @@ public class PossibleMovesQueen : MonoBehaviour
         output.AddRange(calcDiagonalTopRight(currentLocation));
         output.AddRange(calcDiagonalBottomLeft(currentLocation));
         output.AddRange(calcDiagonalBottomRight(currentLocation));
-
         return output;
     }
 

@@ -12,7 +12,10 @@ public class QueensGameLogic : MonoBehaviour
     //===================================================================
     public bool testButton = false;
     //===================================================================
-    public GameObject winText;
+    private string userName = KeyBoardMain.typedText;// Gets username from the main menu
+
+    public GameObject winText;//Win text prefab
+    public Text uiText;//Timer text object
 
     public List<GameObject> sensors = new List<GameObject>();
     public static List<Queen> queens = new List<Queen>();
@@ -22,20 +25,16 @@ public class QueensGameLogic : MonoBehaviour
 
     public bool puzzleSolved = false;
 
-    public Text uiText;
+    public TimeSpan resultTime;
     public bool timerActive = false;
-    public bool toMainMenuTimer = false;
-
-    public int playerScoreQueens = 0;
     public float time;
-    public float timeMenu;
-    public float timeMenuSec;
-    float score = 0;
 
+    public float score = 0;
     public float possibleScore = 1000;
     public int scoreModifyer = 10;
 
-    private string userName = KeyBoardMain.typedText;// Gets username from the main menu
+    private bool flagToMainMenu = false;
+    private bool flagScorecalOnce = false;
 
     //Populates queens list, provides each queen with a name, possible moves array, and there current location (e.g A1)
     void populateQueensVars()
@@ -117,8 +116,8 @@ public class QueensGameLogic : MonoBehaviour
     {
         if (puzzleSolved == true)
         {
-
-
+            score = calculateScore(resultTime.Minutes);//Calculates user score
+            Debug.Log("score: " + score);
             if (userName != "")//If the user did not enter a username in the main menu, then just send the username as guest
             {
                 POST.httpRequestPost8Queens(userName, score.ToString());
@@ -132,6 +131,12 @@ public class QueensGameLogic : MonoBehaviour
         }
     }
 
+    //When this function is called it sets the flagToMainMenu to true allowing the user to be taken back to the main menu
+    private void toMainMenu()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
     //This functions perpose in this case is to fasilitate the use of the Test button I created in the unity editor 
     //so I dont have to test this script in vr
     private void testButtonFunc()
@@ -139,12 +144,14 @@ public class QueensGameLogic : MonoBehaviour
         if (testButton == true)
         {
             Debug.Log("Test Button Clicked");
-            /*populateQueensVars();
-            Debug.Log(" ");
-            debugFuncQueens();
-            Debug.Log(" ");
-            buttonChangeMesh();*/
-            sendScoreData();
+            queens.Clear(); //Clear Queens list before generating new list. 
+            populateQueensVars();//Gets queen location data from sensors and populates an list with data
+            puzzleIsSolved();//Checks to see if the users solution is correct
+            if (puzzleSolved == true)
+            {
+                Instantiate(winText);//Shows win text to user
+                //sendScoreData();//Sends score data if puzzle is solved
+            }
 
         }
     }
@@ -153,20 +160,16 @@ public class QueensGameLogic : MonoBehaviour
     void OnTriggerEnter(Collider entityTriggered)
     {
         puzzleSolved = false;
-        if (entityTriggered.gameObject.tag == "Controller")
+        if (entityTriggered.gameObject.tag == "Controller" && puzzleSolved != true)
         {
             queens.Clear(); //Clear Queens list before generating new list. 
-            populateQueensVars();
-            puzzleIsSolved();
-            sendScoreData();
+            populateQueensVars();//Gets queen location data from sensors and populates an list with data
+            puzzleIsSolved();//Checks to see if the users solution is correct
 
-            if(puzzleSolved == true)
+            if (puzzleSolved == true)
             {
-                Instantiate(winText);
-            }
-            if (timeMenuSec == 10 && puzzleSolved == true)
-            {
-                SceneManager.LoadScene("Main");
+                Instantiate(winText);//Shows win text to user
+                sendScoreData();//Sends score data if puzzle is solved
             }
         }
     }
@@ -178,26 +181,19 @@ public class QueensGameLogic : MonoBehaviour
         {
             time = time + Time.deltaTime;
         }
-        TimeSpan resultTime = TimeSpan.FromSeconds(time);
+        resultTime = TimeSpan.FromSeconds(time);
         uiText.text = resultTime.Minutes.ToString() + ":" + resultTime.Seconds.ToString();
 
         //If user has solved the puzzle
-        if (puzzleSolved == false)
+        if (puzzleSolved == false)//If puzzle has not yet been solved, keep timer running
         {
             timerActive = true;//Starts timer
         }
-        else
+        else if (puzzleSolved == true && flagScorecalOnce == false)//If puzzle has been solved (Prevents multiple exacutions of code, only need to be exacuted once)
         {
             timerActive = false;//Stops timer
-            toMainMenuTimer = true;
-
-            score = calculateScore(resultTime.Minutes);//Calculates user score'
-
-            if (toMainMenuTimer == true)
-            {
-                timeMenu = timeMenu + Time.deltaTime;
-            }
-            TimeSpan timeMenuSec = TimeSpan.FromSeconds(timeMenu);
+            Invoke("toMainMenu", 5);//Takes user back to main menu after 10 seconds
+            flagScorecalOnce = true;// Prevents this block of code from being exacuted more than once
         }
     }
 
