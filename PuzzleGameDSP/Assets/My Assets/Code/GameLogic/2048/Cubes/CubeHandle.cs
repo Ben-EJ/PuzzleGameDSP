@@ -69,14 +69,14 @@ public class CubeHandle : MonoBehaviour
      * 10. ELSE: NO MERGES CAN OCCUR, USE THE READY MADE CUBE MOVE FUNCTION
      */
 
-    
+
     public static List<string> makeCopyList(List<GameObject> sensors)
     {
         List<string> output = new List<string>();
-       
+
         for (int i = 0; i < sensors.Count; i++)
         {
-            if(sensors[i].GetComponent<CubeDetector>().isCubeInSensor() == true)
+            if (sensors[i].GetComponent<CubeDetector>().isCubeInSensor() == true)
             {
                 output.Add(sensors[i].GetComponent<CubeDetector>().getCubeValue().ToString());
             }
@@ -84,7 +84,7 @@ public class CubeHandle : MonoBehaviour
             {
                 output.Add(emptyPlaceHolder);
             }
-           
+
         }
         return output;
     }
@@ -130,18 +130,18 @@ public class CubeHandle : MonoBehaviour
             }
         }
     }
-    
+
     public static void spawnRandomCube(List<GameObject> sensors)
     {
         List<GameObject> avalableSensors = new List<GameObject>();
-        for(int i = 0; i < sensors.Count; i++)
+        for (int i = 0; i < sensors.Count; i++)
         {
             if (sensors[i].GetComponent<CubeDetector>().isCubeInSensor() == false)
             {
                 avalableSensors.Add(sensors[i]);
             }
         }
-        
+
         if (avalableSensors.Count != 0)
         {
             System.Random rnd = new System.Random();
@@ -180,10 +180,10 @@ public class CubeHandle : MonoBehaviour
     {
 
         bool flagMergesMade = false;
-        
+
         List<string> cubePos = makeCopyList(sensors);
         List<string> cubePosBackup = makeCopyList(sensors);
-        
+
         List<string> output = new List<string>() { emptyPlaceHolder, emptyPlaceHolder, emptyPlaceHolder, emptyPlaceHolder };
 
         bool flagGameWon = false;
@@ -302,7 +302,7 @@ public class CubeHandle : MonoBehaviour
         }
         return listsSame;
     }
-    
+
     private static void debugOutputList(List<string> list)
     {
         Debug.Log("==========================================================");
