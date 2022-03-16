@@ -35,7 +35,7 @@ public class QueensGameLogic : MonoBehaviour
 
     private bool flagToMainMenu = false;
     private bool flagScorecalOnce = false;
-
+    private bool buttonPreviouslyClicked = false;
     //Populates queens list, provides each queen with a name, possible moves array, and there current location (e.g A1)
     void populateQueensVars()
     {
@@ -143,16 +143,20 @@ public class QueensGameLogic : MonoBehaviour
     {
         if (testButton == true)
         {
-            Debug.Log("Test Button Clicked");
-            queens.Clear(); //Clear Queens list before generating new list. 
-            populateQueensVars();//Gets queen location data from sensors and populates an list with data
-            puzzleIsSolved();//Checks to see if the users solution is correct
-            if (puzzleSolved == true)
+            puzzleSolved = false;
+            if (puzzleSolved != true)
             {
-                Instantiate(winText);//Shows win text to user
-                //sendScoreData();//Sends score data if puzzle is solved
-            }
+                queens.Clear(); //Clear Queens list before generating new list. 
+                populateQueensVars();//Gets queen location data from sensors and populates an list with data
+                puzzleIsSolved();//Checks to see if the users solution is correct
 
+                if (puzzleSolved == true && buttonPreviouslyClicked == false)
+                {
+                    Instantiate(winText);//Shows win text to user
+                    sendScoreData();//Sends score data if puzzle is solved
+                    buttonPreviouslyClicked = true;
+                }
+            }
         }
     }
 
@@ -166,10 +170,11 @@ public class QueensGameLogic : MonoBehaviour
             populateQueensVars();//Gets queen location data from sensors and populates an list with data
             puzzleIsSolved();//Checks to see if the users solution is correct
 
-            if (puzzleSolved == true)
+            if (puzzleSolved == true && buttonPreviouslyClicked == false)
             {
                 Instantiate(winText);//Shows win text to user
                 sendScoreData();//Sends score data if puzzle is solved
+                buttonPreviouslyClicked = true;
             }
         }
     }
