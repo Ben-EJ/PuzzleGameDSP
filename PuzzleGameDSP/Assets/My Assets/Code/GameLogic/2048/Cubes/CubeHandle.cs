@@ -49,27 +49,6 @@ public class CubeHandle : MonoBehaviour
         }
     }
 
-    /*
-     * Once its found a pair to merge it stops finding pairs to merge, then when it goes to merge again, the two pairs that have been merged are
-     * still in the sensors list, but in reality they have been deleted, therefore an error occurs.
-     */
-    /*
-     * The game does not merge a newly merged cube and a non merged cube
-     * So:
-     * 
-     * 1. IF: CHECK TO SEE IF CAN MERGE FIRST OTHERWISE GOTO LINE 10
-     * 2. GET all cubes in row
-     * 3. LOOP: Start from beginning: Sensor[0] -> Sensor[x + 1] 
-     * 4. IF: check all other sensors in row against that one, if a merge can occur:
-     * 5. DELETE: Remove cubes(Acive Sensors) to be deleted from the array
-     * 6. ADD: New cube In the pos of the Sensor[0]
-     * 7. CONTINUE: on to the next sensor Sensor[1] etc...
-     * 8. GOTO: line 4
-     * 9. LOOP END: move all down to far left/right/up/down
-     * 10. ELSE: NO MERGES CAN OCCUR, USE THE READY MADE CUBE MOVE FUNCTION
-     */
-
-
     public static List<string> makeCopyList(List<GameObject> sensors)
     {
         List<string> output = new List<string>();
