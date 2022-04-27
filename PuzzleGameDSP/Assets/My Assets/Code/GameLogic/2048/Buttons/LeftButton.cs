@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script for the in-game left button
 public class LeftButton : MonoBehaviour
 {
     private bool buttonPressed = false;
@@ -21,6 +21,7 @@ public class LeftButton : MonoBehaviour
     public void Update()
     {
         Grid grid = new Grid();
+        //Populates sensor lists
         List<GameObject> sensorsRowALeft = CubeHandle.populateSensorList(grid.gridLineLeftOne);
         List<GameObject> sensorsRowBLeft = CubeHandle.populateSensorList(grid.gridLineLeftTwo);
         List<GameObject> sensorsRowCLeft = CubeHandle.populateSensorList(grid.gridLineLeftThree);
@@ -51,6 +52,7 @@ public class LeftButton : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A) || buttonPressed == true && buttonPressAllowed == true)//For Testing
         {
+            //Bellow code checks potential movements and merges
             bool canMoveLeftA = CubeHandle.cubeMoveMerge(sensorsRowALeft, true);
             bool canMoveLeftB = CubeHandle.cubeMoveMerge(sensorsRowBLeft, true);
             bool canMoveLeftC = CubeHandle.cubeMoveMerge(sensorsRowCLeft, true);
@@ -70,7 +72,7 @@ public class LeftButton : MonoBehaviour
             bool canMoveDownB = CubeHandle.cubeMoveMerge(sensorsRowBDown, false);
             bool canMoveDownC = CubeHandle.cubeMoveMerge(sensorsRowCDown, false);
             bool canMoveDownD = CubeHandle.cubeMoveMerge(sensorsRowDDown, false);
-
+            //Bellow code determines if any moves can be made if not, the player has lost
             if (canMoveLeftA == true && canMoveLeftB == true && canMoveLeftC == true && canMoveLeftD == true &&
                 canMoveRightA == true && canMoveRightB == true && canMoveRightC == true && canMoveRightD == true &&
                 canMoveUpA == true && canMoveUpB == true && canMoveUpC == true && canMoveUpD == true &&

@@ -38,13 +38,13 @@ public class PossibleMovesQueen : MonoBehaviour
     {
         char[] XY = location.ToCharArray();
         List<string> possibleMoves = new List<string>();
-        if (XY[0] == "A"[0])
+        if (XY[0] == "A"[0])//If the first coordinate in the queens current location is A then:
         {
-            for (int i = 0; i < chessBoardA.Count; i++)
+            for (int i = 0; i < chessBoardA.Count; i++)//For each of the coords in the chessboardA List:
             {
-                if (chessBoardA[i][1] != XY[1])
+                if (chessBoardA[i][1] != XY[1])// If the coordinate in chessBoardA list is not the current possition of the queen then:
                 {
-                    possibleMoves.Add(chessBoardA[i]);
+                    possibleMoves.Add(chessBoardA[i]);// Add coordinate to possible moves list.
                 }
             }
         }
@@ -120,7 +120,7 @@ public class PossibleMovesQueen : MonoBehaviour
         }
         return possibleMoves;
     }
-    //Calculates places the queen can move on the Y Axis
+    //Calculates places the queen can move on the Y Axis (gets hole row on the Y Axis)
     public static List<string> possibleMovesYAxis(string location)
     {
         char[] XY = location.ToCharArray();

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Contails details of sensor(Square in grid) and the cube on it.
 public class CubeDetector : MonoBehaviour
 {
     private bool cubeInSensor = false;

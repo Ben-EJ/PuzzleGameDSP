@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class QueensGameLogic : MonoBehaviour
 {
-    // created a check box in the inspector pannel, when checked the script will run 
+    //Created a check box in the inspector pannel, when checked the script will run 
     //Without having to be in VR (FOR TESTING PERPOSES)
     //===================================================================
     public bool testButton = false;
@@ -90,7 +90,7 @@ public class QueensGameLogic : MonoBehaviour
     //Checks to see if puzzle has been solved and updates colour of the button if it has.
     private void puzzleIsSolved()
     {
-        if (isInLineOfSightQueen() == true)
+        if (queens.Count != 8 || isInLineOfSightQueen() == true)
         {
             Debug.Log("Invalid Solution");
             MeshRenderer my_renderer = GetComponent<MeshRenderer>();
@@ -170,7 +170,7 @@ public class QueensGameLogic : MonoBehaviour
             populateQueensVars();//Gets queen location data from sensors and populates an list with data
             puzzleIsSolved();//Checks to see if the users solution is correct
 
-            if (puzzleSolved == true && buttonPreviouslyClicked == false)
+            if (puzzleSolved == true && buttonPreviouslyClicked == false && queens.Count == 8)
             {
                 Instantiate(winText);//Shows win text to user
                 sendScoreData();//Sends score data if puzzle is solved

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script for the in-game down button
 public class DownButton : MonoBehaviour
 {
     private bool buttonPressed = false;
@@ -15,7 +16,7 @@ public class DownButton : MonoBehaviour
     public void Update()
     {
         Grid grid = new Grid();
-
+        //Populates sensor lists
         List<GameObject> sensorsRowALeft = CubeHandle.populateSensorList(grid.gridLineLeftOne);
         List<GameObject> sensorsRowBLeft = CubeHandle.populateSensorList(grid.gridLineLeftTwo);
         List<GameObject> sensorsRowCLeft = CubeHandle.populateSensorList(grid.gridLineLeftThree);
@@ -46,6 +47,7 @@ public class DownButton : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.S) || buttonPressed == true && buttonPressAllowed == true)//For Testing
         {
+            //Bellow code checks potential movements and merges
             bool canMoveLeftA = CubeHandle.cubeMoveMerge(sensorsRowALeft, false);
             bool canMoveLeftB = CubeHandle.cubeMoveMerge(sensorsRowBLeft, false);
             bool canMoveLeftC = CubeHandle.cubeMoveMerge(sensorsRowCLeft, false);
@@ -66,6 +68,7 @@ public class DownButton : MonoBehaviour
             bool canMoveDownC = CubeHandle.cubeMoveMerge(sensorsRowCDown, true);
             bool canMoveDownD = CubeHandle.cubeMoveMerge(sensorsRowDDown, true);
 
+            //Bellow code determines if any moves can be made if not, the player has lost
             if (canMoveLeftA == true && canMoveLeftB == true && canMoveLeftC == true && canMoveLeftD == true &&
                 canMoveRightA == true && canMoveRightB == true && canMoveRightC == true && canMoveRightD == true &&
                 canMoveUpA == true && canMoveUpB == true && canMoveUpC == true && canMoveUpD == true &&

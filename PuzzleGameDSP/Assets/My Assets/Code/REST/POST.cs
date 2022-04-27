@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using UnityEngine;
 
+//Script contains functions that handle the post requests for each of the puzzles. Allows the score data and username to be sent to server.
 public class POST : MonoBehaviour
 {
     public static void httpRequestPost8Queens(string userName, string score)

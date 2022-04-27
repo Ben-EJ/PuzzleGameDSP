@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script monitors game state.
 public class GameState : MonoBehaviour
 {
     public static bool playerWon = false;
@@ -18,6 +19,7 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks to see if player has won or lost.
         if(playerLost == true && flagToldPlayerLost != true)
         {
             Debug.Log("================--------------Player Lost--------------================");

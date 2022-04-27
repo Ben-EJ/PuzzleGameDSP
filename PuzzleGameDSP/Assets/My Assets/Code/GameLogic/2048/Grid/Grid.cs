@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+//Contains lists of all columns, rows and positions in grid.
 public class Grid
 {
     public List<string> gridWhole = new List<string>() { "location1", "location2", "location3", "location4", "location5", "location6",

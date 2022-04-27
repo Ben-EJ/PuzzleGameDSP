@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+//Script handles cube operations
 public class CubeHandle : MonoBehaviour
 {
     public static string emptyPlaceHolder = "Empty";
+    //Function populates a given list with sensor game objects and their assosiated data
     public static List<GameObject> populateSensorList(List<string> line)
     {
         List<GameObject> sensors = new List<GameObject>();
@@ -16,8 +17,7 @@ public class CubeHandle : MonoBehaviour
         }
         return sensors;
     }
-
-
+    //Fuction can be used to change a cube value into a cubes name
     public static string whichCube(int result)
     {
         switch (result)
@@ -48,7 +48,7 @@ public class CubeHandle : MonoBehaviour
                 return null;
         }
     }
-
+    //Converts list of sensors and there data into a list of cube coordinates
     public static List<string> makeCopyList(List<GameObject> sensors)
     {
         List<string> output = new List<string>();
@@ -67,7 +67,7 @@ public class CubeHandle : MonoBehaviour
         }
         return output;
     }
-
+    //Deleted all cube on a given row in game
     public static void clearGridRow(List<GameObject> sensors)
     {
         for (int i = 0; i < sensors.Count; i++)
@@ -78,6 +78,7 @@ public class CubeHandle : MonoBehaviour
             sensors[i].GetComponent<CubeDetector>().setCubeValue(0);
         }
     }
+    //Updates a given row with new positions of cubes within the newCubes list
     public static void updateGridRow(List<GameObject> sensors, List<string> newCubes)
     {
         for (int i = 0; i < newCubes.Count; i++)
@@ -110,6 +111,7 @@ public class CubeHandle : MonoBehaviour
         }
     }
 
+    //Spawns a random cube at the end of each move
     public static void spawnRandomCube(List<GameObject> sensors)
     {
         List<GameObject> avalableSensors = new List<GameObject>();
@@ -179,11 +181,12 @@ public class CubeHandle : MonoBehaviour
                         if (cubePos[i].Equals(cubePos[x]))// If it finds a cube in line with the first cube and they are of the same value then:
                         {//Merge
                             foundCube = true;
-                            int result = Int32.Parse(cubePos[i]) + Int32.Parse(cubePos[x]);
-                            output[i] = result.ToString();
-                            cubePos[i] = emptyPlaceHolder;
+                            int result = Int32.Parse(cubePos[i]) + Int32.Parse(cubePos[x]);//Adds the values of the two cubes together.
+                            output[i] = result.ToString();//Add newly created cube to output list
+                            //Remove both cubes from input list
+                            cubePos[i] = emptyPlaceHolder; 
                             cubePos[x] = emptyPlaceHolder;
-                            if (result == 2048 && flagAllowUpdateGrid == true)
+                            if (result == 2048 && flagAllowUpdateGrid == true)//Checks to see if the cube is a winning cube (2048)
                             {
                                 flagGameWon = true;
                             }
@@ -237,7 +240,7 @@ public class CubeHandle : MonoBehaviour
                 listToUse.Add(output[j]);
             }
         }
-
+        
         //For loop and While loop for shifting/Moving cubes
         List<string> finalList = new List<string>();
         //Takes away all "Empty" slots to move cubes to the end of the row
@@ -248,11 +251,19 @@ public class CubeHandle : MonoBehaviour
                 finalList.Add(listToUse[i]);
             }
         }
+        
         //Adds the empty slots back to the end of the row
         while (finalList.Count < 4)
         {
             finalList.Add(emptyPlaceHolder);
         }
+
+        /*Debug.Log("=====================NEW CUBES IN ROW=====================");
+        Debug.Log("Original Cube Pos");
+        debugOutputList(cubePosBackup);
+        Debug.Log("End Result");
+        debugOutputList(finalList);
+        Debug.Log("==========================================================");*/
 
         //Checks to see if the list given to the function is the same as the functions output, if they are the same then no changes were made to the cubes
         bool listsSame = true;
@@ -263,7 +274,7 @@ public class CubeHandle : MonoBehaviour
                 listsSame = false;
             }
         }
-
+        
         //If flagAllowUpdateGrid is true allow changes to be made to grid
         if (flagAllowUpdateGrid == true)
         {
@@ -273,6 +284,7 @@ public class CubeHandle : MonoBehaviour
                 updateGridRow(sensors, finalList);// Update grid with new cubes and positions.
             }
         }
+
         // This if statment is used to ensure the move is completed before the player is anounced victorious hence why it is after the
         // clearGridRow and updateGridRow function calls.
         if (flagGameWon == true)
@@ -284,12 +296,9 @@ public class CubeHandle : MonoBehaviour
 
     private static void debugOutputList(List<string> list)
     {
-        Debug.Log("==========================================================");
-        for (int i = 0; i < list.Count; i++)
-        {
-            Debug.Log(list[i]);
+        for (int i = 0; i < list.Count; i++) {
+            Debug.Log("Location in row: " + i + " HasCube: " + list[i]);
         }
-        Debug.Log("==========================================================");
     }
 
 }
