@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 #============================================DEBUG============================================
 #Manual additions to the database for Debugging -> In python shell (Command: python manage.py shell) 
 #1. from DSPWebApp.models import ScoreDataPuzzleOne
@@ -13,19 +12,16 @@ from django.db import models
 #8. python manage.py flush #Clears database completely (Reset)
 #=============================================================================================
 
-#Class: Database model ScoreDataPuzzleOne lays out user name, score for puzzle one, and time submitted
+#Class: Database model ScoreDataPuzzleOne lays out user name, score for 8 Queens Puzzle.
 class ScoreDataPuzzleOne(models.Model):
     userName = models.CharField(max_length=200)
     score = models.IntegerField()
-    
-    #Allows content to be printed out when database debugging
     def __str__(self):
         return "User's Name: " + self.userName + " score: " + str(self.score)
 
+#Class: Database model ScoreData2048 lays out user name, score for 2048 puzzle.
 class ScoreData2048(models.Model):
     userName = models.CharField(max_length=200)
     score = models.IntegerField()
-    
-    #Allows content to be printed out when database debugging
     def __str__(self):
         return "User's Name: " + self.userName + " score: " + str(self.score)
