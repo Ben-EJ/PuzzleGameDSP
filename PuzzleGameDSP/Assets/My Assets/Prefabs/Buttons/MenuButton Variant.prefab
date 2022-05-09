@@ -95,7 +95,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &1502833632132213798
+--- !u!114 &4900888412089880109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2975839109237992763, guid: 5ae28e9a906bd0240b49b91f500e5a7f, type: 3}
       propertyPath: m_Name
-      value: MenuButton
+      value: MenuButton Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2975839109237992767, guid: 5ae28e9a906bd0240b49b91f500e5a7f, type: 3}
       propertyPath: m_RootOrder
