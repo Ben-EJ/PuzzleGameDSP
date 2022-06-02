@@ -8,6 +8,8 @@ GitHub Repository:  https://github.com/hellhound858/PuzzleGameDSP
 Just want to give credit to friends, family my supervisor Dr. Benedict Gaster, my second marker Dr. Craig Duffy and to all others who helped me develop ideas for the project.
 
 # Table of Contents
+| Title | Page Number |
+| ------------- | ------------- |
 | Abstract	| 1 |
 | Acknowledgements	| 1 |
 | Table of Contents |	2 |
