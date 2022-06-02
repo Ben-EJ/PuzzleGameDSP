@@ -8,95 +8,95 @@ GitHub Repository:  https://github.com/hellhound858/PuzzleGameDSP
 Just want to give credit to friends, family my supervisor Dr. Benedict Gaster, my second marker Dr. Craig Duffy and to all others who helped me develop ideas for the project.
 
 # Table of Contents
-Abstract	1
-Acknowledgements	1
-Table of Contents	2
-Table of Figures	5
-Introduction	7
-Aims and Objectives	7
-Chapter outline	8
-Literature Review	9
-Chapter Introduction	9
-Introduction to VR	9
-VR in past and present media	9
-The Metaverse	9
-Early Virtual Reality Headsets and Head Mounted Displays	9
-Sensorama	9
-Myron Krueger’s Videoplace	9
-Key elements of VR in 2003	10
-VR Possibilities outside of gaming	10
-VR in Education	10
-VR in Medicine	11
-Game engines	11
-Tracking technology	12
-Xbox Kinect	12
-SLAM Overview	13
-Offline-SLAM for Map Acquisition a simple example of SLAM	13
-Oculus and SLAM	13
-Application Programming Interface	14
-REST API	14
-Web frameworks in python	14
-Django	14
-Flask	14
-WebSocket Scripting	15
-Examples of VR puzzle games	15
-Tetris® Effect: Connected	15
-I Expect You To Die 2	16
-Methodology	18
-Chapter Introduction	18
-Selected Methodology	18
-Requirements	19
-Chapter introduction	19
-The Requirements	19
-Functional Requirements:	19
-Requirements Analysis for functional requirements:	22
-Non-functional Requirements:	24
-Requirements Analysis for non-functional requirements:	25
-Design	26
-Introduction to Chapter	26
-High Level Design	26
-Architecture diagram	26
-Use-Case Diagram Website (Django)	27
-Use-Case diagram puzzle game VR (Unity)	28
-Database design	28
-Website Design	29
-Low Level Design	31
-Class Diagram puzzle vr game (Unity) Part 1	31
-Class Diagram puzzle vr game (Unity) Part 2	32
-8 Queens flowcharts:	33
-2048 Game Flowcharts	38
-Reuse of Existing Code	38
-Implementation	39
-Chapter Introduction	39
-Sprint 1:	39
-Burn Down Chart:	39
-Explanation important code completed in sprint/Reflections:	40
-Functional Requirements Testing	43
-Sprint 2:	44
-Burn Down chart:	44
-Explanation important code completed in sprint/Reflections:	45
-Functional Requirements Testing	49
-Sprint 3:	51
-Burndown chart:	51
-Explanation important code completed in sprint:	52
-Functional Requirements Testing	52
-Sprint 4:	54
-Burn-Down chart:	54
-Explanation important code completed in sprint/Reflections:	55
-Functional Requirements Testing	55
-Non-functional requirements testing:	56
-Evaluation of testing	56
-Completed Implementation Images	57
-Project Evaluation	62
-Research	62
-Requirements	62
-Methodology	62
-Design	62
-Implementation and testing	62
-Further Work and Conclusions	63
-Conclusion	63
-Future work	63
-References / Bibliography	64
+| Abstract	| 1 |
+| Acknowledgements	| 1 |
+| Table of Contents |	2 |
+| Table of Figures	| 5 |
+| Introduction	| 7 |
+| Aims and Objectives	| 7 |
+| Chapter outline	| 8 |
+| Literature Review |	9 |
+| Chapter Introduction |	9 |
+| Introduction to VR |	9 |
+| VR in past and present media |	9 |
+| The Metaverse	| 9 |
+| Early Virtual Reality Headsets and Head Mounted Displays	9|
+| Sensorama	| 9 |
+| Myron Krueger’s Videoplace	| 9 |
+| Key elements of VR in 2003	| 10 |
+| VR Possibilities outside of gaming |	10 |
+| VR in Education	| 10 |
+| VR in Medicine	| 11 |
+| Game engines	| 11 |
+| Tracking technology	| 12 |
+| Xbox Kinect	| 12 |
+| SLAM Overview	| 13 |
+| Offline-SLAM for Map Acquisition a simple example of SLAM	| 13 |
+| Oculus and SLAM	| 13 |
+| Application Programming Interface	| 14 |
+| REST API	| 14 |
+| Web frameworks in python	| 14 |
+| Django	| 14 |
+| Flask	| 14 |
+| WebSocket Scripting	| 15 |
+| Examples of VR puzzle games	| 15 |
+| Tetris® Effect: Connected	| 15 |
+| I Expect You To Die 2 | 16 |
+| Methodology	| 18 |
+| Chapter Introduction	| 18 |
+| Selected Methodology	| 18 |
+| Requirements	| 19 |
+| Chapter introduction	| 19 | 
+| The Requirements	| 19 | 
+| Functional Requirements:	| 19 |
+| Requirements Analysis for functional requirements:	| 22 |
+| Non-functional Requirements:	| 24 | 
+| Requirements Analysis for non-functional requirements:	| 25 |
+| Design	| 26 |
+| Introduction to Chapter	| 26 |
+| High Level Design	| 26 |
+| Architecture diagram	| 26 |
+| Use-Case Diagram Website (Django)	| 27 |
+| Use-Case diagram puzzle game VR (Unity)	| 28 |
+| Database design	| 28 |
+| Website Design	| 29 |
+| Low Level Design	| 31 |
+| Class Diagram puzzle vr game (Unity) Part 1	| 31 |
+| Class Diagram puzzle vr game (Unity) Part 2	| 32 |
+| 8 Queens flowcharts:	| 33 |
+| 2048 Game Flowcharts	| 38 |
+| Reuse of Existing Code	| 38 |
+| Implementation	| 39 |
+| Chapter Introduction	| 39 |
+| Sprint 1:	| 39 |
+| Burn Down Chart:	| 39 |
+| Explanation important code completed in sprint/Reflections:	| 40 |
+| Functional Requirements Testing	| 43 |
+| Sprint 2:	| 44 |
+| Burn Down chart:	| 44 |
+| Explanation important code completed in sprint/Reflections:	| 45 |
+| Functional Requirements Testing	| 49 |
+| Sprint 3:	| 51 |
+| Burndown chart:	| 51 |
+| Explanation important code completed in sprint:	| 52 |
+| Functional Requirements Testing	| 52 |
+| Sprint 4:	| 54 |
+| Burn-Down chart:	| 54 |
+| Explanation important code completed in sprint/Reflections:	| 55 |
+| Functional Requirements Testing	| 55 |
+| Non-functional requirements testing:	| 56 |
+| Evaluation of testing	| 56 |
+| Completed Implementation Images	| 57 |
+| Project Evaluation	| 62 |
+| Research	| 62 |
+| Requirements	| 62 |
+| Methodology	| 62 |
+| Design	| 62 |
+| Implementation and testing	| 62 |
+| Further Work and Conclusions	| 63 |
+| Conclusion	| 63 |
+| Future work | 63 |
+| References |	64 |
 
 # Table of Figures
 Figure 1VR Game and Headset Image	14
