@@ -244,7 +244,7 @@ For further clarification this is what is defined as a game engine in comparison
 ### ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS
 
 | Game Engine  |  Platforms | Language Support | AI Engine  | Physics Engine | Forward Compatibility | Backward Compatibility |
-| ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | CryEngine 3  |  Win, X360, PS3, Wii U | C++, Visual Script, Lua  |   Lua-driven AI | Soft body  |  No |  Yes |
 |  Hero Engine | Win  |  Hero Script | Hero Script  |  AIseek | PhysX  |  Partial | Yes |
 |  Source 2 Engine | Win, Mac, Xbox 360, Wii, Linux, Android  |  C++ |  AI Director  |  Ipion | No  |  Partial |
