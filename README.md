@@ -326,36 +326,65 @@ Planning for a sprint starts at the beginning of a sprint and the end of the spr
 Now knowing the information presented above, the game will be developed during two weeklong sprints for each stage of development.
 
 Project setup Sprint 0: (9th Jan – 11th Jan)
+
 This sprint will be two days long. In this sprint, basic project setup will be completed. Such as importing all libraries and packages that will be needed include Oculus integrations, creating a very basic prototype application to test all packages are working correctly and everything is setup and imported correctly.
+
 Sprint 1: (16th Jan – 22nd Jan)
+
 Basic game development of the puzzles will be done in this sprint. The two puzzles giving a week to produce each puzzle during the sprint I.E 8 queens puzzle and so forth. This will then be tested according to the requirements of the system. 
+
 Sprint 2: (23rd Jan – 29th Jan)
+
 Further game development will be done here, including the creation of the puzzle 2048.
+
 Sprint 3: (4th Feb – 10th Feb)
+
 Database setup will be performed in this sprint. The website will also be further developed. Testing to make sure data is stored correctly and is sent by the headset will also be done here.
+
 Sprint 4:(11th Feb – 17th Feb)
+
 User interface will be developed here according to the requirements specification. This will be tested along with the rest of the project to make sure everything is working correctly.
+
 Sprint 5:(18th Feb – 25th Feb) (If needed)
+
 This sprint will consist of making sure everything is working, correcting any bugs that may have occurred and gone unnoticed during the systems development. Final testing of the system will also be done here, making sure the system properly satisfies all requirements. 
 
 # Requirements
 ## Chapter introduction
 This section of the report will contain thirty-seven requirements in total. Thirty Functional and ten non-functional requirements. 
+
 The Requirements
+
 The Requirements are identified with an ID and the type of requirement in said ID. For example:
+
 -VR means a requirement related to the VR game itself.
+
 •	-VR-8Q is a VR requirement relating to 8 Queens
+
 •	-VR-2048 is a VR requirement relating to 2048
+
 -WS means a requirement relating to the website.
+
 •	-WS-8Q is a website requirement relating to 8 Queens
+
 •	-WS-2048 is a website requirement relating to 2048
+
 -VR/WS means it is a requirement that relates to both.
+
 •	-VR/WS-8Q is a requirement relating to both VR, the website and 8 Queens
+
 •	-VR/WS-2048 is a requirement relating to both VR, the website and 2048
+
 Moscow stands for must have, should have, could have, won’t (Asghar, Bhatti, Tabassum, Shah, 2017, Page 303-313).
+
 Must have – The system must have this, and this is the highest priority.
+
 Should have – The system should have this, this is mid priority.
+
 Could have – This system could have this, however it is not necessary.
+
 Won’t have – This could be added in the future, but it won’t have this at this given time.
+
 The requirement specification column gives more detail into the requirement and why it is necessary.
+
 ## Functional Requirements:
