@@ -101,71 +101,75 @@ Just want to give credit to friends, family my supervisor Dr. Benedict Gaster, m
 | References |	64 |
 
 # Table of Figures
-Figure 1VR Game and Headset Image	14
-Figure 2 (Mishra, Shrawankar, 2016) ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS.	17
-Figure 3 (Zhang, 2012, pp.4-12) Depth Map	18
-Figure 4 Body tracking (Zhang, 2012, pp.4-12).	19
-Figure 5 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020).	21
-Figure 6 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020).	22
-Figure 7 The image provided is from the game I Expect You To Die 2 (Schell Games 2021).	22
-Figure 8 The image provided is from the game I Expect You To Die 2 (Schell Games 2021).	23
-Figure 9 Functional requirements.	28
-Figure 10 Non-functional requirements.	30
-Figure 11 Architecture Diagram.	32
-Figure 12 Website Use Case Diagram	33
-Figure 13 VR Game Use Case Diagram	34
-Figure 14 Database Design	34
-Figure 15 Home Page UI Design	35
-Figure 16 8 Queens Leader Board Page Design	35
-Figure 17 2048 Leader Board Page Design	36
-Figure 18 About Page Design	36
-Figure 19 VR Game Class Diagram Part 1	37
-Figure 20  VR Game Class Diagram Part 2	38
-Figure 21 PossibleMovesXAxis function flowchart	39
-Figure 22 Part of PossibleMovesXAxis function flowchart	39
-Figure 23 CalcDiagonalTopRight Function Flowchart	40
-Figure 24 CalcDiagonalTopRight Function Flowchart Loops	40
-Figure 25 CalcDiagonalTopRight Function Flowchart Loops, Add Chess coordinates.	41
-Figure 26 CalcDiagonalTopLeft Function Example	42
-Figure 27 Basic Game Logic For 8 Queens	43
-Figure 28 Cube merge and move algorithm 2048 Flowchart	44
-Figure 30 Burn Down Chart Sprint 1.	45
-Figure 31 Sprint 1 tasks	46
-Figure 32 Chess Coordinate List Part A.	46
-Figure 33 Chess Coordinate List Part B.	46
-Figure 34 PossibleMovesXAxis Code Snippet	46
-Figure 35 CalcDiagonalTopLeft Code Snippet	47
-Figure 36 Chess Board Example	48
-Figure 37 All Possible Moves Output Example.	48
-Figure 38 InLineOfSightQueen Code Snippet	49
-Figure 39 CalculateScore Code Snippet	49
-Figure 40 Functional requirements testing sprint 1.	50
-Figure 41 Burndown chart sprint 2.	51
-Figure 42 Sprint 2 Tasks	51
-Figure 43 cubeMoveMerge Code Snippet.	52
-Figure 44 MoveMerge Code Snippet Part 2	53
-Figure 45 2048 updated row screenshot	54
-Figure 46 LeftButton Code Snippet.	55
-Figure 47 Functional Requirement Tests Sprint 2.	56
-Figure 48 Burn Down Chart Sprint 3.	57
-Figure 49 Sprint 3 Tasks	57
-Figure 50 REST API Code Snippet	58
-Figure 51 HTTPRequest Code Snippet	58
-Figure 52 Functional Requirements Tests Sprint 3.	59
-Figure 53 Burn Down Chart Sprint 4.	60
-Figure 54 Sprint 4 Tasks	60
-Figure 55 Keyboard Code Snippet.	61
-Figure 56 Functional Requirements Test Sprint 4.	62
-Figure 57 Non-Functional Requirement Tests	62
-Figure 58 Holding Chess Piece	63
-Figure 59 8 Queens Solved and Figure 60 8 Queens Solved with Text	64
-Figure 61 8 Queens Invalid Solution	64
-Figure 62 Grid Screenshot	65
-Figure 63 Grid Screenshot Lost State and Figure 64 Grid Lost Text	65
-Figure 65 Home page	66
-Figure 66 8 Queens Leader board	66
-Figure 67 2048 Leader Board	67
-Figure 68 About Page	67
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Figure 1 | VR Game and Headset Image	14 |
+| Figure 2 |  (Mishra, Shrawankar, 2016) ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS.	17 |
+| Figure 3 |  (Zhang, 2012, pp.4-12) Depth Map	18
+| Figure 4 |  Body tracking (Zhang, 2012, pp.4-12).	19 |
+| Figure 5 |  The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020).	21 |
+| Figure 6 |  The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020).	22 |
+| Figure 7 |  The image provided is from the game I Expect You To Die 2 (Schell Games 2021).	22 |
+| Figure 8 |  The image provided is from the game I Expect You To Die 2 (Schell Games 2021).	23 |
+| Figure 9 |  Functional requirements.	28 |
+| Figure 10 |  Non-functional requirements.	30 |
+| Figure 11 |  Architecture Diagram.	32 |
+| Figure 12 |  Website Use Case Diagram	33 |
+| Figure 13 |  VR Game Use Case Diagram	34 |
+| Figure 14 |  Database Design	34 |
+| Figure 15 |  Home Page UI Design	35 |
+| Figure 16 |  8 Queens Leader Board Page Design	35 |
+| Figure 17 |  2048 Leader Board Page Design	36 |
+| Figure 18 |  About Page Design	36 |
+| Figure 19 |  VR Game Class Diagram Part 1	37 |
+| Figure 20 |   VR Game Class Diagram Part 2	38 |
+| Figure 21 |  PossibleMovesXAxis function flowchart	39 |
+| Figure 22 |  Part of PossibleMovesXAxis function flowchart	39 |
+| Figure 23 |  CalcDiagonalTopRight Function Flowchart	40 |
+| Figure 24 |  CalcDiagonalTopRight Function Flowchart Loops	40 |
+| Figure 25 |  CalcDiagonalTopRight Function Flowchart Loops, Add Chess coordinates.	41 |
+| Figure 26 |  CalcDiagonalTopLeft Function Example	42 |
+| Figure 27 |  Basic Game Logic For 8 Queens	43 |
+| Figure 28 |  Cube merge and move algorithm 2048 Flowchart	44 |
+| Figure 30 |  Burn Down Chart Sprint 1.	45 |
+| Figure 31 |  Sprint 1 tasks	46 |
+| Figure 32 |  Chess Coordinate List Part A.	46 |
+| Figure 33 |  Chess Coordinate List Part B.	46 |
+| Figure 34 |  PossibleMovesXAxis Code Snippet	46 |
+| Figure 35 | CalcDiagonalTopLeft Code Snippet	47 |
+| Figure 36 |  Chess Board Example	48 |
+| Figure 37 |  All Possible Moves Output Example.	48 |
+| Figure 38 |  InLineOfSightQueen Code Snippet	49 |
+| Figure 39 |  CalculateScore Code Snippet	49 |
+| Figure 40 |  Functional requirements testing sprint 1.	50 |
+| Figure 41 |  Burndown chart sprint 2.	51 |
+| Figure 42 |  Sprint 2 Tasks	51 |
+| Figure 43 |  cubeMoveMerge Code Snippet.	52 |
+| Figure 44 |  MoveMerge Code Snippet Part 2	53 |
+| Figure 45 |  2048 updated row screenshot	54 |
+| Figure 46 |  LeftButton Code Snippet.	55 |
+| Figure 47 |  Functional Requirement Tests Sprint 2.	56 |
+| Figure 48 |  Burn Down Chart Sprint 3.	57 |
+| Figure 49 |  Sprint 3 Tasks	57 |
+| Figure 50 |  REST API Code Snippet	58 |
+| Figure 51 |  HTTPRequest Code Snippet	58 |
+| Figure 52 |  Functional Requirements Tests Sprint 3.	59 |
+| Figure 53 |  Burn Down Chart Sprint 4.	60 |
+| Figure 54 |  Sprint 4 Tasks	60 |
+| Figure 55 |  Keyboard Code Snippet.	61 |
+| Figure 56 |  Functional Requirements Test Sprint 4.	62 |
+| Figure 57 |  Non-Functional Requirement Tests	62 |
+| Figure 58 |  Holding Chess Piece	63 |
+| Figure 59 |  8 Queens Solved |
+| Figure 60 |  8 Queens Solved with Text	64 |
+| Figure 61 |  8 Queens Invalid Solution	64 |
+| Figure 62 |  Grid Screenshot	65 |
+| Figure 63 |  Grid Screenshot Lost State |
+| Figure 64 |  Grid Lost Text	65 |
+| Figure 65 |  Home page	66 |
+| Figure 66 |  8 Queens Leader board	66 |
+| Figure 67 |  2048 Leader Board	67 |
+| Figure 68 |  About Page	67 |
 
 # Introduction
 In the past few years VR has become more and more popular, in both popular culture and in areas like the gaming industry. It has also seen use in both medical fields and in education. Some examples of VR appearing in popular culture include a very recent example, a movie called Ready Player One, originally adapted from a book written by Ernest Cline (Cline et al., 2011). There have also been other examples of VR like technology appearing in books such as in Virtual Light (Gibson et al., 1993) written by William Gibson. Both books will be further explained in the research section of the report. Certain concepts exist surrounding VR like the metaverse, this will also be explored further in the research section of the report. 
