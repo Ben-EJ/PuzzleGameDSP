@@ -101,7 +101,7 @@ Just want to give credit to friends, family my supervisor Dr. Benedict Gaster, m
 | References |	64 |
 
 # Table of Figures
-| First Header  | Second Header |
+| Figure Number  | Title |
 | ------------- | ------------- |
 | Figure 1 | VR Game and Headset Image	14 |
 | Figure 2 |  (Mishra, Shrawankar, 2016) ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS.	17 |
@@ -241,4 +241,14 @@ VR also has applications in medicine as out lined in this study by (Pourmand, Da
 The Wikipedia definition of a game engine is as follows, "A game engine is a software framework primarily designed for the development of video games, and generally includes relevant libraries and support programs. The "engine" terminology is like the term "software engine" used in the software industry" (Wikipedia, 2021). 
 For further clarification this is what is defined as a game engine in comparison between famous Game Engines and Eminent Games journal article. Game engines are sets of tools that allow a programmer to, perform game related tasks like interpretation and physics related tasks and for focusing on the niceties that make the game great(Mishra, Shrawankar, 2016, pp. 69). 
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+### ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS
+
+| Game Engine  |  Platforms | Language Support | AI Engine  | Physics Engine | Forward Compatibility | Backward Compatibility |
+| ------------- | ------------- |
+| CryEngine 3  |  Win, X360, PS3, Wii U | C++, Visual Script, Lua  |   Lua-driven AI | Soft body  |  No |  Yes |
+|  Hero Engine | Win  |  Hero Script | Hero Script  |  AIseek | PhysX  |  Partial | Yes |
+|  Source 2 Engine | Win, Mac, Xbox 360, Wii, Linux, Android  |  C++ |  AI Director  |  Ipion | No  |  Partial |
+|  Unity 4 |  BlackBerry, Win Phone, Win, OS X, Android, iOS, Apple TV, PS3/4, PS Vita, Xbox 360, Xbox One, Wii U, Wii | C#, JavaScript, Boo |   RAIN  | PhysX  | Partial| Yes |
+| Unreal 4 Engine  | Windows, OS X Linux, Xbox 360/ One, PS3/4, Wii U, Android, iOS, WinRT, PS Vita  | C++, C#, GLSL, CG, HLSL  |  Kynapse  | PhysX  | Partial  |  Yes  |
+| Vision Engine 8  |  Windows, Xbox 360, PS3, Wii, Wii U, iOS, Android, Win Phone, PS Vita | C++  |  Kynapse  |  Bullet, ODE, PhysX | No  |  Partial |
+Figure 2 (Mishra, Shrawankar, 2016) ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS
