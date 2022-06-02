@@ -253,3 +253,109 @@ For further clarification this is what is defined as a game engine in comparison
 | Vision Engine 8  |  Windows, Xbox 360, PS3, Wii, Wii U, iOS, Android, Win Phone, PS Vita | C++  |  Kynapse  |  Bullet, ODE, PhysX | No  |  Partial |
 
 Figure 2 (Mishra, Shrawankar, 2016) ASSESSMENT OF ENGINES ON PERFORMANCE ASPECTS
+
+As can be seen from figure 2 CryEngine and Hero Engine don’t support nearly as many platforms as the other four. Furthermore, Hero engine does not support any of the more popular programming languages like C++ or C#. In addition to this Hero Engine, Unity and Unreal Engine only have partial forward compatibility. 
+Unreal Engine has Blueprint Visual Scripting” (Chu, Zaman, 2021, pp.188). It was created to support the workflow of designers and artists by giving them access to tools normally only accessible to programmers (Chu, Zaman, 2021, pp.188). Blueprints is object oriented visual programming system which is used to create gameplay elements (Chu, Zaman, 2021). 
+Unity has many functionalities, including animation, scenes, object generation, lens control and these features are controllable by a c# program (Tsai, Jhu,Chen, Kao, Chen, 2021, pp.1401 - 1417). Unity also has plugins that can give it features like blueprints, a recent example of plugins that allow Unity to obtain this functionality include, FlowCanvas, Playmaker, Bolt and Amplify shader editor (Chu, Zaman, 2021, pp.188). 
+
+## Tracking technology
+### Xbox Kinect 
+Oculus uses state of the art tracking technology that developed from a massively successful technology known as the connect Kinect, was an early example of SLAM being used. Originally developed at Microsoft Research Cambridge, and then productized by the Xbox team at Microsoft. The Kinect is made up of 3 devices, the first being Depth sensor, the second being an RGB camera and lastly a 4-microphone array, these all give 3D full body tracking, facial recognition, and voice recognition (Zhang, 2012, pp.4-12).  The Kinect senses depth using its IR camara and IR projector which make up the depth sensor (Zhang, 2012, pp.4-12). This works by the IR projector projecting dots in an area, then if the dot in said image matches dots in the known dot pattern produced by the projector it is possible to rebuild it using 3D triangulation (Zhang, 2012, pp.4-12). 
+
+![Figure 3 (Zhang, 2012, pp.4-12) Depth Map](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Here is a depth map produced by the Kinect, the darker the grey the closer the object (Zhang, 2012, pp.4-12). This can then be used in conjunction with other techniques to track a person's body, Figure 3 gives the general outline of this.
+
+![Figure 4 Body tracking (Zhang, 2012, pp.4-12)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+From the depth image body part distribution is inferred, this is done per pixel as can be seen from the second part of Figure 4 above. (Shotton, Fitzgibbon, Cook, Sharp, Finocchio, Moore, Kipman, Blake, 2011). Local modes of this are then hypothesized to provide a good quality proposal for the joints in 3 dimensions, this all can also be done for multiple users(Shotton, Fitzgibbon, Cook, Sharp, Finocchio, Moore, Kipman, Blake, 2011).
+## SLAM Overview 
+SLAM stands for Simultaneous Localization and Mapping (MathWorks). There are many applications for SLAM including, using it with autonomous vehicles to produce maps of environments and pinpoint a vehicle in that map all at the same time (MathWorks). They can allow the vehicle to map environments and avoid obstacles and path find in that environment (MathWorks). 
+
+There are many methods of SLAM, the first is Visual SLAM. This type of SLAM utilises images obtained from cameras and other sensors. There are two main types of this version of SLAM, Spare methods that match features of images at then utilise an algorithm like ORB-SLAM and dense methods that use algorithms like LSD-SLAM (MathWorks).
+The second method of SLAM is LiDAR SLAM this version of SLAM usually uses some form of distance sensor, for example a laser sensor (MathWorks).
+Both types of SLAM have advantages and disadvantages. LiDAR is not affected by light level and its angular view is quite large. Unfortunately, however, on a large-scale LiDAR is not as viable in certain situations as it can get very expensive (Huang, Zhao, Liu, 2019). Visual SLAM, however, does not do so well in low light conditions and in low texture environments (Huang, Zhao, Liu, 2019). Visual SLAM can usually be implemented at a much lower price as RGB-D cameras, used to implement it can be obtained quite cheaply (Taketomi, Uchiyama, Ikeda, 2017).
+
+## Offline-SLAM for Map Acquisition a simple example of SLAM
+There are many ways to use SLAM, a simple example of SLAM involving robots is as follows; the first phase is map learning phase. As a robot moves through an environment the sensor data is obtained, and labels are given such as place names. After this the SLAM algorithm creates a map from the data to robot collected. This data can then be used to plan paths and localization and so on (Frese, Wagner, Rofer, 2010, pp.191-198). 
+
+## Oculus and SLAM 
+SLAM tracking technology is a tracking method utilized by the Oculus Quest and Rift S (Hesch, Kozminski, Linde, 2019). On both these headsets there are three major types of sensors to work out the VR headset’s location, room aspects like where the floor is and track controllers with reference to a 3D map of the space around it that is generated continuously (Hesch, Kozminski, Linde, 2019). The three sensors include, IMUs that track the headsets orientation and position, cameras to generate a 3D map of the room, and infrared emitters mitigating the controller drift cause by having a lot of the IMU sensors (Hesch, Kozminski, Linde, 2019). 
+
+## Application Programming Interface
+APIs are powerful tools that can be used in this project, to break down what an API is, we must first learn what it stands for. It stands for Application Programming Interface(Uzayr, 2016), and is a way in which you can hide the component specification from the actual implementation or the user of said components (Souza, R.B, F, 2009). One reason for doing this is it separates the modules in to public and private modules. The public module being the API, and the private one being the implementation of said API. Any changes made to the private module do not impact the public module (Souza, R.B, F, 2009). Using APIs allows a company to give a developer functionality without said developer needing to know how it works (Souza, R.B, F, 2009).
+## REST API
+To give context, using REST is one way we could transmit data between a virtual reality head set and a webserver, in this case it would be the transmission of score data etc. To summarise, a REST API is a type of application programming interface that conforms to a set of constraints (Kotstein, Justus, 2021). Rest APIs have two aspects, the first is that they are a type of architectural style that can dictate how distributed hypermedia systems are built and used like the World Wide Web (Kotstein, Justus, 2021). Furthermore, this journal article goes into further detail for example the second aspect it gives is that REST is like a guide that formalises how web components like URLs and http for example should be used when creating new applications that utilise them.
+## Web frameworks in python
+### Django
+Django is a collection of python modules designed for building web applications (Yudin et al., 2020). The Django framework can map URLS to methods, it can also render HTML webpages and it can handle cookies, session, and web security and has a REST framework (Yudin et al., 2020). Which handles all the essential of the REST API such as serialization and converting data to JSON (Yudin et al., 2020). This will be very useful for the project as this is a very reliable method of communicating between the headset and server and it comes with Django by default, so it is very likely to be tested thoroughly and a very reliable framework. Django can also support things like relational databases using object-relational mapping (Yudin et al., 2020). It has a build in database solution, known as SQLite (Yudin et al., 2020). SQL lite is a public domain software package that gives its user a relational database management system(Kreibichet et al., 2010) This is another important feature of Django that could be utilised in this project as user data will need to be stored, such as the user’s username and score. It also contains tools that allow easy authentication and authorization (Yudin et al., 2020). It is also widely used by the following websites, YouTube, Spotify, and many others (Yudin et al., 2020). It’s popularity with large technology companies is a good indicator of its quality and is another good reason to use it within the project.
+### Flask
+Flask is a small framework and is small enough to be called a micro framework (Grinberg et al., 2018). Flash was designed to be extendable, and you can pick and choose what you need to avoid bloat (Grinberg et al., 2018). Flash has a few dependencies, including the routing, debugging and web server gateway (Grinberg et al., 2018). However, it does not have support for accessing databases, validating web forms, or authenticating users (Grinberg et al., 2018). This is an issue for this project as we require a database to store score data from the game, also a way to authenticate users. After reviewing this book, due to flasks lack of features compared with Django, it is not a good idea to use this within the project, Django is by far the better choice due to its popularity and reliability and plethora of features and frameworks. 
+## WebSocket Scripting
+A WebSocket is a transfer control protocol for web applications. It provides connection in both ways meaning data can be sent to and from a server and client. However instead of connecting to an internet host and a port, it facilitates connections using URLS instead. To establish a connection between a server and client the protocol is changed from HTTP to WebSocket protocol. Once a connection is established messages can be sent back and forth between the client and the server (Lubbers, Albers, Salim,2011). This is one way in which information could be sent between the VR headset and a webserver that stores and displays score data in a database. However, the messages only need to be sent in one direction as, no messages are going to be sent to the client from the server. Therefore, using this method of data transfer not ideal for this project.
+
+## Examples of VR puzzle games 
+By looking at some high-quality games we can see what is expected from a high-quality VR game.
+### Tetris® Effect: Connected
+The first game we are going to look at is called Tetris® Effect: Connected. In summary, it is a game where the objective is to complete rows at the bottom of the screen. This is done by rotating different shapes to form these rows (Monstars Inc. Resonair and Stage Games, 2020).
+
+![Figure 5 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+As can be seen from the image above (Figure 5) there are multiple game play elements, a scoring system, levels and elements in the scene, that is the use of vibrant and interesting colours. Some of these elements would be useful to use in the VR puzzle game, this is because they create interesting and beautiful game play to immerse the user in the game.
+
+![Figure 6 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+### I Expect You To Die 2
+The second game to analyse is called I Expect You to Die 2. In summary this game involves solving a selection of puzzles, the puzzles are split into missions for the player to complete where the player plays as an agent trying to defeat an enemy called Zoraxis (Schell Games 2021).
+
+![Figure 7 The image provided is from the game I Expect You To Die 2 (Schell Games 2021)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+![Figure 8 The image provided is from the game I Expect You To Die 2 (Schell Games 2021)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+The gameplay above shows (Figure 7 and 8) an intricate and immersive world with high levels of detail, this level of detail, is important for immersion. As can be seen from both images (figure 7 and 8) the user is able to interact will objects using there in game hands, picking objects up, looking at them closely to solve the puzzle, read instructions and other such actions. All these small features create a sense of immersion in the world the author has created, as is the nature with VR, if the game is implemented correctly, it can make a player feel intertwined with the story and provide a real sense of emergency to solve problems that occur, like with the image above, the user is required to disarm a bomb. 
+If all these elements are observed, it is possible to create an immersive and detailed world for a user to enjoy. These key elements will likely be very useful to incorporate into this project. The key elements to take away from these games, is allowing a user to interact with the world as much as possible.
+
+# Methodology
+## Chapter Introduction
+This section of the report details the methodology that will be used to develop the product.
+## Selected Methodology
+To produce the VR game, the best methodology to use is an agile development process. Agile methods of software developments use an iterative and incremental approach to software development (Kumar, Bhatia, 2012). The type of agile method of development we have chosen is called, the scrum method. A scrum consists of sprints which are individual iterations that can last anywhere from two to four weeks each (Kumar, Bhatia, 2012). 
+
+Planning for a sprint starts at the beginning of a sprint and the end of the sprint is used to determine what can be delivered in the next sprint (Hron, Obwegeser, 2021). A review of the sprint is then conducted at the end of the sprint to show the outcome of said sprint to the customer and to obtain feedback for the next sprint, feedback will then be used in the next sprint (Hron, Obwegeser, 2021).
+
+Now knowing the information presented above, the game will be developed during two weeklong sprints for each stage of development.
+
+Project setup Sprint 0: (9th Jan – 11th Jan)
+This sprint will be two days long. In this sprint, basic project setup will be completed. Such as importing all libraries and packages that will be needed include Oculus integrations, creating a very basic prototype application to test all packages are working correctly and everything is setup and imported correctly.
+Sprint 1: (16th Jan – 22nd Jan)
+Basic game development of the puzzles will be done in this sprint. The two puzzles giving a week to produce each puzzle during the sprint I.E 8 queens puzzle and so forth. This will then be tested according to the requirements of the system. 
+Sprint 2: (23rd Jan – 29th Jan)
+Further game development will be done here, including the creation of the puzzle 2048.
+Sprint 3: (4th Feb – 10th Feb)
+Database setup will be performed in this sprint. The website will also be further developed. Testing to make sure data is stored correctly and is sent by the headset will also be done here.
+Sprint 4:(11th Feb – 17th Feb)
+User interface will be developed here according to the requirements specification. This will be tested along with the rest of the project to make sure everything is working correctly.
+Sprint 5:(18th Feb – 25th Feb) (If needed)
+This sprint will consist of making sure everything is working, correcting any bugs that may have occurred and gone unnoticed during the systems development. Final testing of the system will also be done here, making sure the system properly satisfies all requirements. 
+
+# Requirements
+## Chapter introduction
+This section of the report will contain thirty-seven requirements in total. Thirty Functional and ten non-functional requirements. 
+The Requirements
+The Requirements are identified with an ID and the type of requirement in said ID. For example:
+-VR means a requirement related to the VR game itself.
+•	-VR-8Q is a VR requirement relating to 8 Queens
+•	-VR-2048 is a VR requirement relating to 2048
+-WS means a requirement relating to the website.
+•	-WS-8Q is a website requirement relating to 8 Queens
+•	-WS-2048 is a website requirement relating to 2048
+-VR/WS means it is a requirement that relates to both.
+•	-VR/WS-8Q is a requirement relating to both VR, the website and 8 Queens
+•	-VR/WS-2048 is a requirement relating to both VR, the website and 2048
+Moscow stands for must have, should have, could have, won’t (Asghar, Bhatti, Tabassum, Shah, 2017, Page 303-313).
+Must have – The system must have this, and this is the highest priority.
+Should have – The system should have this, this is mid priority.
+Could have – This system could have this, however it is not necessary.
+Won’t have – This could be added in the future, but it won’t have this at this given time.
+The requirement specification column gives more detail into the requirement and why it is necessary.
+## Functional Requirements:
