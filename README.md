@@ -353,7 +353,7 @@ This sprint will consist of making sure everything is working, correcting any bu
 ## Chapter introduction
 This section of the report will contain thirty-seven requirements in total. Thirty Functional and ten non-functional requirements. 
 
-The Requirements
+### The Requirements
 
 The Requirements are identified with an ID and the type of requirement in said ID. For example:
 
@@ -375,6 +375,7 @@ The Requirements are identified with an ID and the type of requirement in said I
 
 •	-VR/WS-2048 is a requirement relating to both VR, the website and 2048
 
+### MoSCoW
 Moscow stands for must have, should have, could have, won’t (Asghar, Bhatti, Tabassum, Shah, 2017, Page 303-313).
 
 Must have – The system must have this, and this is the highest priority.
@@ -500,7 +501,7 @@ FR30-VR - Allow multiplayer – This is an extra feature that could be added at 
 
 Figure 10 Non-functional requirements.
 
-## Requirements Analysis for non-functional requirements:
+### Requirements Analysis for non-functional requirements:
 
 N-FR1 - The game must have a way to select between different puzzles in the form of a UI.
 N-FR2 – Must Allow for the addition of new puzzles, it must be flexible to allow for future work to take place.
