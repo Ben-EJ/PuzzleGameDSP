@@ -388,3 +388,127 @@ Won’t have – This could be added in the future, but it won’t have this at 
 The requirement specification column gives more detail into the requirement and why it is necessary.
 
 ## Functional Requirements:
+
+|Requirement No.|Requirement|Priority|
+|:----|:----|:----|
+|FR1-VR-8Q|User must be able to pick up the chess piece using the controllers.|Must|
+|FR2-VR-8Q|Chess board must be able to detect the location of the queens.|Must|
+|FR3-VR-8Q|Algorithm must be able to determine if an 8 queens’ solution is valid.|Must|
+|FR4-VR-8Q|Timer that counts and starts when the user enters the puzzle level.|Must|
+|FR5-VR-8Q|In the 8 Queens algorithm the score must be calculated using the time the user takes to solve the puzzle. | Must|
+|FR6-VR-8Q| After 8 queens puzzle solved, the user is notified and taken back to menu in 5 seconds. | Must|
+|FR7-VR-2048|2048 Algorithm must move cubes in each direction when the corresponding button is clicked.|Must|
+|FR8-VR-2048| 2048 Algorithm must merge cubes when there are of the same value.|Must|
+|FR9- VR-2048|Must check to see if the user has lost the game before every move the user makes.|Must|
+|FR10-VR-2048|In the 2048 algorithm when two cubes are merged and added together to make 2048 notify the user they have won.|Must|
+|FR11-VR-2048|In 2048 the algorithm, the user must gain 10 points with every cube merge they make.|Must|
+|FR12- VR-2048|After the user has either lost or won, a button must appear to allow them to travel back to the main menu.|Must|
+|FR13-VR-Menu|Button on the menu to take the user to the 8 queen’s puzzle.|Must|
+|FR14-VR-Menu|Button on the menu to take the user to the 2048 puzzle.|Must|
+|FR15-VR-Menu|In game keyboard to allow a user to enter their name.|Must|
+|FR16-VR/WS-8Q|8 Queens - Website must receive score data and username after the puzzle is solved.|Must|
+|FR17-VR/WS-2048|2048 – Website must receive score data and username if the user loses.|Must|
+|FR18- VR/WS-2048|2048 – Website must receive and username score data if the user Wins.|Must|
+|FR19-WS|The website must have a working navigation bar to take a user to the 4 pages.|Must|
+|FR20-WS|On the 8 Queens leader board page score and usernames should be pulled from the database and displayed on the page.|Must|
+|FR21-WS|On the 2048 leader board page score and usernames should be pulled from the database and displayed on the page.|Must|
+|FR22-VR|Help could be provided if the user is struggling to solve a specific problem.|Should|
+|FR23-WS|Allow a user to click a link to download the game.|Should|
+|FR24-VR|Be able to move around and interact with the world using hand tracking.|Could|
+|FR25-VR|Data could be stored locally on headset such as username and score data and pulled back into the game, when the game is opened.|Could|
+|FR26-WS|A login system that allows a user to enter the website.|Could|
+|FR27-WS|Users can edit and delete their high scores if necessary once they are logged in.|Won’t|
+|FR28-VR/WS|The user won’t be able to view the leader board data within the headset/game.|Won’t|
+|FR29-VR|Allow full body tracking, allowing the user to use all limbs when playing the game.|Won’t|
+|FR30-VR|Multiplayer allowing multiple users to join a session and solve puzzles with each other.|Won’t|
+
+Figure 9 Functional requirements.
+
+### Requirements Analysis for functional requirements:
+FR1-VR-8Q - Necessary for solving the puzzle as it allows the user to place the chess pieces on the chess board, furthermore during research, in the key elements of VR 
+section it was discovered that interactivity was an important factor in VR experiences(Sherman, B.Craig, 2003). Therefore, this required to ensure this.
+
+FR2-VR-8Q - Necessary, as need to know where the chess pieces are, as their positions will be used to determine if the solution given by the user is valid.
+
+FR3-VR-8Q - Necessary for a user to see if they solved the puzzle or not.
+
+FR4-VR-8Q - Necessary to determine a user’s score for 8 queens. 
+
+FR5-VR-8Q - Necessary to allow the user to see how well they did compared to others on the leader board.
+
+FR6-VR-8Q - Necessary to allow the user to be removed from the level after the puzzle is complete.
+
+FR7-VR-2048 - When the user clicks a directional button with the controllers, the cubes will move in the direction indicated by said button.
+
+FR8-VR-2048 - Necessary for the game to work. When two cubes are the same, i.e., 2 and 2, they are added together to produce a new cube, in this case, 4.
+
+FR9- VR-2048 – Necessary as it ensures the moment the player loses, they are notified.
+
+FR10-VR-2048 - Necessary to allow the user to win the game. When two 1024 cubes are merged, the player wins.
+
+FR11-VR-2048 – Necessary as this is a method of keeping score, the more merges they make, the higher their final score will be.
+
+FR12- VR-2048 - Necessary to allow a user to travel back to the main menu after they have completed the puzzle.
+
+FR13-VR-Menu and FR14-VR-Menu - Necessary to travel to the 8 queen’s puzzle/ Necessary to travel to the 2048 puzzle. This will be in the form a virtual button that the user can manually press which further ties in with the paper (Sherman, B.Craig, 2003) as adding this method of moving between puzzles will provide more user interactivity with the VR world around them.
+
+FR15-VR-Menu - Necessary to allow the user to input their name, so it can be used to display with their score on the website. This data will be sent to the webserver using the REST API created using Django libraries discovered during research.
+
+FR16-VR/WS-8Q - This will use a REST API to transmit data between the headset and the webserver in a JSON format. Necessary to allow score data to be displayed on the 8 queens leader board.
+
+FR17-VR/WS-2048 and FR18- VR/WS-2048 - This necessary as we will need to use a REST API to transmit data between the headset and the webserver in a JSON format this will be done using Django’s built-in REST library (Yudin et al., 2020) discovered during research.  After the player wins, there score data will need to be sent to the web server to be displayed in the 2048 leader board. The user still has a score value even if they lose that is why this requirement is necessary to allow score data to be displayed on the 2048 leader board.
+
+FR19-WS - The Website will have a working navigation bar to take the user to the 4 pages, Home, 8 Queens leader board and about.
+
+FR20-WS - On the 8 Queens leader board page score data and player usernames should be displayed in the leader board table, highest to lowest.
+
+FR21-WS - On the 2048 leader board page score data and player usernames should be displayed in the leader board table, highest to lowest.
+
+FR22-VR - The game will provide a hint if a user does not make a move within a given time frame
+
+FR23-WS - When the user clicks a link, they are taken to a place where they can download the game to play.
+
+FR24-VR - The user should be able to make a hand gesture and move around the world freely and interact with the world using their hands. This could further immersion. Immersion is one of the key elements of VR discussed further in this paper (Sherman, B.Craig, 2003).
+
+FR25-VR - Store games save data on locally on the headset. Then pull data back into the game when game is loaded. This could be used to avoid a user having to re input their username each time they want to play. 
+
+FR26-WS – Could be used to facilitate features such as the feature in requirement FR27-WS. It would provide sufficient security to allow this to be possible, as found in 
+research (Yudin et al., 2020), Django comes with this functionality out of the box, so it could be used in this project at a later date.
+
+FR27-WS - This is an extra feature that could be added at a later date. Allow users to manage their leader board data, I.E delete, change their name etc
+
+FR28-VR/WS - This is an extra feature that could be added at a later date. The user can pull the leader board high score data from the website and view it within the game.
+
+FR29-VR - This is an extra feature that could be added at a later date. Allow full body tracking for input could be used to further immersion, which was discovered to be an important factor during research section key elements in VR in 2003(Sherman, B.Craig, 2003).
+
+FR30-VR - Allow multiplayer – This is an extra feature that could be added at a later date. It would allow users to solve puzzles in a cooperation with other users.
+
+## Non-functional Requirements:
+
+|Requirement No.|Description|Priority|
+|:----|:----|:----|
+|N-FR1|A user interface is necessary to allow users to select different puzzles.|Must|
+|N-FR2|The game must be maintainable enough to allow for the addition of new puzzles.|Must|
+|N-FR3|The game must be able to run at a reasonable frame rate on the quest 2, 60fps minimum.|Must|
+|N-FR4|Good maintainability is necessary to allow updates to the system.|Must|
+|N-FR5|The game should be able to check the validity of a solution without any long durations of frame rate drops.|Must|
+|N-FR6|Multiple users are going to need to access the website at one time. The website should be robust enough for this to be allowed.|Must|
+|N-FR7|There should be minimal delay when sending a message from the headset to the webserver.|Should|
+|N-FR8|The game should also be available for headsets that require to be connected to a desktop machine.|Could|
+|N-FR9|If a user of the website does not have the game, they do not have access the website|Could|
+|N-FR10|The website must not be down for long periods of time.|Wont|
+
+Figure 10 Non-functional requirements.
+
+## Requirements Analysis for non-functional requirements:
+
+N-FR1 - The game must have a way to select between different puzzles in the form of a UI.
+N-FR2 – Must Allow for the addition of new puzzles, it must be flexible to allow for future work to take place.
+N-FR3 - Must run on the Oculus Quest 2, Necessary as this is the target platform for this project.
+N-FR4 - Must be simple to maintain both quest 2 app and website. Splitting programs into Classes and functions etc must be observed to prevent the code from being hard to maintain.
+N-FR5 - Be able to check a puzzle solution within 1 second as any stuttering or frame rate drops caused by log calculations could be uncomfortable for the user.
+N-FR6 - Multiple users must be able to use website at the same time.  This is a basic requirement that all websites and web apps must have.
+N-FR7 - Be able to send data to the website from the headset and update it within 1 second.
+N-FR8 - Cross compatibility with other headsets, the Oculus rift S for example.
+N-FR9 - Users who do not own the game should not be able to access the website.
+N-FR10 - The website would not be down for more than 5 minutes during a fault.
