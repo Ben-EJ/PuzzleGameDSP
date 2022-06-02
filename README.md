@@ -2,7 +2,6 @@
 
 # Abstract
 VR as a platform is becoming increasingly more popular as time goes on, VR as we know it today, requires the user to place a headset upon their head to view the VR world and interact with said world through controllers held with each hand allowing the user to interact with in-game objects. Its most common use-case is in gaming, VR does however have applications in other fields such as education and medicine. The following report is a look into this rising technology and details the development of a VR game, and the research, testing and design associated with it. The purpose of this project it to experiment with VR technology in hopes to create a playable game with its own virtual world, puzzles, and method of interaction with this virtual world via controllers. The research involves looking at VR, its associated technologies, VR in popular culture and its application in fields other than gaming. Furthermore, the research will look into different game engines, and web frame works that could be used in the game’s development. The rest of the body of the report details the design of the game, creation of both functional and non-functional requirement and an in depth look into the process of creating fully playable VR game.
-GitHub Repository:  https://github.com/hellhound858/PuzzleGameDSP
 
 # Acknowledgements
 Just want to give credit to friends, family my supervisor Dr. Benedict Gaster, my second marker Dr. Craig Duffy and to all others who helped me develop ideas for the project.
@@ -504,12 +503,52 @@ Figure 10 Non-functional requirements.
 ### Requirements Analysis for non-functional requirements:
 
 N-FR1 - The game must have a way to select between different puzzles in the form of a UI.
+
 N-FR2 – Must Allow for the addition of new puzzles, it must be flexible to allow for future work to take place.
+
 N-FR3 - Must run on the Oculus Quest 2, Necessary as this is the target platform for this project.
+
 N-FR4 - Must be simple to maintain both quest 2 app and website. Splitting programs into Classes and functions etc must be observed to prevent the code from being hard to maintain.
+
 N-FR5 - Be able to check a puzzle solution within 1 second as any stuttering or frame rate drops caused by log calculations could be uncomfortable for the user.
+
 N-FR6 - Multiple users must be able to use website at the same time.  This is a basic requirement that all websites and web apps must have.
+
 N-FR7 - Be able to send data to the website from the headset and update it within 1 second.
+
 N-FR8 - Cross compatibility with other headsets, the Oculus rift S for example.
+
 N-FR9 - Users who do not own the game should not be able to access the website.
+
 N-FR10 - The website would not be down for more than 5 minutes during a fault.
+
+# Design
+## Introduction to Chapter 
+In this chapter we will go over the design of the system. This will include a selection of diagrams of the systems classes, use cases, architecture, database design and UI design.         
+## High Level Design
+### Architecture diagram
+
+![Figure 11 Architecture Diagram.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+The above diagram (Figure 11) shows the system architecture. It models how the Oculus quest 2 will send data to the server using a REST API and how that data will be viewed using the clients web browser.
+
+### Use-Case Diagram Website (Django)
+![Figure 12 Website Use Case Diagram.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+This is a use-case diagram for the website (Figure 12). This use case diagram describes a given users interactions with the website itself and how they view different webpages. Users in this case, includes people who play the game, and general users who do not necessarily own the game but wish to view leader boards for a given puzzle, and the about and home page. 
+
+### Use-Case diagram puzzle game VR (Unity)
+![Figure 13 VR Game Use Case Diagram](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+This is a use case diagram for the VR game (Figure 13). This use case diagram describes the player actor’s interaction with the VR game. The goal of this use case is to send score data to the website and return to the main menu, after the chosen puzzle have been completed. The data is sent to the webserver. 
+
+### Database design
+![Figure 14 Database Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+The above diagram (Figure 14) is the database design for the website. The database will have two tables, one containing score data for the 8 queens puzzle and the other for 2048. All records in both tables will contain a username and a score value.
+
+### Website Design
+
+#### Home Page
+![Figure 15 Home Page UI Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Above UI mock-up (Figure 15) shows the design of the home page.
+
+### Eight Queens Leader board Design
