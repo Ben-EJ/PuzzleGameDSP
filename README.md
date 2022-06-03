@@ -971,3 +971,74 @@ To conclude this report, it should be stated although a lot of things went very 
 ## Future work
  
 Although due to time constraints only the main requirements, the “MoSCoW” “Musts” were implemented, given more time, further additions could have been added. For example, if work on this project were to continue, more puzzles should be added to the game. More features like a login system for the website and the VR headset allowing players to update their existing scores rather than simply adding a new one to the leader board. Furthermore, creating a version of the game that will also execute on desktop-based VR headsets like the Oculus Rift S is another idea that could be considered. 
+ 
+# References / Bibliography
+ 
+Asghar, A.R.A, Bhatti, S.N.B, Tabassum, A.T, Shah, S.A.A.S (2017) The Impact of Analytical Assessment of Requirements Prioritization Models: An Empirical Study International Journal of Advanced Computer Science and Applications [online]. Volume 8. Page 303-313 [Accessed 28 December 2021].
+ 
+Craig,A. Sherman,W. Will,J. (2009) Developing virtual reality applications : foundations of effective design [online]. Location: Elsevier Science & Technology. [Accessed 06 November 2021].
+ 
+Cline, E.C. (2011) Ready player one. US: Crown Publishing Group[Accessed 25 December 2021].
+ 
+Chu,E. Zaman,L. (2021) Exploring alternatives with Unreal Engine’s Blueprints Visual Scripting System. Entertainment Computing [Online]. Volume 36, Page 188[Accessed 13 November 2021]
+ 
+Dionisio, III, Gilbert, J.D, W.I, R.G. (2013) 3D Virtual worlds and the metaverse: Current status and future possibilities. ACM computing surveys [online]. Volume 45, Issue 3. [Accessed 21 December 2021].
+ 
+Django (No Date) Why Django. Available from: https://www.djangoproject.com/start/overview/ [Accessed 28 December 2021].
+ 
+Frese, U. Wagner, R., Rofer, T. (2010) A SLAM overview from a user’s perspective. KI [online]. Volume 24, pages 191-198 [Accessed 28 December 2021].
+ 
+Grinberg, M. (2018) Flask web development: developing web applications with Python[online]. Second edition. No place: O’Reilly. [Accessed 13 November 2021].
+ 
+Gibson, W.G. (1993) Virtual Light. US, UK, Canada: Bantam Spectra, Viking Press, Seal Books[Accessed 25 December 2021].
+ 
+Wikipedia (2021) Game Engines [online]. 24 December. Available from: https://en.wikipedia.org/wiki/Game_engine [Accessed 25 December 2021]. 
+ 
+GameLabGraz (No Date) Maroon [Video game]. Graz University of Technology. Available from: https://maroon.tugraz.at/ [Accessed 27 December 2021]. 
+ 
+HTC Vive(no Date) Vive Pro. Available from: https://www.vive.com/uk/product/vive-pro/ [Accessed 11 April 2022].
+ 
+Huang, B., Zhao, J., Liu, J. (2019) A Survey of Simultaneous Localization and Mapping with an Envision in 6G Wireless Networks. CoRR [online]. Volume abs/1909.05214[Accessed 28 December 2021].
+ 
+Hesch,J. Kozminski,A. Linde,O. (2019) Powered by AI: Oculus Insight. Available from: https://ai.facebook.com/blog/powered-by-ai-oculus-insight/[Accessed 21 December 2021].
+Hron,M. ,  Obwegeser,N. (2021) Why and how is Scrum being adapted in practice: A systematic review, Journal of Systems and Software[online]. Volume 183[Accessed 31 December 2021].
+ 
+Holly,M. Pirker,J. Resch,S. Brettschuh,S. Gutl,C. (2021) Designing VR Experiences--Expectations for Teaching and Learning in VR. Educational technology & society [online]. Volume 24, pp. 107 – 119 [Accessed 27 December 2021].
+ 
+Kreibich, J.A. (2010) Using SQL Lite[online]. O’Reilly Media. [Accessed 30 December 2022].
+ 
+Kumar, G., Bhatia,P.K.(2012) Impact of Agile Methodology on Software Development Process, International Journal of Computer Technology and Electronics Engineering [online]. Volume 2[Accessed 31 December 2021].
+ 
+Kotstein,S. Justus,B. (2021) Which RESTful API Design Rules Are Important and How Do They Improve Software Quality?. A Delphi Study with Industry Experts[online]. [Accessed 21 December 2021].
+ 
+Lubbers,P. Albers,B. Salim,F. (2011) Pro HTML5 Programming[online]. no place: Apress. [Accessed 25 December 2021].
+Unity (No Date) Oculus integrations (37.0) [Unity asset Pack]. Available from: https://assetstore.unity.com/packages/tools/integration/oculus-integration-82022 [Accessed 03 March 2022].
+Meta (no Date) Quest 2. Available from: https://www.oculus.com/quest-2/ [Accessed 11 April 2022].
+ 
+Monstars Inc. Resonair and Stage Games (2020) Tetris® Effect: Connected [Video game]. Enhance. Available from: https://www.oculus.com/experiences/quest/3386618894743567/?locale=en_GB [Accessed 01 January 2022]. 
+ 
+Mishra,P. Shrawankar,U. (2016) Comparison between Famous Game Engines and Eminent Games. International journal of interactive multimedia and artificial intelligence [online]. Volume 4, page 69. [Accessed 13 November 2021].
+ 
+MathWorks. (No date) Powered by AI: Oculus Insight. Available from: https://uk.mathworks.com/discovery/slam.html#slam-with-matlab [Accessed 21 December 2021].
+ 
+Pourmand,A. Davis,S. Marchak,A. Whiteside,T. Sikka,S. (2018) Virtual Reality as a Clinical Tool for Pain Management. Current pain and headache reports [online]. Volume 22, Pages 1-6 [Accessed 27 December 2021].
+ 
+Souza,D. R.B,C. F,D. (2009) On the Roles of APIs in the Coordination of Collaborative Software Development. Computer supported cooperative work [online]. Volume 18, Page 445-475. [Accessed 21 December 2021].
+ 
+Shotton, J, Fitzgibbon, A, Cook, M,  Sharp, T, Finocchio, M, Moore, R, Kipman, A , Blake, A. (2011) Real-time human pose recognition in parts from single depth images. Anon, CVPR 2011 , Colorado Springs, CO, USA, 2011, IEEE [Accessed 28 December 2021].
+ 
+Sherman,W. Craig,A. (2003) Understanding Virtual Reality: Interface, Application, and Design [online]. Location: Morgan Kaufmann. [Accessed 06 November 2021].
+ 
+Schell Games (2021) I Expect You to Die 2 [Video game]. Schell Games. Available from: https://www.oculus.com/experiences/quest/2970998659623177 [Accessed 01 January 2022]. 
+ 
+Taketomi, T. Uchiyama, H. Ikeda, S. (2017) Visual SLAM algorithms: a survey from 2010 to 2016. IPSJ transactions on computer vision and applications [online]. Volume 9. [Accessed 28 December 2021].
+ 
+Tashjian, V.C.T. (2017) Virtual Reality for Management of Pain in Hospitalized Patients: Results of a Controlled Trial [online]. Volume 4, page e9 [Accessed 27 December 2021].
+ 
+Tsai,Y. Jhu,W. Chen,C. Kao,C. Chen,C. (2021) Unity game engine: interactive software design using digital glove for virtual reality baseball pitch training. Microsystem technologies: sensors, actuators, systems integration [online]. Volume 27, Pages 1401 - 1417. [Accessed 12 April 2022].
+ 
+ Uzayr, S. (2016) Learning WordPress REST API [online]. Basingstoke: Palgrave Macmillan. [Accessed 05 December 2021].
+ 
+Yudin, A.Y. (2020) Building Versatile Mobile Apps with Python and REST: RESTful Web Services with Django and React [online]. No place: Apress. [Accessed 13 November 2021].
+Zhang,Z. (2012) Microsoft Kinect Sensor and Its Effect. IEEE Computer Society [online]. Volume 19, pages 4-12 [Accessed 28 December 2021].
+
