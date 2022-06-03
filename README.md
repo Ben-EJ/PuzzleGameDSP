@@ -854,3 +854,120 @@ Sent is both the username of the player and the score they obtained in the respe
 |FR21-WS|On the 2048 leader board page score and usernames should be pulled from the database and displayed on the page. Test data: Username “test2” score “300”|User is currently viewing the 2048 leader board page.|User can view score data pulled from the database; test data is visible on webpage.|pass|
 
 Figure 52 Functional Requirements Tests Sprint 3.
+
+## Sprint 4:
+### Burn-Down chart:
+
+![Figure 53 Burn Down Chart Sprint 4.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+|Requirement To Implement|Completed|
+|:----|:----|
+|FR13-VR-Menu|Done|
+|FR14-VR-Menu|Done|
+|FR15-VR-Menu|Done|
+
+Figure 54 Sprint 4 Tasks
+ 
+### Explanation important code completed in sprint/Reflections:
+ 
+![Figure 55 Keyboard Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+This code (Figure 55) is a small extract from the keyboards on trigger enter function. This script is attached to the controller. When the controller collides with a given key it’s corresponding letter or number is concatenated onto the typedText string variable, allowing user input to be collected and due to this being a public static variable, this variable can be accessed in other scenes allowing it to be used when score data needs to be sent to the webserver
+Functional Requirements Testing 
+
+### Functional Requirements Testing 
+ 
+|Requirement|Expected result|State of system|Actual Result|Pass/Fail|
+|:----|:----|:----|:----|:----|
+|FR13-VR-Menu|When the 8 Queens’ button is clicked, the user is taken to the 8 Queens puzzle.|User is in main menu.|User is taken to the 8 Queen’s puzzle.|pass|
+|FR14-VR-Menu|When the 2048 button is clicked, the user is taken to the 2048 puzzle.|User is in main menu.|User is taken to the 2048 puzzle.|pass|
+|FR15-VR-Menu|The user can type the username “user1” and it appears on the in-game screen.|User is in main menu.|User data appeared after being typed out using the in-game keyboard.|pass|
+|FR15-VR-Menu and FR14-VR|8 Queens - Username is retrieved from the main menu keyboard and sent with the score data to webserver.|User in 8 Queens with puzzle complete.|Username is retrieved from menu and sent along with score data to webserver.|pass|
+|FR15-VR-Menu and FR14-VR|2048 - Username is retrieved from the main menu keyboard and sent with the score data to webserver after the user loses and presses the main menu button.|User in 2048 with puzzle Lost.|Username is retrieved from menu and sent along with score data to webserver|pass|
+|FR15-VR-Menu and FR14-VR|2048 - Username is retrieved from the main menu keyboard and sent with the score data to webserver after the user wins and presses the main menu button.|User in 2048 with puzzle won.|Username is retrieved from menu and sent along with score data to webserver.|pass|
+
+Figure 56 Functional Requirements Test Sprint 4.
+ 
+## Non-functional requirements testing:
+
+|Requirement|Expected result|State of system|Actual Result|Pass/Fail|
+|:----|:----|:----|:----|:----|
+|N-FR3|The game must be able to run at a reasonable frame rate on the quest 2, 60fps minimum.|Game loaded in puzzle.|Game achieves above 60 fps.|Pass|
+|N-FR5|The game should be able to check the validity of a solution without any long durations (over 5 seconds) of frame drops.|Game loaded in puzzle 8 Queens.|Only a brief second of frame drops when the solution validity is being calculated.|Pass|
+|N-FR5|2048 checking if lost. The game should be able to check the validity of a solution without any long durations (over 5 seconds) of frame drops.|Game loaded in puzzle 2048.|No frame drops present when testing, game runs smoothly, no delay when moving and merging cubes due to prior calculation of win loss state.|Pass|
+
+Figure 57 Non-Functional Requirement Tests
+ 
+## Evaluation of testing
+After analysing all the test results, it is easy to conclude that testing the game went very well with all must requirements being implemented, tested, and are working as planned. 
+
+In terms of strengths, the game has all important features identified in the requirements working, making it a fully playable game, which was one of the main aims and objectives of this project. However, the game is lacking in content such as puzzles to play and further features such as hand tracking support furthermore none of the should have or could have requirements were implemented due to limited time.
+ 
+## Completed Implementation Images
+
+![Figure 58 Holding Chess Piece](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+In Figure 58 can be seen the player holding the chess piece. This is accomplished by holding the grip button on the controller, the user can then release the chess piece by releasing the grip button. The left hand is utilised for movement in both puzzles, this is done by using the joystick. This feature was implemented in sprint 1.
+ 
+![Figure 59 8 Queens Solved](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+![Figure 60 8 Queens Solved with Text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+![Figure 61 8 Queens Invalid Solution](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Figures 59 and 60, 61 were also implemented in sprint 1, they show chess pieces placed by the user on the chess board (Figure 59) and what happens when the player has lost (Figure 61) or won (Figure 60). If the player has lost the check solution button turns red and if they have won, victory text appears telling the user they have won and will be returned to the main menu.
+ 
+![Figure 62 Grid Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+![Figure 63 Grid Screenshot Lost State](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+![Figure 64 Grid Lost Text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+Figures 62, 63 and 64 were implemented in sprint 2. Figure 62 shows the 2048 puzzle being played, Figures 63 and 64 show the lost state, when the grid is filled, and no more moves can be made.  The win state is similar however, two 1024 cubes must be matched, and the “You Lose” text will be “You Win”. The game is played by pressing the buttons on the control surface showing in all 3 figures, depending on the button the user clicks depend on which direction the cubes are moved and merged.
+ 
+![Figure 65 Home page](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Figure 65 shows the home page for the website. At the bottom of the page is a small amount of text greeting the user.
+ 
+![Figure 66 8 Queens Leader board](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Figure 66 shows the completed leader board page, with the leader board displayed on the bottom. Both leader board pages (Figure 66 and 67) have navbars at the top of the page however these screenshots show the leader boards at the bottom of the page therefore the navigation bar is not visible. The leader board shows player scores in descending order.
+ 
+![Figure 67 2048 Leader Board](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+Figure 67 shows the 2048 leader board with the user’s name and score displayed in descending order.
+ 
+![Figure 68 About Page](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+Figure 68 shows the about page which contains information about the puzzles and how to play them.
+ 
+# Project Evaluation
+This section will include a full project evaluation, the issues that were faced, the solutions to those issues and what improvements could be applied to make the product better will be discussed here.
+ 
+## Research
+During the research section, many topics were explored, how to implement it and the technologies used to implement it. However, the research was a little too narrow in some areas, particularly in terms of game engines, and web technologies, for example, likely due to personal bias, research was focused on unity, and web frameworks for the programming language python. This was not a wise strategy as it is likely that better solutions could have existed and would have been found if the search criteria were broadened. 
+ 
+## Requirements
+The methodology used however for prioritizing requirements “MoSCoW” proved to be very useful as it made planning sprints much easier, as identifying priority requirements before development, made important features that must have been implemented first clear. Furthermore, it resulted in a fully playable product as no time was wasted implementing less important features. Requirements section does have some flaws mainly, although all the “must have” requirements were implemented and tested, they “should have” requirements and “could have” requirements were not implemented due to time constraints.
+
+## Methodology
+As discussed in the methodology section the methodology selected was Agile Scrum. Even though they method is usually used in groups, it was found that during this project it worked quite well with individual projects as well. It was found that structuring development in this way helped to organised and implement work efficiently, setting time frames for sprints with set work to do within them, made the large amount of work that was needed to be done easier to handle and manage within those sprints.
+
+## Design
+ 
+In the case of this project, time management was of the utmost importance, making the design section extremely important as, not being prepared in this area when implementing could have resulted in time being wasted, due to poor planning. Due to this, this section could be considered a success as because of the diagrams, the implementation went smoothly and efficiently. Particularly the flow charts in this section proved very useful making some of the more complex algorithms in the project much quicker and easier to implement.
+ 
+## Implementation and testing
+ 
+During the development of the game, we obtained much feedback from the people that tested it. One of the major issues that users faced was if they were completely new to VR, it was very difficult for them to play the game, without instructions from someone with more experience. This is likely because with the headset on, you cannot look at the controls for reference. This issue could be rectified with an addition of a tutorial with general instructions about how to operate the headset, such as controls. Controls in VR games as was found during research and testing of different VR games, tend to be similar. For example, the grip button is used to grab objects in most VR games. Due to this fact, this product, because of its relatively simple concept could be used, and adapted as more of a learning aid, to allow users to get used to the basics of VR, because of its simple gameplay, it is not very intense. 
+ 
+Another major point that was discovered when allowing users to test is that, as a developer, We did not consider the possibility of users playing the game unlike the developer would, for example, when we play we know exactly what we are doing, as the games developer we know that to play 8 queens, for example we know that we need to place all the queens on the chess board so they can’t attack each other, so we did not account for situations in which the user would go against this directive and walk up to a virtual wall and put their head through it seeing the incomplete world outside of the game area. Although at first this does not sound like an issue, it brought on a realisation that there are bugs and flaws in the game that we may not have been able to find because when we test, we are testing to see if a given feature works. Not if a feature can be used to break the game. This, it indicates that our approach to testing was flawed, as we only tested the game against the requirements of the project, and only used external testers after the large majority of implementation was finished. A better approach would have been to give the game to external testers after each sprint, so any unusual bugs that they found could be fixed in the next. This testing method would have likely resulted in a more polished game with fewer bugs. 
+Further Work and Conclusions
+
+## Conclusion
+ 
+To conclude this report, it should be stated although a lot of things went very well, a few things did not. The main project aim, to create a VR game that has two puzzles with a web site to display scores was a success, all aims, and objectives declared at the start of the project have been achieved. This was all done using Unity and Django. Extending this would not be difficult in the future, as the game is set up in a way where adding new puzzles would be very easy. For example, using readymade unity prefabs and code that were created during the project for other puzzles. This report and the game implemented gave an in depth look into the rising technology VR and demonstrated one way in which it could be applied and used. During the reports research section other applications for VR were identified, VR as an emergent technology has a lot of potential applications because of this future work on this project would allow for further understanding of VR capabilities and limits.
+
+## Future work
+ 
+Although due to time constraints only the main requirements, the “MoSCoW” “Musts” were implemented, given more time, further additions could have been added. For example, if work on this project were to continue, more puzzles should be added to the game. More features like a login system for the website and the VR headset allowing players to update their existing scores rather than simply adding a new one to the leader board. Furthermore, creating a version of the game that will also execute on desktop-based VR headsets like the Oculus Rift S is another idea that could be considered. 
