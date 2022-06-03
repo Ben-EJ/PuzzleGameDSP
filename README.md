@@ -745,3 +745,112 @@ This function (Figure 39) ensures that the longer time a user takes to come to t
 |FR6-VR-8Q|After the 8 queens puzzle is solved, the user is taken back to the main menu in 5 seconds.|player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|User was taken to the main menu after 5 seconds.|Pass|
 
 Figure 40 Functional requirements testing sprint 1.
+
+## Sprint 2:
+### Burn Down chart:
+![Figure 41 Burndown chart sprint 2.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+|Requirements To Implement|Completed|
+|:----|:----|
+|FR7-VR-2048|Done|
+|FR8-VR-2048|Done|
+|FR9- VR-2048|Done|
+|FR10-VR-2048|Done|
+|FR11-VR-2048|Done|
+|FR12- VR-2048|Done|
+
+Figure 42 Sprint 2 Tasks
+ 
+### Explanation important code completed in sprint/Reflections:
+There is one main function within the 2048 code that facilitates movement and cube merges:
+This function has 2 applications. Its main function calculates a row of cube moves I.E if they can merge or move, and this can be used it 2 ways:
+
+The first is facilitating cube movement and merging. When the flagAllowUpdateGrid flag is set to true, the cubes will move on the grid based on the functions calculated state of a row.
+    
+The second use case is to detect whether moves and merges are possible in each row and column. If there are moves and merges possible the function will return false, otherwise true to indicate no changes to the row can be made, when the flagAllowUpdateGrid flag is set to false this can be used to check whether the player has lost without making any physical moves on the grid.
+
+![Figure 43 cubeMoveMerge Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+This first section of the code (Figure 43) figures out what cubes can be merged in each row based on a few rules. The first is the cubes must have identical values and the second is that if a cube of a different value is in between two cubes of the same value a merge cannot occur. 
+Instead of creating a function that moves and merges cubes as and when it finds a match, the method chosen calculated all possible movements and merges in one go and then update the whole row at once. This was done due to synchronization issues that occurred when changes to the grid were done as an when the algorithm determined there needed to be a merge or cube move, this is because when merging the old two cubes, must be deleted on the board, when this happened, the algorithm, still thinks the cube still exists and tries to delete it again causing an error as the cube position data would be outdated. This method of implementation is one way to avoid this error. The win condition is checked as the program is checking for merges, if the addition of two cubes equates to 2048 then the player has won, however before the player is notified of this the algorithm finishes running, and the board updated with the new cubes and locations to allow the user to see the winning cube on the board otherwise they would get the win message without the 2048 cube appearing on the board.
+
+![Figure 44 MoveMerge Code Snippet Part 2](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+The second part of this function as displayed above (Figure 44) facilitates, the movement of cubes, the first part however if (flagMergesMade == false) determines where it is needed to use the output list created by merging. If no merges took place, then the original input list can be operated on to facilitate movement, this is done by removing all empty spaces from the list and appending them to the end of the list. This function is universal and can be used on every row and column, irrespective of the direction the user chooses to move I.E up, down, left, or right.
+ 
+![Figure 45 2048 updated row screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+Here is an example output (Figure 45) of the function in Figures 43 and 44. The first section of the output bellow “original cube pos”, is the cube positions before the function processes the row and the output bellow “end result” is the positions of the cubes in the row after the function has been executed. As can be seen in the Figure 45 the original position of the cube 2 has been moved right to the end of the row in the “end result” section, indicating the algorithm is working as intended.
+ 
+The code below (Figure 46) is the button script for the left button, when this button is pressed the cubes will be moved and merged to the left:
+ 
+![Figure 46 LeftButton Code Snippet.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true) 
+ 
+The first set of function calls populates the corresponding lists with the UpToDate positions of the cubes in the whole grid.
+If the button is pressed then possible moves and merges are calculated for all rows and columns, however only the cubeMoveMerge() that are operating on rows or columns that correspond with the button pressed are actually updated in game on the grid. 
+
+This is done to allow for lose condition checking, no matter which direction use user selects to move, the reason this is checked in the code of each button is because, the other way of doing this is continuously checking the board to check to see if the player has lost. This does have a great impact on performance of the game, therefore, it should only be checked when any of the directional buttons are pressed, not continuously.
+As can also be seen from the code above the Invoke(“AllowForButtonPress”, 2); function is used to allow for a delay in button presses. This is done to avoid the button being pressed multiple times unintentionally if the user leaves the controller inside the button for too long, allowing this to happen resulted in the game crashing during testing.
+ 
+Score in this puzzle is calculated by adding ten to the score for each merge the user completes.
+ 
+### Functional Requirements Testing 
+
+|Requirement|Expected result|State of system|Actual Result|Pass/Fail|
+|:----|:----|:----|:----|:----|
+|FR7-VR-2048|When left button is clicked all cubes move to the left on the board.|2048 puzzle loaded; game is ready to play|All cubes moved in the correct direction.|pass|
+|FR7-VR-2048|When right button is clicked all cubes move to the right on the board.|2048 puzzle loaded; game is ready to play|All cubes moved in the correct direction.|pass|
+|FR7-VR-2048|When down button is clicked all cubes move down on the board.|2048 puzzle loaded; game is ready to play|All cubes moved in the correct direction.|pass|
+|FR7-VR-2048|When up button is clicked all cubes move up on the board.|2048 puzzle loaded; game is ready to play|All cubes moved in the correct direction.|pass|
+|FR8-VR-2048|Cubes must merge in the direction of the button the user clicked. Two “2” cubes are merged to produce 4. Button tested left.|2048 puzzle loaded; game is ready to play.|Cubes merged correctly to produce a 4 cube in their place.|pass|
+|FR8-VR-2048|Cubes must merge in the direction of the button the user clicked. Two “2” cubes are merged to produce 4. Button tested right.|2048 puzzle loaded; game is ready to play.|Cubes merged correctly to produce a 4 cube in their place.|pass|
+|FR8-VR-2048|Cubes must merge in the direction of the button the user clicked. Two “2” cubes are merged to produce 4. Button tested up.|2048 puzzle loaded; game is ready to play.|Cubes merged correctly to produce a 4 cube in their place.|pass|
+|FR8-VR-2048|Cubes must merge in the direction of the button the user clicked. Two “2” cubes are merged to produce 4. Button tested down.|2048 puzzle loaded; game is ready to play.|Cubes merged correctly to produce a 4 cube in their place.|pass|
+|FR9- VR-2048|Once no new movements of cubes or merges can be made the user gets a message saying they have lost.|2048 puzzle loaded; game is ready to play, no more merges or cube movements can be made|Game was declared a loss.|pass|
+|FR10-VR-2048|After two 1024 cubes are merged the user is shown a win message.|2048 puzzle loaded; game is ready to play, two cubes are about to be added to make 2048|Two 1024 cubes are added to make 2048, user was notified of the victory|pass|
+|FR11-VR-2048|3 cubes are merged to create a score of 30.|2048 puzzle loaded; game is ready to play, two cubes are about to be added.|Cubes are combined and score is now 30.|pass|
+|FR12- VR-2048|After the game is won, button appears to take user back to the main menu|2048 game won|Button appeared to take user back to main menu.|pass|
+|FR12- VR-2048|After the game is lost, button appears to take user back to the main menu|2048 game lost|Button appeared to take user back to main menu.|pass|
+
+Figure 47 Functional Requirement Tests Sprint 2.
+ 
+## Sprint 3:
+### Burndown chart:
+
+![Figure 48 Burn Down Chart Sprint 3](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)  
+ 
+ |Requirements To Implement|Completed|
+|:----|:----|
+|FR16-VR/WS-8Q|Done|
+|FR17-VR/WS-2048|Done|
+|FR18- VR/WS-2048|Done|
+|FR19-WS|Done|
+|FR20-WS|Done|
+|FR21-WS|Done|
+
+Figure 49 Sprint 3 Tasks
+ 
+### Explanation important code completed in sprint:
+![Figure 50 REST API Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Here are the two rest API classes for both puzzles, each class contains only handles post requests as the game does not require get requests as no data is required from the database by the game. The code accepts post requests and then takes the username from the JSON data and stores it in the database to be utilised by the website, to display user scores.
+ 
+Some code is shared between the two puzzles most notably the POST class which allows score data to be sent to the webserver and stored in the database.
+ 
+![Figure 51 HTTPRequest Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+As can be seen from the code, the is facilitated using the System.Net class, allowing JSON data to be sent to the webserver in the form of a http Web Request.
+Sent is both the username of the player and the score they obtained in the respective puzzle.
+
+|Requirement |Expected result|State of system|Actual Result|Pass/Fail|
+|:----|:----|:----|:----|:----|
+|FR16-VR/WS-8Q|After 8 Queens puzzle is solved, score data and username are sent to the webserver and scored in the database. (The username in this test is hard coded). Test data: Username: “Test1” Score Data: “1000”|8 Queens puzzle is solved.|8 Queens score and username was sent to the database.|pass|
+|FR17-VR/WS-2048|After 2048 puzzle is lost, score data and username are sent to the webserver and scored in the database. (The username in this test is hard coded). Test data: Username: “Test2” Score Data: “300”|2048 puzzle lost, no moves or merges to be made, user is notified of lost.|Score data and username received by headset.|pass|
+|FR18- VR/WS-2048|After 2048 puzzle is won, score data and username are sent to the webserver and scored in the database. (The username in this test is hard coded) Test data:Username: “Test3”  Score Data: “400”|2048 puzzle won, two 1024 cubes added to win the game.|Score data and username received by headset.|pass|
+|FR19-WS|Navigation bar home button takes user to the website home.|User is currently on the 8 Queens leader board page.|After clicking the home button user is taken to the home page.|pass|
+|FR19-WS|Navigation bar 8 Queens leader board button takes user to the 8 queens leader board page.|User is currently on the home page.|After clicking the 8 Queens leader board button user is taken to the Queens ‘leader board page.|pass|
+|FR19-WS|Navigation bar 2048 leader board button takes user to the 2048 leader board page.|User is currently on the home page.|After clicking the 2048 leader board button user is taken to the 2048 leader board page.|pass|
+|FR20-WS|On the 8 Queens leader board page score and usernames should be pulled from the database and displayed on the page. Test data: Username “test” score “1000”|User is currently viewing the 8 queens leader board page.|User can view score data pulled from the database; test data is visible on webpage.|pass|
+|FR21-WS|On the 2048 leader board page score and usernames should be pulled from the database and displayed on the page. Test data: Username “test2” score “300”|User is currently viewing the 2048 leader board page.|User can view score data pulled from the database; test data is visible on webpage.|pass|
+
+Figure 52 Functional Requirements Tests Sprint 3.
