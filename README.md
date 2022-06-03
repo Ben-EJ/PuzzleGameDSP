@@ -206,7 +206,7 @@ This is where the whole project is evaluated and reflected upon.
 The section details further work to be undertaken in the future and final conclusions on the project.
 
 ![Figure 1VR Game and Headset Image](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure1.jpg)
-
+##### Figure 1VR Game and Headset Image
 
 # Literature Review
 ## Chapter Introduction
@@ -1043,5 +1043,6 @@ Tsai,Y. Jhu,W. Chen,C. Kao,C. Chen,C. (2021) Unity game engine: interactive soft
  Uzayr, S. (2016) Learning WordPress REST API [online]. Basingstoke: Palgrave Macmillan. [Accessed 05 December 2021].
  
 Yudin, A.Y. (2020) Building Versatile Mobile Apps with Python and REST: RESTful Web Services with Django and React [online]. No place: Apress. [Accessed 13 November 2021].
+ 
 Zhang,Z. (2012) Microsoft Kinect Sensor and Its Effect. IEEE Computer Society [online]. Volume 19, pages 4-12 [Accessed 28 December 2021].
 
