@@ -428,7 +428,7 @@ The requirement specification column gives more detail into the requirement and 
 |FR29-VR|Allow full body tracking, allowing the user to use all limbs when playing the game.|Won’t|
 |FR30-VR|Multiplayer allowing multiple users to join a session and solve puzzles with each other.|Won’t|
 
-Figure 9 Functional requirements.
+##### Figure 9 Functional requirements.
 
 ### Requirements Analysis for functional requirements:
 FR1-VR-8Q - Necessary for solving the puzzle as it allows the user to place the chess pieces on the chess board, furthermore during research, in the key elements of VR 
@@ -504,7 +504,7 @@ FR30-VR - Allow multiplayer – This is an extra feature that could be added at 
 |N-FR9|If a user of the website does not have the game, they do not have access the website|Could|
 |N-FR10|The website must not be down for long periods of time.|Wont|
 
-Figure 10 Non-functional requirements.
+##### Figure 10 Non-functional requirements.
 
 ### Requirements Analysis for non-functional requirements:
 
@@ -686,7 +686,7 @@ This section of the report details the development process of the Puzzle VR game
 |FR5-VR-8Q|Done|
 |FR6-VR-8Q|Done|
 
-Figure 31 Sprint 1 tasks
+##### Figure 31 Sprint 1 tasks
  
 ### Explanation important code completed in sprint/Reflections:
  
@@ -760,7 +760,7 @@ This function (Figure 39) ensures that the longer time a user takes to come to t
 |FR5-VR-8Q|Score is calculated based on the time it takes to solve the puzzle, puzzle is solved in 20 seconds, expected result is possibleScore - (timeInput * scoreModifyer). Therefore; 1000 – (20 * 10) = Score = 800 | Player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|Score output as 800.|Pass|
 |FR6-VR-8Q|After the 8 queens puzzle is solved, the user is taken back to the main menu in 5 seconds.|player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|User was taken to the main menu after 5 seconds.|Pass|
 
-Figure 40 Functional requirements testing sprint 1.
+##### Figure 40 Functional requirements testing sprint 1.
 
 ## Sprint 2:
 ### Burn Down chart:
@@ -776,7 +776,7 @@ Figure 40 Functional requirements testing sprint 1.
 |FR11-VR-2048|Done|
 |FR12- VR-2048|Done|
 
-Figure 42 Sprint 2 Tasks
+##### Figure 42 Sprint 2 Tasks
  
 ### Explanation important code completed in sprint/Reflections:
 There is one main function within the 2048 code that facilitates movement and cube merges:
@@ -833,7 +833,7 @@ Score in this puzzle is calculated by adding ten to the score for each merge the
 |FR12- VR-2048|After the game is won, button appears to take user back to the main menu|2048 game won|Button appeared to take user back to main menu.|pass|
 |FR12- VR-2048|After the game is lost, button appears to take user back to the main menu|2048 game lost|Button appeared to take user back to main menu.|pass|
 
-Figure 47 Functional Requirement Tests Sprint 2.
+##### Figure 47 Functional Requirement Tests Sprint 2.
  
 ## Sprint 3:
 ### Burndown chart:
@@ -850,7 +850,7 @@ Figure 47 Functional Requirement Tests Sprint 2.
 |FR20-WS|Done|
 |FR21-WS|Done|
 
-Figure 49 Sprint 3 Tasks
+##### Figure 49 Sprint 3 Tasks
  
 ### Explanation important code completed in sprint:
 ![Figure 50 REST API Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure50.jpg)
@@ -877,7 +877,7 @@ Sent is both the username of the player and the score they obtained in the respe
 |FR20-WS|On the 8 Queens leader board page score and usernames should be pulled from the database and displayed on the page. Test data: Username “test” score “1000”|User is currently viewing the 8 queens leader board page.|User can view score data pulled from the database; test data is visible on webpage.|pass|
 |FR21-WS|On the 2048 leader board page score and usernames should be pulled from the database and displayed on the page. Test data: Username “test2” score “300”|User is currently viewing the 2048 leader board page.|User can view score data pulled from the database; test data is visible on webpage.|pass|
 
-Figure 52 Functional Requirements Tests Sprint 3.
+##### Figure 52 Functional Requirements Tests Sprint 3.
 
 ## Sprint 4:
 ### Burn-Down chart:
@@ -891,7 +891,7 @@ Figure 52 Functional Requirements Tests Sprint 3.
 |FR14-VR-Menu|Done|
 |FR15-VR-Menu|Done|
 
-Figure 54 Sprint 4 Tasks
+##### Figure 54 Sprint 4 Tasks
  
 ### Explanation important code completed in sprint/Reflections:
  
@@ -912,7 +912,7 @@ Functional Requirements Testing
 |FR15-VR-Menu and FR14-VR|2048 - Username is retrieved from the main menu keyboard and sent with the score data to webserver after the user loses and presses the main menu button.|User in 2048 with puzzle Lost.|Username is retrieved from menu and sent along with score data to webserver|pass|
 |FR15-VR-Menu and FR14-VR|2048 - Username is retrieved from the main menu keyboard and sent with the score data to webserver after the user wins and presses the main menu button.|User in 2048 with puzzle won.|Username is retrieved from menu and sent along with score data to webserver.|pass|
 
-Figure 56 Functional Requirements Test Sprint 4.
+##### Figure 56 Functional Requirements Test Sprint 4.
  
 ## Non-functional requirements testing:
 
@@ -922,7 +922,7 @@ Figure 56 Functional Requirements Test Sprint 4.
 |N-FR5|The game should be able to check the validity of a solution without any long durations (over 5 seconds) of frame drops.|Game loaded in puzzle 8 Queens.|Only a brief second of frame drops when the solution validity is being calculated.|Pass|
 |N-FR5|2048 checking if lost. The game should be able to check the validity of a solution without any long durations (over 5 seconds) of frame drops.|Game loaded in puzzle 2048.|No frame drops present when testing, game runs smoothly, no delay when moving and merging cubes due to prior calculation of win loss state.|Pass|
 
-Figure 57 Non-Functional Requirement Tests
+##### Figure 57 Non-Functional Requirement Tests
  
 ## Evaluation of testing
 After analysing all the test results, it is easy to conclude that testing the game went very well with all must requirements being implemented, tested, and are working as planned. 
