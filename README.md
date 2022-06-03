@@ -264,11 +264,11 @@ Unity has many functionalities, including animation, scenes, object generation, 
 ### Xbox Kinect 
 Oculus uses state of the art tracking technology that developed from a massively successful technology known as the connect Kinect, was an early example of SLAM being used. Originally developed at Microsoft Research Cambridge, and then productized by the Xbox team at Microsoft. The Kinect is made up of 3 devices, the first being Depth sensor, the second being an RGB camera and lastly a 4-microphone array, these all give 3D full body tracking, facial recognition, and voice recognition (Zhang, 2012, pp.4-12).  The Kinect senses depth using its IR camara and IR projector which make up the depth sensor (Zhang, 2012, pp.4-12). This works by the IR projector projecting dots in an area, then if the dot in said image matches dots in the known dot pattern produced by the projector it is possible to rebuild it using 3D triangulation (Zhang, 2012, pp.4-12). 
 
-![Figure 3 (Zhang, 2012, pp.4-12) Depth Map](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 3 (Zhang, 2012, pp.4-12) Depth Map](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure3.jpg)
 
 Here is a depth map produced by the Kinect, the darker the grey the closer the object (Zhang, 2012, pp.4-12). This can then be used in conjunction with other techniques to track a person's body, Figure 3 gives the general outline of this.
 
-![Figure 4 Body tracking (Zhang, 2012, pp.4-12)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 4 Body tracking (Zhang, 2012, pp.4-12)](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure4.jpg)
 
 From the depth image body part distribution is inferred, this is done per pixel as can be seen from the second part of Figure 4 above. (Shotton, Fitzgibbon, Cook, Sharp, Finocchio, Moore, Kipman, Blake, 2011). Local modes of this are then hypothesized to provide a good quality proposal for the joints in 3 dimensions, this all can also be done for multiple users(Shotton, Fitzgibbon, Cook, Sharp, Finocchio, Moore, Kipman, Blake, 2011).
 ## SLAM Overview 
@@ -301,18 +301,18 @@ By looking at some high-quality games we can see what is expected from a high-qu
 ### Tetris® Effect: Connected
 The first game we are going to look at is called Tetris® Effect: Connected. In summary, it is a game where the objective is to complete rows at the bottom of the screen. This is done by rotating different shapes to form these rows (Monstars Inc. Resonair and Stage Games, 2020).
 
-![Figure 5 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 5 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020)](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure5.jpg)
 
 As can be seen from the image above (Figure 5) there are multiple game play elements, a scoring system, levels and elements in the scene, that is the use of vibrant and interesting colours. Some of these elements would be useful to use in the VR puzzle game, this is because they create interesting and beautiful game play to immerse the user in the game.
 
-![Figure 6 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 6 The image provided is from the game Tetris® Effect: Connected (Monstars Inc. Resonair and Stage Games 2020)](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure6.jpg)
 
 ### I Expect You To Die 2
 The second game to analyse is called I Expect You to Die 2. In summary this game involves solving a selection of puzzles, the puzzles are split into missions for the player to complete where the player plays as an agent trying to defeat an enemy called Zoraxis (Schell Games 2021).
 
-![Figure 7 The image provided is from the game I Expect You To Die 2 (Schell Games 2021)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 7 The image provided is from the game I Expect You To Die 2 (Schell Games 2021)](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure7.jpg)
 
-![Figure 8 The image provided is from the game I Expect You To Die 2 (Schell Games 2021)](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 8 The image provided is from the game I Expect You To Die 2 (Schell Games 2021)](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure8.jpg)
 
 The gameplay above shows (Figure 7 and 8) an intricate and immersive world with high levels of detail, this level of detail, is important for immersion. As can be seen from both images (figure 7 and 8) the user is able to interact will objects using there in game hands, picking objects up, looking at them closely to solve the puzzle, read instructions and other such actions. All these small features create a sense of immersion in the world the author has created, as is the nature with VR, if the game is implemented correctly, it can make a player feel intertwined with the story and provide a real sense of emergency to solve problems that occur, like with the image above, the user is required to disarm a bomb. 
 If all these elements are observed, it is possible to create an immersive and detailed world for a user to enjoy. These key elements will likely be very useful to incorporate into this project. The key elements to take away from these games, is allowing a user to interact with the world as much as possible.
@@ -531,44 +531,44 @@ In this chapter we will go over the design of the system. This will include a se
 ## High Level Design
 ### Architecture diagram
 
-![Figure 11 Architecture Diagram.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 11 Architecture Diagram.](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure11.jpg)
 The above diagram (Figure 11) shows the system architecture. It models how the Oculus quest 2 will send data to the server using a REST API and how that data will be viewed using the clients web browser.
 
 ### Use-Case Diagram Website (Django)
-![Figure 12 Website Use Case Diagram.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 12 Website Use Case Diagram.](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure12.jpg)
 This is a use-case diagram for the website (Figure 12). This use case diagram describes a given users interactions with the website itself and how they view different webpages. Users in this case, includes people who play the game, and general users who do not necessarily own the game but wish to view leader boards for a given puzzle, and the about and home page. 
 
 ### Use-Case diagram puzzle game VR (Unity)
-![Figure 13 VR Game Use Case Diagram](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 13 VR Game Use Case Diagram](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure13.jpg)
 This is a use case diagram for the VR game (Figure 13). This use case diagram describes the player actor’s interaction with the VR game. The goal of this use case is to send score data to the website and return to the main menu, after the chosen puzzle have been completed. The data is sent to the webserver. 
 
 ### Database design
-![Figure 14 Database Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 14 Database Design](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure14.jpg)
 
 The above diagram (Figure 14) is the database design for the website. The database will have two tables, one containing score data for the 8 queens puzzle and the other for 2048. All records in both tables will contain a username and a score value.
 
 ### Website Design
 
 #### Home Page
-![Figure 15 Home Page UI Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 15 Home Page UI Design](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure15.jpg)
 
 Above UI mock-up (Figure 15) shows the design of the home page.
 
 ### Eight Queens Leader board Design
 
-![Figure 16 8 Queens Leader Board Page Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 16 8 Queens Leader Board Page Design](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure16.jpg)
 
 Above UI mock-up (Figure 16) shows the design of the 8 queens leader board page. The page will contain a leader board, some text to describe the page and an image, the image will be a screen shot of the 8 queen’s puzzle.
 
 ### 2048 Leader board Page design
 
-![Figure 17 2048 Leader Board Page Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 17 2048 Leader Board Page Design](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure17.jpg)
 
 Above UI mock-up (Figure 17) shows the design of the 2048 leader board page. The design of this page will be like the design of the 8 queens leader board page (Figure 16). However, its leader board will contain 2048 score data, the image will be a screenshot of the 2048 puzzle in game.
 
 ### About Page Design
 
-![Figure 18 About Page Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 18 About Page Design](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure18.jpg)
 
 Above UI mock-up (Figure 18) shows the design of the about page. The page will contain images of the puzzle and a guide on how to play each puzzle, and other general instructions pertaining to the game, like how to input a user’s username.
 
@@ -576,13 +576,13 @@ Above UI mock-up (Figure 18) shows the design of the about page. The page will c
 
 ### Class Diagram puzzle vr game (Unity) Part 1
 
-![Figure 19 VR Game Class Diagram Part 1](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 19 VR Game Class Diagram Part 1](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure19.jpg)
 
 This diagram (Figure 19) contains classes and the relations between them relating to the 8 queen’s puzzle. The class POST will be used to send data to the web server and the class KeyBoardMain class will be used by queensGame logic to obtain the username provided by the user in the main menu.
 
 ### Class Diagram puzzle vr game (Unity) Part 2
 
-![Figure 20  VR Game Class Diagram Part 2](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 20  VR Game Class Diagram Part 2](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure20.jpg)
 
 This part of the class diagram (Figure 20) contains classes that will be used by the 2048 puzzle and the relationships between them, as with the 8 queens puzzle the POST will be used to send score data to the web server and the KeyBoardMain class will be used to obtain the username inputted by the user in the main menu. Both classes are shared by both puzzles.
 
@@ -590,11 +590,11 @@ This part of the class diagram (Figure 20) contains classes that will be used by
 
 #### PossibleMovesXAxis function flowchart.
 
-![Figure 21 PossibleMovesXAxis function flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 21 PossibleMovesXAxis function flowchart](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure21.jpg)
 
 Figure 21 shows a flowchart that describes how the PossibleMovesXAxis function will work. This function gets all possible moves of a given queen on the x axis. There will also be another function (Figure 21) like this implemented, that will be almost identical to calculate possible moves on the Y axis, however it will deal with Y coordinates instead of X. It will also use different lists and for example, instead of chessBoardA it will use chessBoard1 list.
 
-![Figure 22 Part of PossibleMovesXAxis function flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 22 Part of PossibleMovesXAxis function flowchart](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure22.jpg)
 
 These lists in Figure 22 contain all chess coordinates in a row for a given axis for example:
 
@@ -603,11 +603,11 @@ chessBoardA = new List<string>() { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8
 chessBoard1 = new List<string>() { "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1" };
 
 #### CalcDiagonalTopRight Function.
-![Figure 23 CalcDiagonalTopRight Function Flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 23 CalcDiagonalTopRight Function Flowchart](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure23.jpg)
  
 This flowchart (Figure 23) describes one of 4 very similar functions. It is used to calculate the diagonal top left possible moves from where the chess piece is placed. The other 3 functions are programmatically very similar. However, in the first two for loops (Figure 24):
  
-![Figure 24 CalcDiagonalTopRight Function Flowchart Loops](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true) 
+![Figure 24 CalcDiagonalTopRight Function Flowchart Loops](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure24.jpg) 
  
 The functions will have a different combination of functions (for example, placeInXAxis() and placeInYAxis() functions) these could be any combination of these functions:
  
@@ -633,23 +633,23 @@ chessCoordsYAxisReverced = { "8", "7", "6", "5", "4", "3", "2", "1" };
  
 Example in this function (Figure 25) CalcDiagonalTopRight():
  
-![Figure 25 CalcDiagonalTopRight Function Flowchart Loops, Add Chess coordinates](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 25 CalcDiagonalTopRight Function Flowchart Loops, Add Chess coordinates](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure25.jpg)
  
 For example, this is what those loops would look like in the CalcDiagonalTopLeft function (Figure 26):
  
-![Figure 26 CalcDiagonalTopLeft Function Example](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 26 CalcDiagonalTopLeft Function Example](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure26.jpg)
 
 The rest of the function is identical to the others. Depending on the direction dictates what combination will be used.
  
 #### General 8 queens’ algorithm
  
-![Figure 27 Basic Game Logic For 8 Queens](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 27 Basic Game Logic For 8 Queens](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure27.jpg)
  
 This flowchart (Figure 27) shows basic game logic for 8 queens. I.E what will happen when the calculate if valid solution button is clicked.
  
 ### 2048 Game Flowcharts
  
-![Figure 28 Cube merge and move algorithm 2048 Flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 28 Cube merge and move algorithm 2048 Flowchart](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure28.jpg)
  
 The flowchart in Figure 28 shows how a given row on the 2048 grid will be updated to move and merge cubes. In essence, the algorithm works by first checking to see if merges can be made in each row and stores the new positions and cubes in an array, then it checks to see if a cube move can be made, thereby making sure all cubes are as far to the direction of the pressed button as possible. All these are operations are done on an array and are not updated on the 2048 grid initially until the calculations for a given row are complete. At the end of this algorithm an array containing the new state of the row. This is then used to update the row in game. 
  
@@ -666,7 +666,7 @@ This section of the report details the development process of the Puzzle VR game
  
 ### Burn Down Chart:
  
-![Figure 30 Burn Down Chart Sprint 1](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 30 Burn Down Chart Sprint 1](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure30.jpg)
  
 |Requirement To Be Implemented|Completed|
 |:----|:----|
@@ -685,23 +685,23 @@ Figure 31 Sprint 1 tasks
 To implement 8 queens, an algorithm is required to determine a few things, for example, the current position of a queen, its possible moves, thereby the queens it can attack. 
 The first task is producing a set of arrays containing all positions on the chess board (Figure 32), one list for each of the rows and columns:
 
-![Figure 32 Chess Coordinate List Part A](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 32 Chess Coordinate List Part A](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure32.jpg)
  
  The final two important lists (Figure 33) contain the labels for each axis on the chess board and the same in reverse order:
  
- ![Figure 33 Chess Coordinate List Part B.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ ![Figure 33 Chess Coordinate List Part B.](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure33.jpg)
  
 After this has been implemented it is then possible to perform the required operations to determine which position a given chess piece is in and where it can move/attack.
  
 To determine possible moves, each axis, is calculated separately, for example to calculate the possible moves for a given queen for the X axis this function is employed:
 
-![Figure 34 PossibleMovesXAxis Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 34 PossibleMovesXAxis Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure34.jpg)
   
 This function (Figure 34) takes the current Coordinates for a given queen, splits them into a char array, and uses those coordinates to determine every place in can move on the given axis, so if the queen is sitting on an “A” square, it will add all places it can move on that column to the possible moves array, excluding the square that the queens is placed on. Programmatically, the method of calculating possible moves for the Y axis is identical, however it will use a different, array containing all the positions in a given row (Figure 32). 
  
 The final set of steps in determining where the queen is placed, is determining possible moves diagonally, as the queen can move diagonally, this is done with a set of 4 functions, one of them is given bellow:
 
-![Figure 35 CalcDiagonalTopLeft Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true) 
+![Figure 35 CalcDiagonalTopLeft Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure35.jpg) 
  
 This code works as follows. First, the possible positions on the X coordinates are found for the diagonal section and so is the Y.
 Next, to prevent uneven arrays, which when the coordinates are merged, I.E “A” and “1” to produced “A1” this can happen, this for loop is employed to go through the array and remove any extra Y or X coordinates that have been added. Extra coordinates indicate the end of a diagonal section.
@@ -710,26 +710,26 @@ The individual coordinates are then merged to produce a list of a set of locatio
 
 The above code (Figure 35) shows how the possible moves are calculated for the top left diagonal section, the chess board is split into 4 different sections with the square that the queen is placed on as the centre for example (Figure 36):
  
-![Figure 36 Chess Board Example](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 36 Chess Board Example](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure36.jpg)
  
 Programmatically the function above for calculating the top left diagonal section is very similar to the other diagonal sections as show above, with a few key differences. Depending on the direction of the diagonal line section they may use a different initial coordinate list, for example “calcDiagonalBottomLeft()” uses “chessCoordsXAxisReversed” and “chessCoordsYAxisReversed” lists instead of “chessCoordsXAxis” and “chessCoordsYAxisReversed” like in “calcDiagonalBottomRight()”. And use a different combination of the place in axis functions, like with the two examples given above “calcDiagonalBottomLeft()” uses “placeInXAxisReversed(string location)” and “placeInYAxisReversed ()” and  “calcDiagonalBottomRight()” uses “placeInXAxis()” and “placeInYAxisReversed()”. Which “placeInAxis” function used depends on which direction “calculateDiagonal” function need to calculate coordinates for. 
  
 Here is example (Figure 37) debug output for the above-mentioned functions with a queen on coordinate “F2”:
 
-![Figure 37 All Possible Moves Output Example](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 37 All Possible Moves Output Example](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure37.jpg)
  
 All these functions are called in the “getPossibleMoves(string currentLocation)” function, this function combines the results for the above functions to create a list with all possible moves for one queen. 
  
 These steps are repeated for all queens until each queen has a list of all possible positions they can move. 
 To check if a given queen can attack another this function is employed (Figure 38):
  
-![Figure 38 InLineOfSightQueen Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 38 InLineOfSightQueen Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure38.jpg)
  
 If the current queen’s coordinates match one of the coordinates in another queen’s possible moves, then they can attack each other, and the solution given by the user is invalid.
  
 Score is calculating based on the time taken to solve the puzzle, and the score modifier:
 
-![Figure 39 CalculateScore Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 39 CalculateScore Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure39.jpg)
 
 Formula: PossibleScore – (timeTaken * scoreModifyer)
 
@@ -751,7 +751,7 @@ Figure 40 Functional requirements testing sprint 1.
 
 ## Sprint 2:
 ### Burn Down chart:
-![Figure 41 Burndown chart sprint 2.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 41 Burndown chart sprint 2.](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure41.jpg)
  
 |Requirements To Implement|Completed|
 |:----|:----|
@@ -772,22 +772,22 @@ The first is facilitating cube movement and merging. When the flagAllowUpdateGri
     
 The second use case is to detect whether moves and merges are possible in each row and column. If there are moves and merges possible the function will return false, otherwise true to indicate no changes to the row can be made, when the flagAllowUpdateGrid flag is set to false this can be used to check whether the player has lost without making any physical moves on the grid.
 
-![Figure 43 cubeMoveMerge Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 43 cubeMoveMerge Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure43.jpg)
 
 This first section of the code (Figure 43) figures out what cubes can be merged in each row based on a few rules. The first is the cubes must have identical values and the second is that if a cube of a different value is in between two cubes of the same value a merge cannot occur. 
 Instead of creating a function that moves and merges cubes as and when it finds a match, the method chosen calculated all possible movements and merges in one go and then update the whole row at once. This was done due to synchronization issues that occurred when changes to the grid were done as an when the algorithm determined there needed to be a merge or cube move, this is because when merging the old two cubes, must be deleted on the board, when this happened, the algorithm, still thinks the cube still exists and tries to delete it again causing an error as the cube position data would be outdated. This method of implementation is one way to avoid this error. The win condition is checked as the program is checking for merges, if the addition of two cubes equates to 2048 then the player has won, however before the player is notified of this the algorithm finishes running, and the board updated with the new cubes and locations to allow the user to see the winning cube on the board otherwise they would get the win message without the 2048 cube appearing on the board.
 
-![Figure 44 MoveMerge Code Snippet Part 2](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 44 MoveMerge Code Snippet Part 2](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure44.jpg)
  
 The second part of this function as displayed above (Figure 44) facilitates, the movement of cubes, the first part however if (flagMergesMade == false) determines where it is needed to use the output list created by merging. If no merges took place, then the original input list can be operated on to facilitate movement, this is done by removing all empty spaces from the list and appending them to the end of the list. This function is universal and can be used on every row and column, irrespective of the direction the user chooses to move I.E up, down, left, or right.
  
-![Figure 45 2048 updated row screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 45 2048 updated row screenshot](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure45.jpg)
  
 Here is an example output (Figure 45) of the function in Figures 43 and 44. The first section of the output bellow “original cube pos”, is the cube positions before the function processes the row and the output bellow “end result” is the positions of the cubes in the row after the function has been executed. As can be seen in the Figure 45 the original position of the cube 2 has been moved right to the end of the row in the “end result” section, indicating the algorithm is working as intended.
  
 The code below (Figure 46) is the button script for the left button, when this button is pressed the cubes will be moved and merged to the left:
  
-![Figure 46 LeftButton Code Snippet.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true) 
+![Figure 46 LeftButton Code Snippet.](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure46.jpg) 
  
 The first set of function calls populates the corresponding lists with the UpToDate positions of the cubes in the whole grid.
 If the button is pressed then possible moves and merges are calculated for all rows and columns, however only the cubeMoveMerge() that are operating on rows or columns that correspond with the button pressed are actually updated in game on the grid. 
@@ -820,7 +820,7 @@ Figure 47 Functional Requirement Tests Sprint 2.
 ## Sprint 3:
 ### Burndown chart:
 
-![Figure 48 Burn Down Chart Sprint 3](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)  
+![Figure 48 Burn Down Chart Sprint 3](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure48.jpg)  
  
  |Requirements To Implement|Completed|
 |:----|:----|
@@ -834,13 +834,13 @@ Figure 47 Functional Requirement Tests Sprint 2.
 Figure 49 Sprint 3 Tasks
  
 ### Explanation important code completed in sprint:
-![Figure 50 REST API Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 50 REST API Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure50.jpg)
 
 Here are the two rest API classes for both puzzles, each class contains only handles post requests as the game does not require get requests as no data is required from the database by the game. The code accepts post requests and then takes the username from the JSON data and stores it in the database to be utilised by the website, to display user scores.
  
 Some code is shared between the two puzzles most notably the POST class which allows score data to be sent to the webserver and stored in the database.
  
-![Figure 51 HTTPRequest Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 51 HTTPRequest Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure51.jpg)
  
 As can be seen from the code, the is facilitated using the System.Net class, allowing JSON data to be sent to the webserver in the form of a http Web Request.
 Sent is both the username of the player and the score they obtained in the respective puzzle.
@@ -861,7 +861,7 @@ Figure 52 Functional Requirements Tests Sprint 3.
 ## Sprint 4:
 ### Burn-Down chart:
 
-![Figure 53 Burn Down Chart Sprint 4.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 53 Burn Down Chart Sprint 4.](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure53.jpg)
  
 |Requirement To Implement|Completed|
 |:----|:----|
@@ -873,7 +873,7 @@ Figure 54 Sprint 4 Tasks
  
 ### Explanation important code completed in sprint/Reflections:
  
-![Figure 55 Keyboard Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 55 Keyboard Code Snippet](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure55.jpg)
  
 This code (Figure 55) is a small extract from the keyboards on trigger enter function. This script is attached to the controller. When the controller collides with a given key it’s corresponding letter or number is concatenated onto the typedText string variable, allowing user input to be collected and due to this being a public static variable, this variable can be accessed in other scenes allowing it to be used when score data needs to be sent to the webserver
 Functional Requirements Testing 
@@ -908,39 +908,39 @@ In terms of strengths, the game has all important features identified in the req
  
 ## Completed Implementation Images
 
-![Figure 58 Holding Chess Piece](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 58 Holding Chess Piece](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure58.jpg)
  
 In Figure 58 can be seen the player holding the chess piece. This is accomplished by holding the grip button on the controller, the user can then release the chess piece by releasing the grip button. The left hand is utilised for movement in both puzzles, this is done by using the joystick. This feature was implemented in sprint 1.
  
-![Figure 59 8 Queens Solved](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 59 8 Queens Solved](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure59.jpg)
 
-![Figure 60 8 Queens Solved with Text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 60 8 Queens Solved with Text](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure60.jpg)
 
-![Figure 61 8 Queens Invalid Solution](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 61 8 Queens Invalid Solution](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure61.jpg)
 
 Figures 59 and 60, 61 were also implemented in sprint 1, they show chess pieces placed by the user on the chess board (Figure 59) and what happens when the player has lost (Figure 61) or won (Figure 60). If the player has lost the check solution button turns red and if they have won, victory text appears telling the user they have won and will be returned to the main menu.
  
-![Figure 62 Grid Screenshot](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 62 Grid Screenshot](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure62.jpg)
 
-![Figure 63 Grid Screenshot Lost State](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 63 Grid Screenshot Lost State](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure63.jpg)
 
-![Figure 64 Grid Lost Text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 64 Grid Lost Text](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure64.jpg)
  
 Figures 62, 63 and 64 were implemented in sprint 2. Figure 62 shows the 2048 puzzle being played, Figures 63 and 64 show the lost state, when the grid is filled, and no more moves can be made.  The win state is similar however, two 1024 cubes must be matched, and the “You Lose” text will be “You Win”. The game is played by pressing the buttons on the control surface showing in all 3 figures, depending on the button the user clicks depend on which direction the cubes are moved and merged.
  
-![Figure 65 Home page](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 65 Home page](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure65.jpg)
 
 Figure 65 shows the home page for the website. At the bottom of the page is a small amount of text greeting the user.
  
-![Figure 66 8 Queens Leader board](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 66 8 Queens Leader board](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure66.jpg)
 
 Figure 66 shows the completed leader board page, with the leader board displayed on the bottom. Both leader board pages (Figure 66 and 67) have navbars at the top of the page however these screenshots show the leader boards at the bottom of the page therefore the navigation bar is not visible. The leader board shows player scores in descending order.
  
-![Figure 67 2048 Leader Board](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 67 2048 Leader Board](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure67.jpg)
  
 Figure 67 shows the 2048 leader board with the user’s name and score displayed in descending order.
  
-![Figure 68 About Page](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Figure 68 About Page](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure68.jpg)
  
 Figure 68 shows the about page which contains information about the puzzles and how to play them.
  
