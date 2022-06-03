@@ -206,7 +206,7 @@ This is where the whole project is evaluated and reflected upon.
 The section details further work to be undertaken in the future and final conclusions on the project.
 
 ![Figure 1VR Game and Headset Image](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure1.jpg)
-##### Figure 1VR Game and Headset Image
+##### Figure 1 VR Game and Headset Image
 
 # Literature Review
 ## Chapter Introduction
