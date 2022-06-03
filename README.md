@@ -205,7 +205,7 @@ This is where the whole project is evaluated and reflected upon.
 (Chapter 7) Further work and Conclusions
 The section details further work to be undertaken in the future and final conclusions on the project.
 
-![Figure 1VR Game and Headset Image](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure1.jpg)
+![Figure 1VR Game and Headset Image](https://github.com/hellhound858/PuzzleGameDSP/blob/main/Documents/Documentation/Report%20Figures/Figure1.jpg)
 
 
 # Literature Review
