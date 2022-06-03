@@ -741,8 +741,7 @@ This function (Figure 39) ensures that the longer time a user takes to come to t
 |FR3-VR-8Q|Chess pieces are placed in incorrectly on the chess board, the game must register this as an incorrect solution.|player is in game, in the 8 queen’s scene. With puzzle completed.|Game flagged the players solution as invalid.|Pass|
 |FR3-VR-8Q|Chess pieces are placed in correctly on the chess board, the game must register this as a valid solution.|player is in game, in the 8 queen’s scene. With puzzle completed.|Game flagged the players solution as valid.|Pass|
 |FR4-VR-8Q|Timer must start the moment the player enters the puzzle.  It must start counting up.|Player clicked the 8 queens puzzle button in the main menu and is taken to the 8 queen’s puzzle level.|Timer stated counting correctly.|Pass|
-|FR5-VR-8Q|Score is calculated based on the time it takes to solve the puzzle, puzzle is solved in 20 seconds, expected result is possibleScore - (timeInput * scoreModifyer). Therefore;
-1000 – (20 * 10) = Score = 800 | Player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|Score output as 800.|Pass|
+|FR5-VR-8Q|Score is calculated based on the time it takes to solve the puzzle, puzzle is solved in 20 seconds, expected result is possibleScore - (timeInput * scoreModifyer). Therefore; 1000 – (20 * 10) = Score = 800 | Player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|Score output as 800.|Pass|
 |FR6-VR-8Q|After the 8 queens puzzle is solved, the user is taken back to the main menu in 5 seconds.|player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|User was taken to the main menu after 5 seconds.|Pass|
 
 Figure 40 Functional requirements testing sprint 1.
