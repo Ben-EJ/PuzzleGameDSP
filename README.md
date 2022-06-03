@@ -653,3 +653,96 @@ The flowchart in Figure 28 shows how a given row on the 2048 grid will be update
 ### Reuse of Existing Code
  
 One major library we will be using is called, Oculus integrations (Unity), it contains all code, and assets required to start developing for the Oculus Quest Two. This asset pack includes character prefabs, basic VR assets and other such VR related C# scripts. Another framework that will be used in development, is Django (Django), this will be used to create the website.
+
+# Implementation
+ 
+## Chapter Introduction
+This section of the report details the development process of the Puzzle VR game and its website.
+ 
+## Sprint 1:
+ 
+### Burn Down Chart:
+ 
+![Figure 30 Burn Down Chart Sprint 1](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+|Requirement To Be Implemented|Completed|
+|:----|:----|
+|FR1-VR-8Q|Done|
+|FR2-VR-8Q|Done|
+|FR3-VR-8Q|Done|
+|FR3-VR-8Q|Done|
+|FR4-VR-8Q|Done|
+|FR5-VR-8Q|Done|
+|FR6-VR-8Q|Done|
+
+Figure 31 Sprint 1 tasks
+ 
+### Explanation important code completed in sprint/Reflections:
+ 
+To implement 8 queens, an algorithm is required to determine a few things, for example, the current position of a queen, its possible moves, thereby the queens it can attack. 
+The first task is producing a set of arrays containing all positions on the chess board (Figure 32), one list for each of the rows and columns:
+
+![Figure 32 Chess Coordinate List Part A](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+ The final two important lists (Figure 33) contain the labels for each axis on the chess board and the same in reverse order:
+ 
+ ![Figure 33 Chess Coordinate List Part B.](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+After this has been implemented it is then possible to perform the required operations to determine which position a given chess piece is in and where it can move/attack.
+ 
+To determine possible moves, each axis, is calculated separately, for example to calculate the possible moves for a given queen for the X axis this function is employed:
+
+![Figure 34 PossibleMovesXAxis Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+  
+This function (Figure 34) takes the current Coordinates for a given queen, splits them into a char array, and uses those coordinates to determine every place in can move on the given axis, so if the queen is sitting on an “A” square, it will add all places it can move on that column to the possible moves array, excluding the square that the queens is placed on. Programmatically, the method of calculating possible moves for the Y axis is identical, however it will use a different, array containing all the positions in a given row (Figure 32). 
+ 
+The final set of steps in determining where the queen is placed, is determining possible moves diagonally, as the queen can move diagonally, this is done with a set of 4 functions, one of them is given bellow:
+
+![Figure 35 CalcDiagonalTopLeft Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true) 
+ 
+This code works as follows. First, the possible positions on the X coordinates are found for the diagonal section and so is the Y.
+Next, to prevent uneven arrays, which when the coordinates are merged, I.E “A” and “1” to produced “A1” this can happen, this for loop is employed to go through the array and remove any extra Y or X coordinates that have been added. Extra coordinates indicate the end of a diagonal section.
+The beginning of each set of coordinates is then removed to prevent the actual position of the chess piece from being added to the final output list.
+The individual coordinates are then merged to produce a list of a set of locations on the chessboard for that diagonal section.
+
+The above code (Figure 35) shows how the possible moves are calculated for the top left diagonal section, the chess board is split into 4 different sections with the square that the queen is placed on as the centre for example (Figure 36):
+ 
+![Figure 36 Chess Board Example](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+Programmatically the function above for calculating the top left diagonal section is very similar to the other diagonal sections as show above, with a few key differences. Depending on the direction of the diagonal line section they may use a different initial coordinate list, for example “calcDiagonalBottomLeft()” uses “chessCoordsXAxisReversed” and “chessCoordsYAxisReversed” lists instead of “chessCoordsXAxis” and “chessCoordsYAxisReversed” like in “calcDiagonalBottomRight()”. And use a different combination of the place in axis functions, like with the two examples given above “calcDiagonalBottomLeft()” uses “placeInXAxisReversed(string location)” and “placeInYAxisReversed ()” and  “calcDiagonalBottomRight()” uses “placeInXAxis()” and “placeInYAxisReversed()”. Which “placeInAxis” function used depends on which direction “calculateDiagonal” function need to calculate coordinates for. 
+ 
+Here is example (Figure 37) debug output for the above-mentioned functions with a queen on coordinate “F2”:
+
+![Figure 37 All Possible Moves Output Example](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+All these functions are called in the “getPossibleMoves(string currentLocation)” function, this function combines the results for the above functions to create a list with all possible moves for one queen. 
+ 
+These steps are repeated for all queens until each queen has a list of all possible positions they can move. 
+To check if a given queen can attack another this function is employed (Figure 38):
+ 
+![Figure 38 InLineOfSightQueen Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+If the current queen’s coordinates match one of the coordinates in another queen’s possible moves, then they can attack each other, and the solution given by the user is invalid.
+ 
+Score is calculating based on the time taken to solve the puzzle, and the score modifier:
+
+![Figure 39 CalculateScore Code Snippet](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Formula: PossibleScore – (timeTaken * scoreModifyer)
+
+This function (Figure 39) ensures that the longer time a user takes to come to the solution, the less of a pre-set maximum score they will receive.
+ 
+### Functional Requirements Testing 
+
+ |Requirement|Expected result|State of system|Actual Result|Pass/Fail|
+|:----|:----|:----|:----|:----|
+|FR1-VR-8Q|User is able to pick up a chest piece.|player is in game, in the 8 queen’s scene.|Chess piece was able to be lifted using controller by pressing the grip button.|Pass|
+|FR2-VR-8Q|Game detects chess piece when placed on a given chess piece on the board, sensor shows the chess queen in sensor check box ticked.|player is in game, in the 8 queen’s scene.|Sensor detected chess piece, queen in sensor check box ticked.|Pass|
+|FR3-VR-8Q|Chess pieces are placed in incorrectly on the chess board, the game must register this as an incorrect solution.|player is in game, in the 8 queen’s scene. With puzzle completed.|Game flagged the players solution as invalid.|Pass|
+|FR3-VR-8Q|Chess pieces are placed in correctly on the chess board, the game must register this as a valid solution.|player is in game, in the 8 queen’s scene. With puzzle completed.|Game flagged the players solution as valid.|Pass|
+|FR4-VR-8Q|Timer must start the moment the player enters the puzzle.  It must start counting up.|Player clicked the 8 queens puzzle button in the main menu and is taken to the 8 queen’s puzzle level.|Timer stated counting correctly.|Pass|
+|FR5-VR-8Q|Score is calculated based on the time it takes to solve the puzzle, puzzle is solved in 20 seconds, expected result is possibleScore - (timeInput * scoreModifyer). Therefore;
+1000 – (20 * 10) = Score = 800 | Player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|Score output as 800.|Pass|
+|FR6-VR-8Q|After the 8 queens puzzle is solved, the user is taken back to the main menu in 5 seconds.|player is in game, in the 8 queen’s scene. With puzzle completed, clicked submit score button.|User was taken to the main menu after 5 seconds.|Pass|
+
+Figure 40 Functional requirements testing sprint 1.
