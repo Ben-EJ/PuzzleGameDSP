@@ -552,3 +552,104 @@ The above diagram (Figure 14) is the database design for the website. The databa
 Above UI mock-up (Figure 15) shows the design of the home page.
 
 ### Eight Queens Leader board Design
+
+![Figure 16 8 Queens Leader Board Page Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Above UI mock-up (Figure 16) shows the design of the 8 queens leader board page. The page will contain a leader board, some text to describe the page and an image, the image will be a screen shot of the 8 queen’s puzzle.
+
+### 2048 Leader board Page design
+
+![Figure 17 2048 Leader Board Page Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Above UI mock-up (Figure 17) shows the design of the 2048 leader board page. The design of this page will be like the design of the 8 queens leader board page (Figure 16). However, its leader board will contain 2048 score data, the image will be a screenshot of the 2048 puzzle in game.
+
+### About Page Design
+
+![Figure 18 About Page Design](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Above UI mock-up (Figure 18) shows the design of the about page. The page will contain images of the puzzle and a guide on how to play each puzzle, and other general instructions pertaining to the game, like how to input a user’s username.
+
+## Low Level Design 
+
+### Class Diagram puzzle vr game (Unity) Part 1
+
+![Figure 19 VR Game Class Diagram Part 1](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+This diagram (Figure 19) contains classes and the relations between them relating to the 8 queen’s puzzle. The class POST will be used to send data to the web server and the class KeyBoardMain class will be used by queensGame logic to obtain the username provided by the user in the main menu.
+
+### Class Diagram puzzle vr game (Unity) Part 2
+
+![Figure 20  VR Game Class Diagram Part 2](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+This part of the class diagram (Figure 20) contains classes that will be used by the 2048 puzzle and the relationships between them, as with the 8 queens puzzle the POST will be used to send score data to the web server and the KeyBoardMain class will be used to obtain the username inputted by the user in the main menu. Both classes are shared by both puzzles.
+
+### 8 Queens flowcharts:
+
+#### PossibleMovesXAxis function flowchart.
+
+![Figure 21 PossibleMovesXAxis function flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Figure 21 shows a flowchart that describes how the PossibleMovesXAxis function will work. This function gets all possible moves of a given queen on the x axis. There will also be another function (Figure 21) like this implemented, that will be almost identical to calculate possible moves on the Y axis, however it will deal with Y coordinates instead of X. It will also use different lists and for example, instead of chessBoardA it will use chessBoard1 list.
+
+![Figure 22 Part of PossibleMovesXAxis function flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+These lists in Figure 22 contain all chess coordinates in a row for a given axis for example:
+
+chessBoardA = new List<string>() { "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8" }
+ 
+chessBoard1 = new List<string>() { "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1" };
+
+#### CalcDiagonalTopRight Function.
+![Figure 23 CalcDiagonalTopRight Function Flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+This flowchart (Figure 23) describes one of 4 very similar functions. It is used to calculate the diagonal top left possible moves from where the chess piece is placed. The other 3 functions are programmatically very similar. However, in the first two for loops (Figure 24):
+ 
+![Figure 24 CalcDiagonalTopRight Function Flowchart Loops](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true) 
+ 
+The functions will have a different combination of functions (for example, placeInXAxis() and placeInYAxis() functions) these could be any combination of these functions:
+ 
+placeInXAxis() or placeInXAxisReverced()
+ 
+placeInYAxis() or placeInYAxisReverced()  
+ 
+And a corresponding list of chess coordinates within the loop so 
+ 
+chessCoordsXAxis or chessCoordsXAxisReverced
+ 
+chessCoordsYAxis or chessCoordsYAxisReverced
+ 
+An example of the data the lists will contain:
+ 
+chessCoordsXAxis = { "A", "B", "C", "D", "E", "F", "G", "H" };
+
+chessCoordsYAxis = { "1", "2", "3", "4", "5", "6", "7", "8" };
+
+chessCoordsXAxisReverced = { "H", "G", "F", "E", "D", "C", "B", "A" };
+ 
+chessCoordsYAxisReverced = { "8", "7", "6", "5", "4", "3", "2", "1" };
+ 
+Example in this function (Figure 25) CalcDiagonalTopRight():
+ 
+![Figure 25 CalcDiagonalTopRight Function Flowchart Loops, Add Chess coordinates](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+For example, this is what those loops would look like in the CalcDiagonalTopLeft function (Figure 26):
+ 
+![Figure 26 CalcDiagonalTopLeft Function Example](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+The rest of the function is identical to the others. Depending on the direction dictates what combination will be used.
+ 
+#### General 8 queens’ algorithm
+ 
+![Figure 27 Basic Game Logic For 8 Queens](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+This flowchart (Figure 27) shows basic game logic for 8 queens. I.E what will happen when the calculate if valid solution button is clicked.
+ 
+### 2048 Game Flowcharts
+ 
+![Figure 28 Cube merge and move algorithm 2048 Flowchart](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+ 
+The flowchart in Figure 28 shows how a given row on the 2048 grid will be updated to move and merge cubes. In essence, the algorithm works by first checking to see if merges can be made in each row and stores the new positions and cubes in an array, then it checks to see if a cube move can be made, thereby making sure all cubes are as far to the direction of the pressed button as possible. All these are operations are done on an array and are not updated on the 2048 grid initially until the calculations for a given row are complete. At the end of this algorithm an array containing the new state of the row. This is then used to update the row in game. 
+ 
+### Reuse of Existing Code
+ 
+One major library we will be using is called, Oculus integrations (Unity), it contains all code, and assets required to start developing for the Oculus Quest Two. This asset pack includes character prefabs, basic VR assets and other such VR related C# scripts. Another framework that will be used in development, is Django (Django), this will be used to create the website.
